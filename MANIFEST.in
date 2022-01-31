@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include sydani *.css
+recursive-include sydani *.csv
+recursive-include sydani *.html
+recursive-include sydani *.ico
+recursive-include sydani *.js
+recursive-include sydani *.json
+recursive-include sydani *.md
+recursive-include sydani *.png
+recursive-include sydani *.py
+recursive-include sydani *.svg
+recursive-include sydani *.txt
+recursive-exclude sydani *.pyc
