@@ -1,0 +1,211 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{title}",
+ "creation": "2022-05-17 08:59:02.812282",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "executive_summary",
+  "document_attributes_section",
+  "document_access",
+  "year_published",
+  "column_break_6",
+  "document_tags",
+  "document_links_section",
+  "open_access_link",
+  "closed_access_link",
+  "edit_access_link"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "executive_summary",
+   "fieldtype": "Text Editor",
+   "in_standard_filter": 1,
+   "label": "Executive Summary",
+   "reqd": 1
+  },
+  {
+   "fieldname": "document_attributes_section",
+   "fieldtype": "Section Break",
+   "label": "Document Attributes"
+  },
+  {
+   "fieldname": "year_published",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Year Published",
+   "reqd": 1
+  },
+  {
+   "fieldname": "document_links_section",
+   "fieldtype": "Section Break",
+   "label": "Document Links"
+  },
+  {
+   "depends_on": "eval:doc.document_access==\"Open Access\"",
+   "fieldname": "open_access_link",
+   "fieldtype": "Data",
+   "label": "Open Access Link",
+   "mandatory_depends_on": "eval:doc.document_access==\"Open Access\"",
+   "options": "URL"
+  },
+  {
+   "depends_on": "eval:doc.document_access==\"Closed Access\"",
+   "fieldname": "closed_access_link",
+   "fieldtype": "Data",
+   "label": "Closed Access Link",
+   "mandatory_depends_on": "eval:doc.document_access==\"Closed Access\"",
+   "options": "URL",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "edit_access_link",
+   "fieldtype": "Data",
+   "label": "Edit Access Link",
+   "options": "URL",
+   "permlevel": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "document_access",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Document Access",
+   "options": "Open Access\nClosed Access",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "document_tags",
+   "fieldtype": "Table MultiSelect",
+   "in_standard_filter": 1,
+   "label": "Document Tags",
+   "options": "Tags",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "group": "Request Access",
+   "link_doctype": "Knowledge Product Request",
+   "link_fieldname": "document_requested"
+  }
+ ],
+ "modified": "2022-06-13 10:04:34.187881",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Knowledge Product",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Managing Partner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Managing Partner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Knowledge Base Editor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Knowledge Base Editor",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "track_views": 1
+}

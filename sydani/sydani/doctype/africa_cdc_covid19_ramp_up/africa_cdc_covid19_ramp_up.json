@@ -1,0 +1,252 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:full_name",
+ "creation": "2022-09-02 18:51:31.845597",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "job_opening_section",
+  "job_role",
+  "application_state",
+  "column_break_3",
+  "state_of_deployment",
+  "personal_details_sb_section",
+  "full_name",
+  "email",
+  "phone_number",
+  "column_break_11",
+  "gender",
+  "marital_status",
+  "bayelsa_lga",
+  "lagos_lga",
+  "ondo_lga",
+  "rivers_lga",
+  "taraba_lga",
+  "employment_information_sb_section",
+  "highest_level_of_education",
+  "additional_certificates",
+  "employment_status",
+  "column_break_22",
+  "years_of_experience",
+  "upload_cv"
+ ],
+ "fields": [
+  {
+   "fieldname": "job_opening_section",
+   "fieldtype": "Section Break",
+   "label": "Job Opening"
+  },
+  {
+   "fieldname": "job_role",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Job Role",
+   "options": "M & E Officer/Data Manager\nState Leads",
+   "reqd": 1
+  },
+  {
+   "default": "Application Submitted",
+   "fieldname": "application_state",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Application State",
+   "options": "Application Submitted\nJob Requirements Applied\nCV Review Completed\nInterview Conducted\nApplicant Shortlisted\nApplicant Rejected\nApplicant Kept in View\nJob Offer Sent\nDocumentation Completed"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "state_of_deployment",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "State of Deployment",
+   "options": "Bayelsa\nLagos\nOndo\nRivers\nTaraba",
+   "reqd": 1
+  },
+  {
+   "fieldname": "personal_details_sb_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Details"
+  },
+  {
+   "description": "FirstName MiddleName Surname",
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Full Name",
+   "options": "Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Please use the format 080xxxxxxxx",
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "options": "Phone",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender",
+   "reqd": 1
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Marital Status",
+   "options": "Single\nMarried\nDivorce\nWidowed"
+  },
+  {
+   "fieldname": "employment_information_sb_section",
+   "fieldtype": "Section Break",
+   "label": "Employment Information"
+  },
+  {
+   "fieldname": "highest_level_of_education",
+   "fieldtype": "Select",
+   "label": "Highest Level of Education",
+   "options": "PhD\nMasters\nBachelors\nHND\nOND\nWAEC\nFirst School Leaving Certificate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "additional_certificates",
+   "fieldtype": "Data",
+   "label": "Additional Certificates"
+  },
+  {
+   "fieldname": "employment_status",
+   "fieldtype": "Select",
+   "label": "Employment Status",
+   "options": "Unemployed\nSelf-employed\nPart-time Employed\nFull-time Employed\nVolunteer Work\nContract Worker",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "years_of_experience",
+   "fieldtype": "Int",
+   "label": "Years of Experience",
+   "reqd": 1
+  },
+  {
+   "description": "Only Attach documents in PDF and less than 1MB",
+   "fieldname": "upload_cv",
+   "fieldtype": "Attach",
+   "label": "Upload CV",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.state_of_deployment===\"Bayelsa\"",
+   "fieldname": "bayelsa_lga",
+   "fieldtype": "Select",
+   "label": "Bayelsa LGA",
+   "mandatory_depends_on": "eval:doc.state_of_deployment===\"Bayelsa\"",
+   "options": "Brass\nEkeremor\nKolokuma/Opokuma\nNembe\nOgbia\nSagbama\nSouthern Ijaw\nYenagoa"
+  },
+  {
+   "depends_on": "eval:doc.state_of_deployment===\"Lagos\"",
+   "fieldname": "lagos_lga",
+   "fieldtype": "Select",
+   "label": "Lagos LGA",
+   "mandatory_depends_on": "eval:doc.state_of_deployment===\"Lagos\"",
+   "options": "Agege\nAjeromi-Ifelodun\nAlimosho\nAmuwo-Odofin\nApapa\nBadagry\nEpe\nEti Osa\nIbeju-Lekki\nIfako-Ijaiye\nIkeja\nIkorodu\nKosofe\nLagos Island\nLagos Mainland\nMushin\nOjo\nOshodi-Isolo\nShomolu\nSurulere"
+  },
+  {
+   "depends_on": "eval:doc.state_of_deployment===\"Ondo\"",
+   "fieldname": "ondo_lga",
+   "fieldtype": "Select",
+   "label": "Ondo LGA",
+   "mandatory_depends_on": "eval:doc.state_of_deployment===\"Ondo\"",
+   "options": "Akoko North-East\nAkoko North-West\nAkoko South-West\nAkoko South-East\nAkure North\nAkure South\nEse Odo\nIdanre\nIfedore\nIlaje\nIle Oluji/Okeigbo\nIrele\nOdigbo\nOkitipupa\nOndo East\nOndo West\nOse\nOwo"
+  },
+  {
+   "depends_on": "eval:doc.state_of_deployment===\"Rivers\"",
+   "fieldname": "rivers_lga",
+   "fieldtype": "Select",
+   "label": "Rivers LGA",
+   "mandatory_depends_on": "eval:doc.state_of_deployment===\"Rivers\"",
+   "options": "Abua/Odual\nAhoada East\nAhoada West\nAkuku-Toru\nAndoni\nAsari-Toru\nBonny\nDegema\nEleme\nEmuoha\nEtche\nGokana\nIkwerre\nKhana\nObio/Akpor\nOgba/Egbema/Ndoni\nOgu/Bolo\nOkrika\nOmuma\nOpobo/Nkoro\nOyigbo\nPort Harcourt\nTai"
+  },
+  {
+   "depends_on": "eval:doc.state_of_deployment===\"Taraba\"",
+   "fieldname": "taraba_lga",
+   "fieldtype": "Select",
+   "label": "Taraba LGA",
+   "mandatory_depends_on": "eval:doc.state_of_deployment===\"Taraba\"",
+   "options": "Ardo Kola\nBali\nDonga\nGashaka\nGassol\nIbi\nJalingo\nKarim Lamido\nKumi\nLau\nSardauna\nTakum\nUssa\nWukari\nYorro\nZing"
+  }
+ ],
+ "links": [],
+ "modified": "2022-09-02 19:21:04.623673",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Africa CDC COVID19 ramp up",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "full_name",
+ "track_changes": 1
+}

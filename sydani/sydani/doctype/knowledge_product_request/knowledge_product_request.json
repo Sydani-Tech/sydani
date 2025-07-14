@@ -1,0 +1,197 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{requested_by}'s request for {document_requested}",
+ "creation": "2022-05-17 11:48:09.513168",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_requested",
+  "requested_by",
+  "access_type_required",
+  "column_break_4",
+  "reason_for_request",
+  "open_access_link",
+  "closed_access_link",
+  "edit_access_link",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_requested",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Document Requested",
+   "options": "Knowledge Product",
+   "reqd": 1
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "Requested By",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "access_type_required",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Access Type Required",
+   "options": "Download Access\nEdit Access",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reason_for_request",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Reason for Request",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Knowledge Product Request",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "knowledge_management_product.open_access_link",
+   "fieldname": "open_access_link",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Open Access Link",
+   "options": "URL"
+  },
+  {
+   "fetch_from": "knowledge_product.closed_access_link",
+   "fieldname": "closed_access_link",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Closed Access Link",
+   "options": "URL"
+  },
+  {
+   "fetch_from": "knowledge_product.edit_access_link",
+   "fieldname": "edit_access_link",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Edit Access Link",
+   "options": "URL"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-05-17 20:24:49.547112",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Knowledge Product Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Managing Partner",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Knowledge Base Editor",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Managing Partner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Knowledge Base Editor",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

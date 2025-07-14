@@ -1,0 +1,120 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-17 14:57:30.374452",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "transaction_type",
+  "amount",
+  "currency",
+  "balance_before",
+  "balance_after",
+  "date",
+  "statement_type",
+  "column_break_6",
+  "reference",
+  "remarks",
+  "sent_currency",
+  "sent_amount",
+  "rate_used"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "transaction_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Transaction Type"
+  },
+  {
+   "columns": 2,
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "options": "currency"
+  },
+  {
+   "columns": 1,
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "columns": 1,
+   "fieldname": "balance_before",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Balance Before",
+   "options": "currency"
+  },
+  {
+   "columns": 1,
+   "fieldname": "balance_after",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Balance After",
+   "options": "currency"
+  },
+  {
+   "columns": 2,
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Reference"
+  },
+  {
+   "columns": 2,
+   "fieldname": "date",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Timestamp"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "sent_currency",
+   "fieldtype": "Link",
+   "label": "Sent Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "sent_amount",
+   "fieldtype": "Currency",
+   "label": "Sent Amount",
+   "options": "sent_currency"
+  },
+  {
+   "fieldname": "rate_used",
+   "fieldtype": "Float",
+   "label": "Rate Used"
+  },
+  {
+   "fieldname": "statement_type",
+   "fieldtype": "Data",
+   "label": "Statement Type"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-17 17:25:55.340011",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Flutterwave Subaccount Transactions",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

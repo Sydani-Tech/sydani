@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{device_id}",
+ "creation": "2024-02-28 13:52:41.304165",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "device_id",
+  "device_name",
+  "device_location",
+  "device_auth_key"
+ ],
+ "fields": [
+  {
+   "fieldname": "device_id",
+   "fieldtype": "Data",
+   "label": "Device ID"
+  },
+  {
+   "fieldname": "device_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Device Name"
+  },
+  {
+   "fieldname": "device_location",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Device Location"
+  },
+  {
+   "fieldname": "device_auth_key",
+   "fieldtype": "Data",
+   "label": "Device Auth Key"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-02-28 14:06:48.476424",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Cams Devices",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

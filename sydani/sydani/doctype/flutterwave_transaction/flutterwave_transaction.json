@@ -1,0 +1,185 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{narration} - {DD}/{MM}/{YY} - {#####}",
+ "creation": "2023-05-09 11:54:10.713876",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_type",
+  "bank_name",
+  "acc_no",
+  "acc_name",
+  "amount",
+  "flutterwave_account",
+  "subaccount_reference",
+  "bank",
+  "column_break_8",
+  "document_id",
+  "narration",
+  "status",
+  "message",
+  "complete_message",
+  "transaction_id",
+  "transfer_reference"
+ ],
+ "fields": [
+  {
+   "fieldname": "bank",
+   "fieldtype": "Data",
+   "label": "Bank Code",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "acc_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Acc No",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Amount",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nSUCCESS\nSUCCESSFUL\nFAILED",
+   "read_only": 1
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Message",
+   "options": "\nTransfer Queued Successfully\nTransaction was successful\nTransfer retry attempt queued\nTransfer fetched\nDISBURSE FAILED",
+   "read_only": 1
+  },
+  {
+   "fieldname": "complete_message",
+   "fieldtype": "Data",
+   "label": "Complete Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "transaction_id",
+   "fieldtype": "Data",
+   "label": "Transaction ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "narration",
+   "fieldtype": "Data",
+   "label": "Narration",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "acc_name",
+   "fieldtype": "Data",
+   "label": "Acc Name"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "Flutterwave Nigerian Banks"
+  },
+  {
+   "fieldname": "subaccount_reference",
+   "fieldtype": "Data",
+   "label": "Subaccount Reference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Select",
+   "label": "Document Type",
+   "options": "Expense Claim\nSalary Slip"
+  },
+  {
+   "depends_on": "document_type",
+   "fieldname": "document_id",
+   "fieldtype": "Dynamic Link",
+   "label": "Document ID",
+   "options": "document_type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "flutterwave_account",
+   "fieldtype": "Link",
+   "label": "Flutterwave Account",
+   "options": "Flutterwave Subaccount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "transfer_reference",
+   "fieldtype": "Data",
+   "label": "Transfer Reference",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Payment Transaction Logs",
+   "link_fieldname": "flutterwave_transaction"
+  }
+ ],
+ "modified": "2023-09-14 10:20:30.932665",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Flutterwave Transaction",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lead Finance",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Payment Request Verifiers",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "narration"
+}

@@ -1,0 +1,84 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:subject",
+ "creation": "2022-01-31 17:12:34.385195",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "subject",
+  "details",
+  "address_to",
+  "copy",
+  "proposed_resolution_timeline",
+  "attach_file"
+ ],
+ "fields": [
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subject",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_to",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Address To",
+   "options": "User"
+  },
+  {
+   "fieldname": "copy",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Copy",
+   "options": "User"
+  },
+  {
+   "fieldname": "proposed_resolution_timeline",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Proposed Resolution Timeline"
+  },
+  {
+   "fieldname": "attach_file",
+   "fieldtype": "Attach",
+   "label": "Attach File"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-06-09 18:06:09.091642",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Grievances and Complaints",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_views": 1
+}

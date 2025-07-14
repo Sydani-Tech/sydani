@@ -1,0 +1,269 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:full_name",
+ "creation": "2022-06-06 19:43:50.920671",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "job_opening_section",
+  "job_role",
+  "application_state",
+  "column_break_3",
+  "state_of_deployment",
+  "personal_details_sb_section",
+  "full_name",
+  "email",
+  "phone_number",
+  "column_break_11",
+  "gender",
+  "marital_status",
+  "date_of_birth",
+  "bauchi_lga",
+  "ebonyi_lga",
+  "fct_lga",
+  "kebbi_lga",
+  "sokoto_lga",
+  "employment_information_sb_section",
+  "highest_level_of_education",
+  "additional_certificates",
+  "employment_status",
+  "column_break_22",
+  "years_of_experience",
+  "upload_cv",
+  "have_you_worked_with_the_state_primary_healthcare_board",
+  "current_employment_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "job_opening_section",
+   "fieldtype": "Section Break",
+   "label": "Job Opening"
+  },
+  {
+   "fieldname": "state_of_deployment",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "State of Deployment",
+   "options": "Bauchi\nEbonyi\nFederal Capital Territory",
+   "reqd": 1
+  },
+  {
+   "fieldname": "personal_details_sb_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Details"
+  },
+  {
+   "description": "FirstName MiddleName Surname",
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Full Name",
+   "options": "Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Please use the format 080xxxxxxxx",
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "options": "Phone",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender",
+   "reqd": 1
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital Status",
+   "options": "Single\nMarried\nDivorce\nWidowed"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "employment_information_sb_section",
+   "fieldtype": "Section Break",
+   "label": "Employment Information"
+  },
+  {
+   "fieldname": "highest_level_of_education",
+   "fieldtype": "Select",
+   "label": "Highest Level of Education",
+   "options": "PhD\nMasters\nBachelors\nHND\nOND\nWAEC\nFirst School Leaving Certificate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "additional_certificates",
+   "fieldtype": "Data",
+   "label": "Additional Certificates"
+  },
+  {
+   "fieldname": "employment_status",
+   "fieldtype": "Select",
+   "label": "Employment Status",
+   "options": "Unemployed\nSelf-employed\nPart-time Employed\nFull-time Employed\nVolunteer Work\nContract Worker",
+   "reqd": 1
+  },
+  {
+   "fieldname": "years_of_experience",
+   "fieldtype": "Int",
+   "label": "Years of Experience",
+   "reqd": 1
+  },
+  {
+   "description": "Only Attach documents in PDF and less than 1MB",
+   "fieldname": "upload_cv",
+   "fieldtype": "Attach",
+   "label": "Upload CV",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.state_of_deployment==\"Bauchi\"",
+   "fieldname": "bauchi_lga",
+   "fieldtype": "Select",
+   "label": "Bauchi LGA",
+   "mandatory_depends_on": "eval:doc.state_of_deployment==\"Bauchi\"",
+   "options": "Alkaleri\nBauchi\nBogoro\nDamban\nDarazo\nDass\nGamawa\nGanjuwa\nGiade\nItas/Gadau\nJama'are\nKatagum\nKirfi\nMisau\nNingi\nShira\nTafawa Balewa\nToro\nWarji\nZaki"
+  },
+  {
+   "depends_on": "eval:doc.state_of_deployment==\"Ebonyi\"",
+   "fieldname": "ebonyi_lga",
+   "fieldtype": "Select",
+   "label": "Ebonyi LGA",
+   "mandatory_depends_on": "eval:doc.state_of_deployment==\"Ebonyi\"",
+   "options": "Abakaliki\nAfikpo North\nAfikpo South\nEbonyi\nEzza North\nEzza South\nIkwo\nIshielu\nIvo\nIzzi\nOhaozara\nOhaukwu\nOnicha",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.state_of_deployment==\"Federal Capital Territory\"",
+   "fieldname": "fct_lga",
+   "fieldtype": "Select",
+   "label": "FCT LGA",
+   "mandatory_depends_on": "eval:doc.state_of_deployment==\"Federal Capital Territory\"",
+   "options": "Abaji\nBwari\nGwagwalada\nKuje\nKwali\nMunicipal Area Council"
+  },
+  {
+   "depends_on": "eval:doc.state_of_deployment==\"Kebbi\"",
+   "fieldname": "kebbi_lga",
+   "fieldtype": "Select",
+   "label": "Kebbi LGA",
+   "mandatory_depends_on": "eval:doc.state_of_deployment==\"Kebbi\"",
+   "options": "Aleiro\nArewa Dandi\nArgungu\nAugie\nBagudo\nBirnin Kebbi\nBunza\nDandi\nFakai\nGwandu\nJega\nKalgo\nKoko/Besse\nMaiyama\nNgaski\nSakaba\nShanga\nSuru\nWasagu/Danko\nYauri\nZuru"
+  },
+  {
+   "depends_on": "eval:doc.state_of_deployment==\"Sokoto\"",
+   "fieldname": "sokoto_lga",
+   "fieldtype": "Select",
+   "label": "Sokoto LGA",
+   "mandatory_depends_on": "eval:doc.state_of_deployment==\"Sokoto\"",
+   "options": "Binji\nBodinga\nDange Shuni\nGada\nGoronyo\nGudu\nGwadabawa\nIllela\nIsa\nKebbe\nKware\nRabah\nSabon Birni\nShagari\nSilame\nSokoto North\nSokoto South\nTambuwal\nTangaza\nTureta\nWamako\nWurno\nYabo"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Application Submitted",
+   "fieldname": "application_state",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Application State",
+   "options": "Application Submitted\nJob Requirements Applied\nCV Review Completed\nInterview Conducted\nApplicant Shortlisted\nApplicant Rejected\nApplicant Kept in View\nJob Offer Sent\nDocumentation Completed"
+  },
+  {
+   "fieldname": "have_you_worked_with_the_state_primary_healthcare_board",
+   "fieldtype": "Select",
+   "label": "Have you worked with the state primary healthcare board",
+   "options": "YES\nNO"
+  },
+  {
+   "fieldname": "current_employment_status",
+   "fieldtype": "Select",
+   "label": "Current employment status",
+   "options": "EMPLOYED\nUNEMPLOYED\nSELF EMPLOYED"
+  },
+  {
+   "fieldname": "job_role",
+   "fieldtype": "Select",
+   "label": "Job Role",
+   "options": "\nLead Cluster Supervisor (in Ebonyi and FCT)\nCluster Supervisor:(FCT, Ebonyi)\nIndependent Supervisor (FCT, Bauchi, Ebonyi)\nData Validators (FCT, Bauchi, Ebonyi)",
+   "reqd": 1
+  }
+ ],
+ "links": [],
+ "modified": "2023-09-22 13:47:21.183825",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "IHP COVID19 Ramp up application",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

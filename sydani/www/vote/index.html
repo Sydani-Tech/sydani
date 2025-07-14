@@ -1,0 +1,107 @@
+{% extends base_template_path %}
+<!-- {% block hero %}{% endblock %} -->
+
+{% block content %}
+<div class="container p-4" id="vue-app">
+  <div class="row" v-show="activeUser != 'Guest'">
+    <div class="col-md-12 pb-3">
+      <ul class="nav nav-tabs p-0 m-0" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" :class="activeTeam == '#combine' ? 'active': ''" href=""
+            @click.prevent="changeTeam('#combine')">Combine</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" :class="activeTeam == '#latitude' ? 'active': ''" href=""
+            @click.prevent="changeTeam('#latitude')">Latitude</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" :class="activeTeam == '#longitude' ? 'active': ''" href=""
+            @click.prevent="changeTeam('#longitude')">Longitude</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-12">
+      <!-- <button type="button" class="btn btn-primary" @click="datachnaged">Data Change</button> -->
+      <div class="card text-center">
+        <div class="card-body" style="background-color:transparent;" id="latitude">
+          <div class="row">
+            <div class="col-md-4" v-show="!showResult">
+              <div class="card">
+
+                <div class="card-body shadow bg-card-grey vh-80" v-if="voted == ''">
+                  <h4 class="card-title">[[list_title]]</h4>
+                  <hr>
+                  <div class="list-group" v-if="employees.length > 0">
+                    <a href="" class="list-group-item list-group-item-action my-1 shadow hvr-pulse-grow py-3 px-3"
+                      v-for="(employee, key) in employees" key="key" @click.prevent="employeeVoted(employee)"
+                      style="border-radius: 10px;">
+                      <h6 class="text-left p-0 m-0">
+                        <span v-html="employee.name" class="font-13"></span>
+                      </h6>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- Voted Percent -->
+            <div class="flex w-100" :class="showResult ? 'col-md-12': 'col-md-8 '">
+              <div class="card align-buttom justify-content-center w-100">
+                <div class="card-body shadow bg-card-grey" style="height:80vh;">
+                  <div class="row">
+                    <div class="col-12" v-show="!showResult">
+                      <h1 class="text-center mt-28 text-primary h1" v-show="activeTeam == '#combine'">
+                        Votes - <b class="text-info" v-html="total_votes_today"></b>
+                      </h1>
+                      <h1 class="text-center mt-28 text-primary h1" v-show="activeTeam == '#latitude'">
+                        Votes - <b class="text-info" v-html="total_votes_today_latitude"></b>
+                      </h1>
+                      <h1 class="text-center mt-28 text-primary h1" v-show="activeTeam == '#longitude'">
+                        Votes - <b class="text-info" v-html="total_votes_today_longitude"></b>
+                      </h1>
+                      <br>
+                      <h1 class="text-center">
+                        <button class="btn btn-info btn-lg" @click="get_result">View Result</button>
+                      </h1>
+                    </div>
+                    <div class="col-12" v-show="showResult"
+                      style="height:75vh; overflow:hidden; display:flex; align-content:center; justify-content:center;">
+                      <canvas ref="chartContainer" v-show="activeTeam == '#combine'"></canvas>
+                      <canvas ref="chartContainerLatitude" v-show="activeTeam == '#latitude'"></canvas>
+                      <canvas ref="chartContainerLongitude" v-show="activeTeam == '#longitude'"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-2" v-if="activeUser == 'Guest'">
+    <div class="row justify-content-center align-items-center text-center p-2">
+      <div class="m-1 col-sm-8 col-md-6 col-lg-4 shadow-sm p-3 mb-5 bg-white border rounded">
+        <div class="pt-5 pb-5">
+          <img class="rounded mx-auto d-block" src="/assets/erpnext/images/erpnext-logo.svg"
+            style="width: 43px; height: 43px;">
+          <p class="text-center text-uppercase mt-3">Login</p>
+          <form class="form text-center" action="#" method="POST">
+            <div class="form-group input-group-md">
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
+                v-model="loginForm.usr">
+            </div>
+            <div class="form-group input-group-md">
+              <input type="password" class="form-control" id="password" placeholder="Password" v-model="loginForm.pwd">
+            </div>
+            <button class="btn btn-lg btn-block btn-primary mt-4" type="submit" @click.prevent="loginUser">
+              Login
+            </button>
+          </form>
+        </div>
+        <h6 class="text-center p-0 m-0 mt-1 text-danger" v-if="loginError">{{loginError}}</h6>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
