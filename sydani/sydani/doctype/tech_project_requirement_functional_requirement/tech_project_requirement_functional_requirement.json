@@ -1,0 +1,39 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-08 11:05:18.506501",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "key_features",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "key_features",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Key Features",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:42.640723",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Tech Project Requirement Functional Requirement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

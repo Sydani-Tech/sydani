@@ -1,0 +1,454 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "allow_rename": 1,
+ "autoname": "format:{employee} - {work_week_begins_on}",
+ "creation": "2023-05-01 16:28:39.163820",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "work_plan_information_section",
+  "employee",
+  "employees_email",
+  "work_week_begins_on",
+  "work_week_begins_date",
+  "supervisor",
+  "supervisor_user",
+  "supervisor_2",
+  "supervisor_2_user",
+  "principal",
+  "principal_user",
+  "work_from_home_date",
+  "general_work_from_home_date",
+  "column_break_5",
+  "present_cadre",
+  "department",
+  "company",
+  "submission",
+  "submission_time",
+  "approval",
+  "approval_time",
+  "responsible_person",
+  "work_plan_for_the_week_section",
+  "copy_workplan",
+  "beginning_of_the_week",
+  "end_of_the_week",
+  "end_of_the_week_done",
+  "end_of_the_week_not_deprioritized",
+  "copy_workplan_this_week",
+  "additional_activities",
+  "additional_activities_done",
+  "additional_activities_not_deprioritized",
+  "completion_rate",
+  "total_working_hours",
+  "average_weekly_fte",
+  "work_plan_for_next_week_section",
+  "leave_nextweek",
+  "fetch_deprioritized_activities",
+  "next_week_workplan",
+  "next_work_week_begins_on",
+  "next_weeks_submission_time",
+  "next_weeks_submission",
+  "next_weeks_approval_time",
+  "next_weeks_approval",
+  "admin_section",
+  "attendance_marked",
+  "general_wfh_marked",
+  "next_week_work_plan_created",
+  "workplan_created_from_previous",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "work_plan_information_section",
+   "fieldtype": "Section Break",
+   "label": "Work Plan Information"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Sent\" ||\ndoc.workflow_state == \"Reviewed\" ||\ndoc.workflow_state == \"Workplan Returned\" ||\ndoc.workflow_state == \"Submitted\"||\ndoc.workflow_state == \"Approved\"",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.user_id",
+   "fieldname": "employees_email",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Employees Email",
+   "options": "User"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "work_week_begins_on",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Work Week Begins On",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Sent\" ||\ndoc.workflow_state == \"Reviewed\" ||\ndoc.workflow_state == \"Workplan Returned\" ||\ndoc.workflow_state == \"Submitted\"||\ndoc.workflow_state == \"Approved\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "work_week_begins_date",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Work Week Begins Date"
+  },
+  {
+   "fieldname": "supervisor",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Supervisor",
+   "options": "Employee",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Sent\" ||\n// doc.workflow_state == \"Reviewed\" ||\n// doc.workflow_state == \"Workplan Returned\" ||\ndoc.workflow_state == \"Submitted\"||\ndoc.workflow_state == \"Approved\"",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "supervisor.user_id",
+   "fieldname": "supervisor_user",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Supervisor User",
+   "options": "User"
+  },
+  {
+   "fieldname": "supervisor_2",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Supervisor 2",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "supervisor_2.user_id",
+   "fieldname": "supervisor_2_user",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Supervisor 2 User",
+   "options": "User"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "principal",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Manager",
+   "options": "Employee",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Sent\" ||\n// doc.workflow_state == \"Reviewed\" ||\n// doc.workflow_state == \"Workplan Returned\" ||\ndoc.workflow_state == \"Submitted\"||\ndoc.workflow_state == \"Approved\"",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "principal.user_id",
+   "fieldname": "principal_user",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Principal User",
+   "options": "User"
+  },
+  {
+   "fieldname": "work_from_home_date",
+   "fieldtype": "Date",
+   "label": "Work From Home Date"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "general_work_from_home_date",
+   "fieldtype": "Date",
+   "label": "General Work From Home Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "present_cadre",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Present Cadre",
+   "options": "Designation",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "submission",
+   "fieldtype": "Select",
+   "label": "Submission",
+   "options": "\nEarly\nLate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "submission_time",
+   "fieldtype": "Datetime",
+   "label": "Submission Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval",
+   "fieldtype": "Select",
+   "label": "Approval",
+   "options": "\nEarly\nLate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_time",
+   "fieldtype": "Datetime",
+   "label": "Approval Time",
+   "read_only": 1
+  },
+  {
+   "default": "Employee",
+   "fieldname": "responsible_person",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Responsible Person",
+   "options": "Employee\nSupervisor\nApproved",
+   "read_only": 1
+  },
+  {
+   "fieldname": "work_plan_for_the_week_section",
+   "fieldtype": "Section Break",
+   "label": "Work Plan for the Week"
+  },
+  {
+   "fieldname": "copy_workplan",
+   "fieldtype": "Link",
+   "label": "Copy Workplan from Previous Week",
+   "options": "Work Plan",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Sent\" ||\ndoc.workflow_state == \"Reviewed\" ||\ndoc.workflow_state == \"Workplan Returned\" ||\ndoc.workflow_state == \"Submitted\"||\ndoc.workflow_state == \"Approved\""
+  },
+  {
+   "fieldname": "beginning_of_the_week",
+   "fieldtype": "Table",
+   "label": "Beginning of the Week",
+   "mandatory_depends_on": "eval:doc.workflow_state == \"Draft\" ||\ndoc.workflow_state == \"Returned\"",
+   "options": "Work Plan Details",
+   "print_hide": 1
+  },
+  {
+   "depends_on": "eval:doc.workflow_state == \"Reviewed\" ||\r\ndoc.workflow_state == \"Workplan Returned\" ||\r\ndoc.workflow_state == \"Submitted\"||\r\ndoc.workflow_state == \"Approved\"",
+   "fieldname": "end_of_the_week",
+   "fieldtype": "Table",
+   "label": "End of the Week",
+   "options": "Work Plan Details End of Week"
+  },
+  {
+   "default": "0",
+   "fieldname": "end_of_the_week_done",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "End of the Week Done"
+  },
+  {
+   "default": "0",
+   "fieldname": "end_of_the_week_not_deprioritized",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "End of the Week Not Deprioritized"
+  },
+  {
+   "depends_on": "eval:doc.workflow_state == \"Sent\" ||\ndoc.workflow_state == \"Reviewed\" ||\ndoc.workflow_state == \"Workplan Returned\" ||\ndoc.workflow_state == \"Approved\"",
+   "fieldname": "copy_workplan_this_week",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Copy Workplan"
+  },
+  {
+   "depends_on": "eval:doc.workflow_state == \"Sent\" ||\r\ndoc.workflow_state == \"Reviewed\" ||\r\ndoc.workflow_state == \"Workplan Returned\" ||\r\ndoc.workflow_state == \"Submitted\"||\r\ndoc.workflow_state == \"Approved\"",
+   "fieldname": "additional_activities",
+   "fieldtype": "Table",
+   "label": "Additional Activities",
+   "options": "Work Plan Details Additional Activities"
+  },
+  {
+   "default": "0",
+   "fieldname": "additional_activities_done",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Additional Activities Done"
+  },
+  {
+   "default": "0",
+   "fieldname": "additional_activities_not_deprioritized",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Additional Activities Not Deprioritized"
+  },
+  {
+   "default": "0",
+   "fieldname": "completion_rate",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Completion Rate",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_working_hours",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Total Working Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_weekly_fte",
+   "fieldtype": "Percent",
+   "label": "Average Weekly FTE",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "work_plan_for_next_week_section",
+   "fieldtype": "Section Break",
+   "label": "Work Plan for Next Week"
+  },
+  {
+   "default": "No",
+   "depends_on": "eval:doc.workflow_state == \"Reviewed\" ||\ndoc.workflow_state == \"Workplan Returned\" ||\ndoc.workflow_state == \"Submitted\"||\ndoc.workflow_state == \"Approved\"",
+   "fieldname": "leave_nextweek",
+   "fieldtype": "Select",
+   "label": "Are you going on leave for the entirety of next week?",
+   "options": "No\nYes"
+  },
+  {
+   "depends_on": "eval:(doc.workflow_state == \"Reviewed\" ||\ndoc.workflow_state == \"Workplan Returned\" ||\ndoc.workflow_state == \"Submitted\"||\ndoc.workflow_state == \"Approved\") &&\ndoc.leave_nextweek == \"No\" &&\ndoc.docstatus == 0",
+   "fieldname": "fetch_deprioritized_activities",
+   "fieldtype": "Button",
+   "label": "Fetch Deprioritized Activities"
+  },
+  {
+   "depends_on": "eval:(doc.workflow_state == \"Reviewed\" ||\ndoc.workflow_state == \"Workplan Returned\" ||\ndoc.workflow_state == \"Submitted\"||\ndoc.workflow_state == \"Approved\") &&\ndoc.leave_nextweek == \"No\"",
+   "fieldname": "next_week_workplan",
+   "fieldtype": "Table",
+   "label": "Nextweek's Activities",
+   "options": "Work Plan Details Next Week"
+  },
+  {
+   "fieldname": "next_work_week_begins_on",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Next Work Week Begins On"
+  },
+  {
+   "fieldname": "next_weeks_submission_time",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Next Week's Submission Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_weeks_submission",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Next Week's Submission",
+   "options": "\nEarly\nLate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_weeks_approval_time",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Next Week's Approval Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_weeks_approval",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Next Week's Approval",
+   "options": "\nEarly\nLate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "admin_section",
+   "fieldtype": "Section Break",
+   "label": "Admin",
+   "permlevel": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "attendance_marked",
+   "fieldtype": "Check",
+   "label": "Attendance Marked"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "general_wfh_marked",
+   "fieldtype": "Check",
+   "label": "General WFH Marked"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "next_week_work_plan_created",
+   "fieldtype": "Check",
+   "label": "Next Week Work Plan Created"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "workplan_created_from_previous",
+   "fieldtype": "Check",
+   "label": "Workplan created from previous"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Work Plan",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 09:00:05.784900",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Work Plan",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

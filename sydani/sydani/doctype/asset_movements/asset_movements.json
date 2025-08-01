@@ -1,0 +1,104 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-10-31 10:37:31.272674",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "type",
+  "requested_by",
+  "dispensed_by",
+  "retrieved_by",
+  "date_retrieved",
+  "column_break_8",
+  "date",
+  "purpose",
+  "comments"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Assignment\nRetrieval",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Requested By",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "depends_on": "eval:doc.type==\"Assignment\"",
+   "fieldname": "dispensed_by",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Dispensed By",
+   "mandatory_depends_on": "eval:doc.type==\"Assignment\""
+  },
+  {
+   "columns": 2,
+   "depends_on": "eval:doc.type==\"Retrieval\"",
+   "fieldname": "retrieved_by",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Retrieved By",
+   "mandatory_depends_on": "eval:doc.type==\"Retrieval\""
+  },
+  {
+   "fieldname": "date_retrieved",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Date Retrieved"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "purpose",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Purpose",
+   "reqd": 1
+  },
+  {
+   "columns": 3,
+   "fieldname": "comments",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Comments"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 14:15:29.884104",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Asset Movements",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

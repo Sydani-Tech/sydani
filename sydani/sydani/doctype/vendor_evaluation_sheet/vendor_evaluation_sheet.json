@@ -1,0 +1,193 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{evaluators_role} - {vendor} ({vendor_evaluation_period})",
+ "creation": "2024-05-16 09:54:20.649835",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor_evaluation_details_section",
+  "vendor_evaluation",
+  "vendor_evaluation_period",
+  "vendor",
+  "vendor_type",
+  "column_break_5",
+  "evaluator",
+  "evaluators_email",
+  "evaluators_role",
+  "rating_guide_section",
+  "rating_guide_link",
+  "rating_guide",
+  "operation_review_section",
+  "competencies",
+  "operations_score",
+  "operations_staff_feedback",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor_evaluation_details_section",
+   "fieldtype": "Section Break",
+   "label": "Vendor Evaluation Details"
+  },
+  {
+   "fieldname": "vendor_evaluation",
+   "fieldtype": "Link",
+   "label": "Vendor Evaluation",
+   "options": "Vendor Evaluation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vendor_evaluation_period",
+   "fieldtype": "Link",
+   "label": "Vendor Evaluation Period",
+   "options": "Vendor Evaluation Period",
+   "set_only_once": 1
+  },
+  {
+   "fetch_from": "vendor_evaluation.vendor",
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor",
+   "options": "Supplier",
+   "set_only_once": 1
+  },
+  {
+   "fetch_from": "vendor_evaluation.vendor_type",
+   "fieldname": "vendor_type",
+   "fieldtype": "Link",
+   "label": "Vendor Type",
+   "options": "Supplier Group",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "evaluator",
+   "fieldtype": "Link",
+   "label": "Evaluator",
+   "options": "Employee",
+   "set_only_once": 1
+  },
+  {
+   "fetch_from": "evaluator.user_id",
+   "fieldname": "evaluators_email",
+   "fieldtype": "Link",
+   "label": "Evaluator's Email",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "evaluators_role",
+   "fieldtype": "Select",
+   "label": "Evaluator's Role",
+   "options": "\nAdmin\nHR\nOperations\nPrograms\nVendor",
+   "set_only_once": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "rating_guide_section",
+   "fieldtype": "Section Break",
+   "label": "Rating Guide"
+  },
+  {
+   "default": "f89273916e",
+   "fieldname": "rating_guide_link",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Rating Guide Link",
+   "options": "Vendor Evaluation Rating Guide"
+  },
+  {
+   "fetch_from": "rating_guide_link.appraisal_of_competencies",
+   "fieldname": "rating_guide",
+   "fieldtype": "Text Editor",
+   "label": "Rating Guide",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operation_review_section",
+   "fieldtype": "Section Break",
+   "label": "Evaluator's Review"
+  },
+  {
+   "fieldname": "competencies",
+   "fieldtype": "Table",
+   "label": "Competencies",
+   "mandatory_depends_on": "eval:doc.evaluation_level== 'Operations Evaluation'",
+   "options": "Evaluation Sheet Competency"
+  },
+  {
+   "default": "0",
+   "fieldname": "operations_score",
+   "fieldtype": "Percent",
+   "label": "Average Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operations_staff_feedback",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vendor Evaluation Sheet",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:22:20.138908",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Vendor Evaluation Sheet",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Master Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,183 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-05-12 12:52:01.153670",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "change_requested_by",
+  "amended_from",
+  "column_break_3",
+  "date_requested",
+  "status",
+  "project_details_section",
+  "project",
+  "problem_statement",
+  "column_break_8",
+  "proposed_process",
+  "changes_section",
+  "change_type",
+  "description",
+  "due_date",
+  "supporting_documents",
+  "column_break_11",
+  "reason_for_change",
+  "impact",
+  "approvals_section",
+  "approve",
+  "column_break_16",
+  "approved_by",
+  "column_break_18",
+  "approval_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "change_requested_by",
+   "fieldtype": "Link",
+   "label": "Change Requested By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Project Change Request",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_requested",
+   "fieldtype": "Date",
+   "label": "Date Requested"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "status"
+  },
+  {
+   "fieldname": "project_details_section",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project Requirement Form"
+  },
+  {
+   "fieldname": "problem_statement",
+   "fieldtype": "Data",
+   "label": "Problem Statement"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "proposed_process",
+   "fieldtype": "Data",
+   "label": "Proposed Process"
+  },
+  {
+   "fieldname": "changes_section",
+   "fieldtype": "Section Break",
+   "label": "Changes"
+  },
+  {
+   "fieldname": "change_type",
+   "fieldtype": "Data",
+   "label": "Change Type"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description of Change"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Implementation Due Date"
+  },
+  {
+   "fieldname": "supporting_documents",
+   "fieldtype": "Attach",
+   "label": "Supporting Documents"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reason_for_change",
+   "fieldtype": "Small Text",
+   "label": "Reason for Change"
+  },
+  {
+   "fieldname": "impact",
+   "fieldtype": "Small Text",
+   "label": "Impact"
+  },
+  {
+   "fieldname": "approvals_section",
+   "fieldtype": "Section Break",
+   "label": "Approvals"
+  },
+  {
+   "default": "0",
+   "fieldname": "approve",
+   "fieldtype": "Check",
+   "label": "Approve"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved By"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:43.864758",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Project Change Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

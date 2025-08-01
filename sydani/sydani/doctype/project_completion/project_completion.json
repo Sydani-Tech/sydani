@@ -1,0 +1,161 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{project_name}",
+ "creation": "2024-08-27 15:47:25.758057",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project_name",
+  "project_manager",
+  "approving_manager",
+  "column_break_4",
+  "client",
+  "start_date",
+  "end_date",
+  "sign_off_form_section",
+  "project_deliverables",
+  "clients_name_and_signature_section",
+  "clients_remark",
+  "signature",
+  "name1",
+  "date",
+  "amended_from",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Project Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project_manager",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Project Manager",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "approving_manager",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Approving Manager",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Client",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sign_off_form_section",
+   "fieldtype": "Section Break",
+   "label": "Sign Off Form"
+  },
+  {
+   "fieldname": "project_deliverables",
+   "fieldtype": "Table",
+   "label": "Project Deliverables",
+   "options": "Sign off Deliverables",
+   "reqd": 1
+  },
+  {
+   "fieldname": "clients_name_and_signature_section",
+   "fieldtype": "Section Break",
+   "label": "Client's Remark"
+  },
+  {
+   "fieldname": "clients_remark",
+   "fieldtype": "Small Text",
+   "label": "Client's Remark",
+   "mandatory_depends_on": "eval:doc.workflow_state===\"Project Completed\"||\ndoc.workflow_state===\"Returned\""
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Signature",
+   "label": "Signature",
+   "mandatory_depends_on": "eval:doc.workflow_state===\"Project Completed\"||\ndoc.workflow_state===\"Returned\""
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name",
+   "mandatory_depends_on": "eval:doc.workflow_state===\"Project Completed\"||\ndoc.workflow_state===\"Returned\"",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Data",
+   "label": "Date",
+   "mandatory_depends_on": "eval:doc.workflow_state===\"Project Completed\"||\ndoc.workflow_state===\"Returned\"",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Project Completion",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "status"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 09:34:55.063860",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Project Completion",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

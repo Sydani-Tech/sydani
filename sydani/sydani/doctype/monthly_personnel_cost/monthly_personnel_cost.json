@@ -1,0 +1,133 @@
+{
+ "actions": [],
+ "autoname": "format:{month} - {year} - {company}",
+ "creation": "2024-02-21 07:41:16.854239",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "details",
+  "month",
+  "year",
+  "column_break_4",
+  "company",
+  "projects_section",
+  "project_personnel_cost",
+  "total_personnel_cost",
+  "employees_not_captured_section",
+  "employees",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "details",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "label": "Month",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember",
+   "reqd": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Year",
+   "options": "Fiscal Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "projects_section",
+   "fieldtype": "Section Break",
+   "label": "Projects"
+  },
+  {
+   "fieldname": "project_personnel_cost",
+   "fieldtype": "Table",
+   "label": "Project Personnel Cost",
+   "options": "Project Personnel Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_personnel_cost",
+   "fieldtype": "Currency",
+   "label": "Total Personnel Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employees_not_captured_section",
+   "fieldtype": "Section Break",
+   "label": "Employees Not Captured"
+  },
+  {
+   "fieldname": "employees",
+   "fieldtype": "Table",
+   "label": "Employees",
+   "options": "Meeting Participants",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Monthly Personnel Cost",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 14:07:23.107546",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Monthly Personnel Cost",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lead Finance",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

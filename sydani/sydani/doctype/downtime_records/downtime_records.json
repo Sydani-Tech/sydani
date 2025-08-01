@@ -1,0 +1,128 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: {vendor} - {date_of_downtime}",
+ "creation": "2024-07-18 16:08:30.179550",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "vendor",
+  "description_of_service_disruption",
+  "ticket_number_if_any",
+  "column_break_4",
+  "contact_person",
+  "date_of_downtime",
+  "date_of_confirmed_resolution",
+  "total_time",
+  "supporting_documents",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vendor",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description_of_service_disruption",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description of Service Disruption ",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ticket_number_if_any",
+   "fieldtype": "Data",
+   "label": "Ticket Number (If any)"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Contact Person",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_downtime",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Downtime",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_confirmed_resolution",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Confirmed Resolution"
+  },
+  {
+   "fieldname": "total_time",
+   "fieldtype": "Data",
+   "label": "Total Time"
+  },
+  {
+   "fieldname": "supporting_documents",
+   "fieldtype": "Attach",
+   "label": "Supporting Documents"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Downtime Records",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:42.855899",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Downtime Records",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "IT team",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

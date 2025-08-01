@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-17 13:33:36.169743",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "deliverable",
+  "proposed_due_date",
+  "priority_level"
+ ],
+ "fields": [
+  {
+   "fieldname": "deliverable",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Deliverable",
+   "reqd": 1
+  },
+  {
+   "fieldname": "proposed_due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Proposed Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority_level",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Feasible Due Date",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:42.747077",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Feasible deliverables",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

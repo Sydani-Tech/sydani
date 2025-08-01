@@ -1,0 +1,187 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{ps_group} - {ps_date}",
+ "creation": "2023-03-29 20:38:16.525638",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "logistics",
+  "ps_date",
+  "start_time",
+  "end_time",
+  "column_break_5",
+  "ps_group",
+  "discussion_document",
+  "discussion_document_url",
+  "facilitator",
+  "co_facilitator",
+  "star_performer_section_section",
+  "star_performer",
+  "online_attendees_section",
+  "ps_online_attendance",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "logistics",
+   "fieldtype": "Section Break",
+   "label": "Logistics"
+  },
+  {
+   "fieldname": "ps_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "PS Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Start Time"
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "End Time"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ps_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "PS Group",
+   "options": "PS Group",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "discussion_document",
+   "fieldtype": "Attach",
+   "label": "Discussion Document"
+  },
+  {
+   "fieldname": "discussion_document_url",
+   "fieldtype": "Data",
+   "label": "Discussion Document URL",
+   "options": "URL"
+  },
+  {
+   "fieldname": "facilitator",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Facilitator",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "co_facilitator",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Co-facilitator",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "star_performer_section_section",
+   "fieldtype": "Section Break",
+   "label": "Star Performer Section"
+  },
+  {
+   "fieldname": "star_performer",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Star Performer",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "online_attendees_section",
+   "fieldtype": "Section Break",
+   "label": "Online Attendees"
+  },
+  {
+   "fieldname": "ps_online_attendance",
+   "fieldtype": "Table",
+   "label": "PS Online Attendance",
+   "options": "PS Online Attendance"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "PS Report",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "PS Attendance",
+   "link_fieldname": "ps_session"
+  }
+ ],
+ "modified": "2025-08-01 10:22:20.948030",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "PS Report",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PS Management Team",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Managing Partner",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

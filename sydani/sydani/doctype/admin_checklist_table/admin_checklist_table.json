@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-20 16:28:35.559088",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "activity",
+  "status",
+  "done_by",
+  "date",
+  "column_break_4",
+  "comment"
+ ],
+ "fields": [
+  {
+   "columns": 5,
+   "fieldname": "activity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Activity",
+   "options": "Exit Activity",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "default": "Not Done",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Not Done\nDone",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "done_by",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Done By",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "date",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:40.856443",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Admin Checklist Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

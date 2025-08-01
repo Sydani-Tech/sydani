@@ -1,0 +1,268 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{travel_request} - {created_by}",
+ "creation": "2023-06-26 07:17:20.319919",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "trip_overview_section",
+  "travel_request",
+  "created_by",
+  "managers_email",
+  "manager",
+  "status",
+  "column_break_3",
+  "project_name",
+  "trip_purpose",
+  "start_date",
+  "end_date",
+  "per_diem_requested",
+  "travellers_section",
+  "travelling_staff",
+  "trip_details_section",
+  "activities_conducted",
+  "additional_activities_conducted",
+  "trip_feedback",
+  "partners_information_section",
+  "contact_information",
+  "approvals_section",
+  "approved_by",
+  "date_approved",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "trip_overview_section",
+   "fieldtype": "Section Break",
+   "label": "Trip Overview"
+  },
+  {
+   "fieldname": "travel_request",
+   "fieldtype": "Link",
+   "label": "Travel Request",
+   "options": "Employee Travel Request",
+   "reqd": 1
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Created By",
+   "options": "Employee",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "travel_request.managers_email",
+   "fetch_if_empty": 1,
+   "fieldname": "managers_email",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Approver's Email",
+   "options": "User"
+  },
+  {
+   "fetch_from": "managers_email.full_name",
+   "fieldname": "manager",
+   "fieldtype": "Data",
+   "label": "Approver",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nReturned\nSubmitted\nApproved\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "travel_request.project_name",
+   "fieldname": "project_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project Name",
+   "options": "Project",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "travel_request.purpose_of_the_trip",
+   "fieldname": "trip_purpose",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Trip Purpose",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "travel_request.trip_start_date",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "travel_request.trip_end_date",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "per_diem_requested",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Per diem requested"
+  },
+  {
+   "fieldname": "travellers_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Travel Itinerary"
+  },
+  {
+   "fieldname": "travelling_staff",
+   "fieldtype": "Table",
+   "ignore_user_permissions": 1,
+   "options": "Trip Report Travellers",
+   "read_only": 1
+  },
+  {
+   "fieldname": "trip_details_section",
+   "fieldtype": "Section Break",
+   "label": "Trip Report"
+  },
+  {
+   "fieldname": "activities_conducted",
+   "fieldtype": "Table",
+   "label": "Report on Trip Activities",
+   "options": "Activity Report"
+  },
+  {
+   "fieldname": "additional_activities_conducted",
+   "fieldtype": "Table",
+   "label": "Report on Additional Trip Activities",
+   "options": "Additional Activity Report",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Submitted\""
+  },
+  {
+   "fieldname": "trip_feedback",
+   "fieldtype": "Table",
+   "label": "Feedback on Logistics",
+   "options": "Trip Feedback",
+   "reqd": 1
+  },
+  {
+   "fieldname": "partners_information_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Partner's Information"
+  },
+  {
+   "fieldname": "contact_information",
+   "fieldtype": "Table",
+   "label": "Contact Information",
+   "options": "Partners Contact for Feedback"
+  },
+  {
+   "fieldname": "approvals_section",
+   "fieldtype": "Section Break",
+   "label": "Approvals"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_approved",
+   "fieldtype": "Data",
+   "label": "Date Approved",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Trip Report",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Expense Claim",
+   "link_fieldname": "trip_report"
+  }
+ ],
+ "modified": "2025-08-01 10:13:28.479169",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Trip Report",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "trip_purpose"
+}

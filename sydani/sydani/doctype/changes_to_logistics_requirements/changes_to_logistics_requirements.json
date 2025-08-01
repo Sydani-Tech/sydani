@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-03-09 19:44:56.885689",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "traveller",
+  "category",
+  "units",
+  "details",
+  "departing_from",
+  "destination",
+  "accomodation_preference"
+ ],
+ "fields": [
+  {
+   "fieldname": "traveller",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Traveller",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Logistics Requirement Categories",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "units",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Units",
+   "reqd": 1
+  },
+  {
+   "description": "Kindly include your preference where applicable",
+   "fieldname": "details",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Details",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "depends_on": "eval:(doc.category==\"Car Hire\" || doc.category==\"Flight\")",
+   "fieldname": "departing_from",
+   "fieldtype": "Data",
+   "label": "Departing From",
+   "mandatory_depends_on": "eval:(doc.category===\"Car Hire\" || doc.category===\"Flight\")"
+  },
+  {
+   "columns": 1,
+   "depends_on": "eval:(doc.category===\"Car Hire\" || doc.category===\"Flight\")",
+   "fieldname": "destination",
+   "fieldtype": "Data",
+   "label": "Destination",
+   "mandatory_depends_on": "eval:(doc.category===\"Car Hire\" || doc.category===\"Flight\")"
+  },
+  {
+   "depends_on": "eval:(doc.category===\"Accomodation\")",
+   "fieldname": "accomodation_preference",
+   "fieldtype": "Data",
+   "label": "Accomodation Preference"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:28:45.311602",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Changes To Logistics Requirements",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

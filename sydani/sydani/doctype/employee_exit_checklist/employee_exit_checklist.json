@@ -1,0 +1,274 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Exit Form - {employee_name}",
+ "creation": "2024-03-12 09:50:27.947662",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_details",
+  "employee_name",
+  "department",
+  "company",
+  "column_break_4",
+  "cadre",
+  "exit_date",
+  "responsible_party",
+  "hr_checklist_section",
+  "hr_checklist_table",
+  "it_checklist_section",
+  "it_checklist_table",
+  "admin_checklist_section",
+  "admin_checklist_table",
+  "finance_checklist_section",
+  "finance_checklist_table",
+  "clearance_section",
+  "hr_clearance",
+  "hr_signature",
+  "hr_name",
+  "hr_signing_date",
+  "column_break_20",
+  "audit_clearance",
+  "audit_signature",
+  "audit_name",
+  "audit_signing_date",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_details",
+   "fieldtype": "Section Break",
+   "label": "Employee Details"
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee_name.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee_name.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee_name.designation",
+   "fieldname": "cadre",
+   "fieldtype": "Link",
+   "label": "Cadre",
+   "options": "Designation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "exit_date",
+   "fieldtype": "Date",
+   "label": "Exit Date"
+  },
+  {
+   "fieldname": "responsible_party",
+   "fieldtype": "Data",
+   "label": "Responsible Party",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hr_checklist_section",
+   "fieldtype": "Section Break",
+   "label": "HR Checklist"
+  },
+  {
+   "fieldname": "hr_checklist_table",
+   "fieldtype": "Table",
+   "label": "Checklist",
+   "options": "HR Checklist Table"
+  },
+  {
+   "fieldname": "it_checklist_section",
+   "fieldtype": "Section Break",
+   "label": "IT Checklist"
+  },
+  {
+   "fieldname": "it_checklist_table",
+   "fieldtype": "Table",
+   "label": "Checklist",
+   "options": "IT Checklist Table"
+  },
+  {
+   "fieldname": "admin_checklist_section",
+   "fieldtype": "Section Break",
+   "label": "Admin Checklist"
+  },
+  {
+   "fieldname": "admin_checklist_table",
+   "fieldtype": "Table",
+   "label": "Checklist",
+   "options": "Admin Checklist Table"
+  },
+  {
+   "fieldname": "finance_checklist_section",
+   "fieldtype": "Section Break",
+   "label": "Finance Checklist"
+  },
+  {
+   "fieldname": "finance_checklist_table",
+   "fieldtype": "Table",
+   "label": "Checklist",
+   "options": "Finance Checklist Table"
+  },
+  {
+   "fieldname": "clearance_section",
+   "fieldtype": "Section Break",
+   "label": "Exit Clearance"
+  },
+  {
+   "fieldname": "hr_clearance",
+   "fieldtype": "Small Text",
+   "label": "HR Comments"
+  },
+  {
+   "fieldname": "hr_signature",
+   "fieldtype": "Signature",
+   "label": "Signature"
+  },
+  {
+   "fieldname": "hr_name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hr_signing_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "audit_clearance",
+   "fieldtype": "Small Text",
+   "label": "Audit Comments"
+  },
+  {
+   "fieldname": "audit_signature",
+   "fieldtype": "Signature",
+   "label": "Signature"
+  },
+  {
+   "fieldname": "audit_name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "audit_signing_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Employee Exit Checklist",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:22:20.796109",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Employee Exit Checklist",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Exit Management Team",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Team",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Internal Auditor",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

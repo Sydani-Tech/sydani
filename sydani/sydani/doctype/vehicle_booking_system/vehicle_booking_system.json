@@ -1,0 +1,199 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Booking:{booking_purpose} - Start Time:{start_time}",
+ "creation": "2024-06-19 10:18:06.155618",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "booking_information",
+  "movement_type",
+  "vehicle",
+  "scheduled_by",
+  "schedulers_email",
+  "booking_approver",
+  "approvers_email",
+  "column_break_6",
+  "booking_purpose",
+  "number_of_participants",
+  "start_time",
+  "end_time",
+  "booking_status",
+  "color",
+  "trip_participants_section",
+  "trip_participants",
+  "are_there_non_employees_for_this_trip",
+  "non_employees",
+  "section_break_16",
+  "vehicle_booked",
+  "reschedule_booking"
+ ],
+ "fields": [
+  {
+   "fieldname": "booking_information",
+   "fieldtype": "Section Break",
+   "label": "Booking Information"
+  },
+  {
+   "fieldname": "movement_type",
+   "fieldtype": "Select",
+   "label": "Movement Type",
+   "options": "\nWithin Abuja\nOutside Abuja",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "mandatory_depends_on": "vehicle_booked",
+   "options": "Vehicle",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "scheduled_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Booked By",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "scheduled_by.user_id",
+   "fieldname": "schedulers_email",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Scheduler's Email",
+   "options": "User"
+  },
+  {
+   "fieldname": "booking_approver",
+   "fieldtype": "Select",
+   "label": "Booking Approver",
+   "options": "\nAndikan Ime Ibanga\nZachariah Okpanachi Itodo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "approvers_email",
+   "fieldtype": "Data",
+   "label": "Approver's Email",
+   "options": "Email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "booking_purpose",
+   "fieldtype": "Data",
+   "label": "Booking Purpose",
+   "reqd": 1
+  },
+  {
+   "fieldname": "number_of_participants",
+   "fieldtype": "Int",
+   "label": "Number Of Passengers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Datetime",
+   "label": "End Time",
+   "reqd": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "booking_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Booking Status",
+   "options": "Open\nBooked\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "hidden": 1,
+   "label": "Color"
+  },
+  {
+   "fieldname": "trip_participants_section",
+   "fieldtype": "Section Break",
+   "label": "Trip Participants"
+  },
+  {
+   "fieldname": "trip_participants",
+   "fieldtype": "Table",
+   "ignore_user_permissions": 1,
+   "label": "Trip Participants",
+   "options": "Meeting Participants",
+   "reqd": 1
+  },
+  {
+   "fieldname": "are_there_non_employees_for_this_trip",
+   "fieldtype": "Select",
+   "label": "Are there Non Employees for this trip",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.are_there_non_employees_for_this_trip==\"Yes\"",
+   "fieldname": "non_employees",
+   "fieldtype": "Small Text",
+   "label": "Non Employees",
+   "mandatory_depends_on": "eval:doc.are_there_non_employees_for_this_trip==\"Yes\""
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "vehicle_booked",
+   "fieldtype": "Check",
+   "label": "Vehicle Booked",
+   "permlevel": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "reschedule_booking",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Reschedule Booking"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 10:22:20.236317",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Vehicle Booking System",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

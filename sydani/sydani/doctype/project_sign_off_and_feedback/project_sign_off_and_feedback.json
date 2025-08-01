@@ -1,0 +1,285 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: {project_name} for {client}",
+ "creation": "2024-09-24 12:25:01.011699",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project_details",
+  "project_name",
+  "delivery_team_lead",
+  "start_date",
+  "end_date",
+  "column_break_5",
+  "project_manager",
+  "project_approver",
+  "client",
+  "client_sign_off_section",
+  "client_acceptance",
+  "feedback_section",
+  "project_planning_and_management_section",
+  "how_effective_was_the_project_planning_phase",
+  "column_break_12",
+  "were_deadlines_and_milestones_met_consistently",
+  "communication_section",
+  "how_would_you_rate_the_communication_throughout_the_project",
+  "column_break_17",
+  "were_you_kept_informed_of_project_progress",
+  "problem_resolution_section",
+  "how_were_challenges_and_problems_addressed_during_the_project",
+  "column_break_25",
+  "how_satisfied_were_you_with_issue_resolution",
+  "project_outcome_section",
+  "did_the_project_meet_its_objectives",
+  "column_break_29",
+  "how_would_you_rate_the_overall_success_of_the_project",
+  "post_project_comment_section",
+  "what_went_well_during_this_project",
+  "what_could_have_been_improved",
+  "column_break_34",
+  "any_additional_comments_or_suggestions_for_future_projects",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "project_details",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "fieldname": "project_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project Name",
+   "options": "Project Requirement Form",
+   "reqd": 1
+  },
+  {
+   "fieldname": "delivery_team_lead",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Delivery Team Lead",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project_manager",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project Manager",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project_name.managers_email",
+   "fieldname": "project_approver",
+   "fieldtype": "Link",
+   "label": "Project Approver",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "End User Department",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "client_sign_off_section",
+   "fieldtype": "Section Break",
+   "label": "Client Sign-Off"
+  },
+  {
+   "fieldname": "client_acceptance",
+   "fieldtype": "Table",
+   "label": "Client Acceptance",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\"",
+   "options": "Clients Acceptance"
+  },
+  {
+   "fieldname": "feedback_section",
+   "fieldtype": "Section Break",
+   "label": "Feedback"
+  },
+  {
+   "fieldname": "project_planning_and_management_section",
+   "fieldtype": "Section Break",
+   "label": "Project Planning and Management"
+  },
+  {
+   "depends_on": "eval:doc.workflow_state === \"Sign Off Requested\"",
+   "fieldname": "how_effective_was_the_project_planning_phase",
+   "fieldtype": "Rating",
+   "label": "How effective was the project planning phase?",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\""
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "were_deadlines_and_milestones_met_consistently",
+   "fieldtype": "Rating",
+   "label": "How often were deadlines and milestones met?",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\""
+  },
+  {
+   "fieldname": "communication_section",
+   "fieldtype": "Section Break",
+   "label": "Communication"
+  },
+  {
+   "fieldname": "how_would_you_rate_the_communication_throughout_the_project",
+   "fieldtype": "Rating",
+   "label": "How would you rate the communication throughout the project?",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\""
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "were_you_kept_informed_of_project_progress",
+   "fieldtype": "Rating",
+   "label": "How informed were you kept during project?",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\""
+  },
+  {
+   "fieldname": "problem_resolution_section",
+   "fieldtype": "Section Break",
+   "label": "Problem Resolution"
+  },
+  {
+   "fieldname": "how_were_challenges_and_problems_addressed_during_the_project",
+   "fieldtype": "Rating",
+   "label": "How were challenges and problems addressed during the project?",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\""
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "how_satisfied_were_you_with_issue_resolution",
+   "fieldtype": "Rating",
+   "label": "How satisfied were you with issue resolution?",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\""
+  },
+  {
+   "fieldname": "project_outcome_section",
+   "fieldtype": "Section Break",
+   "label": "Project Outcome"
+  },
+  {
+   "fieldname": "did_the_project_meet_its_objectives",
+   "fieldtype": "Select",
+   "label": "How well did the project meet its objectives?",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\"",
+   "options": "\nExceeded Expectations\nMet Expectations\nPartially Met Expectations\nDid Not Meet Expectations"
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "how_would_you_rate_the_overall_success_of_the_project",
+   "fieldtype": "Rating",
+   "label": "How would you rate the overall success of the project?",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\""
+  },
+  {
+   "fieldname": "post_project_comment_section",
+   "fieldtype": "Section Break",
+   "label": "Post-Project Comment"
+  },
+  {
+   "fieldname": "what_went_well_during_this_project",
+   "fieldtype": "Small Text",
+   "label": "What went well during this project?",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\""
+  },
+  {
+   "fieldname": "what_could_have_been_improved",
+   "fieldtype": "Small Text",
+   "label": "What could have been improved?",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\""
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "any_additional_comments_or_suggestions_for_future_projects",
+   "fieldtype": "Small Text",
+   "label": "Any additional comments or suggestions for future projects",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Sign Off Requested\""
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Project Sign Off and Feedback",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 08:58:27.411469",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Project Sign Off and Feedback",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

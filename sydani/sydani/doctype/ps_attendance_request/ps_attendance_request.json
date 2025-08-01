@@ -1,0 +1,147 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:PS Attendance Request - {employee} {##}",
+ "creation": "2023-04-03 14:38:17.615342",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ps_details_section",
+  "employee",
+  "ps_group",
+  "column_break_2",
+  "date",
+  "attendance_request_section",
+  "reason_for_missing_ps",
+  "managers_email",
+  "approving_manager",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "ps_details_section",
+   "fieldtype": "Section Break",
+   "label": "PS Details"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Submitted By Employee\"",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.ps_group",
+   "fetch_if_empty": 1,
+   "fieldname": "ps_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "PS Group",
+   "options": "PS Group",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Submitted By Employee\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Submitted By Employee\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "attendance_request_section",
+   "fieldtype": "Section Break",
+   "label": "Attendance Request"
+  },
+  {
+   "fieldname": "reason_for_missing_ps",
+   "fieldtype": "Small Text",
+   "label": "Reason for missing PS",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Submitted By Employee\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "managers_email",
+   "fieldtype": "Link",
+   "label": "Approving Manager",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "managers_email.full_name",
+   "fieldname": "approving_manager",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Approving Manager",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Submitted By Employee\""
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "PS Attendance Request",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:22:20.695171",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "PS Attendance Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

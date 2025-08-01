@@ -1,0 +1,205 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:full_name",
+ "creation": "2023-10-18 10:01:10.166293",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "biodata_section",
+  "full_name",
+  "phone_number",
+  "column_break_4",
+  "bank",
+  "account_number",
+  "deployment_section",
+  "vaccination_post_type",
+  "country",
+  "country_uid",
+  "state",
+  "state_uid",
+  "lga",
+  "lga_uid",
+  "column_break_15",
+  "ward",
+  "ward_uid",
+  "facility",
+  "facility_uid",
+  "roles",
+  "column_break_21",
+  "team_name",
+  "team_uid",
+  "mobile_team",
+  "fixed_post_team_code",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "biodata_section",
+   "fieldtype": "Section Break",
+   "label": "BIODATA"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank",
+   "fieldtype": "Link",
+   "label": "Bank",
+   "options": "Flutterwave Nigerian Banks"
+  },
+  {
+   "fieldname": "account_number",
+   "fieldtype": "Data",
+   "label": "Account Number"
+  },
+  {
+   "fieldname": "deployment_section",
+   "fieldtype": "Section Break",
+   "label": "DEPLOYMENT"
+  },
+  {
+   "fieldname": "vaccination_post_type",
+   "fieldtype": "Select",
+   "label": "Vaccination Post Type",
+   "options": "\nFixed Vaccination Post Team\nMobile Vaccination Post Team"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "country_uid",
+   "fieldtype": "Data",
+   "label": "Country UID"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "Nigerian States"
+  },
+  {
+   "fieldname": "state_uid",
+   "fieldtype": "Data",
+   "label": "State UID"
+  },
+  {
+   "fieldname": "lga",
+   "fieldtype": "Data",
+   "label": "LGA"
+  },
+  {
+   "fieldname": "lga_uid",
+   "fieldtype": "Data",
+   "label": "LGA UID"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ward",
+   "fieldtype": "Data",
+   "label": "Ward"
+  },
+  {
+   "fieldname": "ward_uid",
+   "fieldtype": "Data",
+   "label": "Ward UID"
+  },
+  {
+   "fieldname": "facility",
+   "fieldtype": "Data",
+   "label": "Facility"
+  },
+  {
+   "fieldname": "facility_uid",
+   "fieldtype": "Data",
+   "label": "Facility UID"
+  },
+  {
+   "fieldname": "roles",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Roles"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.vaccination_post_type==\"Mobile Vaccination Post Team\"",
+   "fieldname": "team_name",
+   "fieldtype": "Data",
+   "label": "Team Name"
+  },
+  {
+   "depends_on": "eval:doc.vaccination_post_type==\"Mobile Vaccination Post Team\"",
+   "fieldname": "team_uid",
+   "fieldtype": "Data",
+   "label": "Team UID"
+  },
+  {
+   "depends_on": "eval:doc.vaccination_post_type==\"Mobile Vaccination Post Team\"",
+   "fieldname": "mobile_team",
+   "fieldtype": "Data",
+   "label": "Mobile Team"
+  },
+  {
+   "depends_on": "eval:doc.vaccination_post_type==\"Fixed Vaccination Post Team\"",
+   "fieldname": "fixed_post_team_code",
+   "fieldtype": "Data",
+   "label": "Fixed Post Team Code"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "NPSIAs Vaccinator Database",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 10:28:44.573572",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "NPSIAs Vaccinator Database",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

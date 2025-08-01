@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-10-16 16:41:03.338675",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "activities",
+  "challenges_and_mitigants_section",
+  "challenges",
+  "column_break_4",
+  "mitigants",
+  "status_sb_section",
+  "status"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "activities",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Activity",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "challenges_and_mitigants_section",
+   "fieldtype": "Section Break",
+   "label": "Challenges and Mitigants"
+  },
+  {
+   "columns": 2,
+   "fieldname": "challenges",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Challenges"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fieldname": "mitigants",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Mitigants"
+  },
+  {
+   "fieldname": "status_sb_section",
+   "fieldtype": "Section Break",
+   "label": "Activity Status"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nNot Done\nDone"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 13:28:55.764840",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Activity Report",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

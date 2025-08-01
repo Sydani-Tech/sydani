@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{partner_name} - {trip_report} - {##}",
+ "creation": "2023-11-06 16:50:42.695283",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "trip_details_section",
+  "partner_name",
+  "staff_names",
+  "column_break_3",
+  "trip_report",
+  "trip_purpose",
+  "comments_section",
+  "staff_conduct",
+  "quality_of_deliverables",
+  "resolving_challenges",
+  "other_comments"
+ ],
+ "fields": [
+  {
+   "fieldname": "trip_details_section",
+   "fieldtype": "Section Break",
+   "label": "Trip Details"
+  },
+  {
+   "fieldname": "partner_name",
+   "fieldtype": "Data",
+   "label": "Please Input Your Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "staff_names",
+   "fieldtype": "Data",
+   "label": "Name(s) of Sydani Staff",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "trip_report",
+   "fieldtype": "Link",
+   "label": "Trip Report",
+   "options": "Trip Report"
+  },
+  {
+   "fetch_from": "trip_report.trip_purpose",
+   "fieldname": "trip_purpose",
+   "fieldtype": "Data",
+   "label": "Trip Purpose",
+   "read_only": 1
+  },
+  {
+   "fieldname": "comments_section",
+   "fieldtype": "Section Break",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "staff_conduct",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "How would you rate our staff\u2019s conduct?",
+   "options": "\nUnprofessional\nNon-Challant\nPolite\nProfessional\nExceptional",
+   "reqd": 1
+  },
+  {
+   "fieldname": "quality_of_deliverables",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "How would you rate the quality of our Hotel, Car hire and any other logistics provided?",
+   "options": "\nVery Poor\nPoor\nAverage\nGood\nExcellent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "resolving_challenges",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "How effective was the staff at resolving challenges experienced?",
+   "options": "\nVery Ineffective\nIneffective\nNeutral\nEffective\nVery Effective",
+   "reqd": 1
+  },
+  {
+   "fieldname": "other_comments",
+   "fieldtype": "Long Text",
+   "label": "Any other comments?"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 10:22:22.331156",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Partner Travel Feedback",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

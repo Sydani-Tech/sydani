@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{sfp_batch}",
+ "creation": "2023-03-07 11:12:18.948051",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sfp_batch",
+  "enabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "sfp_batch",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "SFP Batch",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 10:22:19.502961",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "SFP Batch",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

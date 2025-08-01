@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:name1",
+ "creation": "2023-09-11 15:42:33.685257",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "gender",
+  "age",
+  "phone_number",
+  "email_address",
+  "highest_qualifications",
+  "state_of_residence",
+  "have_you_been_involved_in_immunization_program_before",
+  "upload_cv",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "NAME",
+   "unique": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "GENDER",
+   "options": "\nMALE\nFEMALE"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "AGE"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "PHONE NUMBER",
+   "length": 11
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "label": "EMAIL ADDRESS "
+  },
+  {
+   "fieldname": "highest_qualifications",
+   "fieldtype": "Select",
+   "label": "HIGHEST QUALIFICATIONS",
+   "options": "\nPHD\nMsc\nBsc"
+  },
+  {
+   "fieldname": "state_of_residence",
+   "fieldtype": "Select",
+   "label": "STATE OF RESIDENCE",
+   "options": "\nABIA\nBAYELSA\nBORNO\nEBONYI\nIMO\nKADUNA\nKANO\nKATSINA\nKEBBI\nKWARA\nSOKOTO\nTARABA\nYOBE"
+  },
+  {
+   "fieldname": "have_you_been_involved_in_immunization_program_before",
+   "fieldtype": "Select",
+   "label": "HAVE YOU BEEN INVOLVED IN IMMUNIZATION PROGRAM BEFORE",
+   "options": "\nYES\nNO"
+  },
+  {
+   "fieldname": "upload_cv",
+   "fieldtype": "Attach",
+   "label": "UPLOAD CV "
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "BMGF MCV SIA PROJECT",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:28:44.736569",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "BMGF MCV SIA PROJECT",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

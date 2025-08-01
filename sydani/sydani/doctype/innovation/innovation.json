@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{idea_name}",
+ "creation": "2022-09-26 14:02:08.802905",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_information_section",
+  "employee_name",
+  "department",
+  "column_break_4",
+  "employee_level",
+  "innovation_type",
+  "section_break_7",
+  "idea_name",
+  "brief_decription_of_idea",
+  "supporting_document",
+  "status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_information_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Information"
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Department",
+   "options": "Programs\nOperations",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employee_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Employee Level",
+   "options": "Analyst\nAssociate\nFellow\nManager",
+   "reqd": 1
+  },
+  {
+   "fieldname": "innovation_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Innovation Type",
+   "options": "Increasing Revenue\nPromoting Visibility & Thought Leadership\nEnhancing Employee Motivation/Well-being\nOptimizing Cost",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "idea_name",
+   "fieldtype": "Data",
+   "label": "Idea Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Please keep your description under 200 words",
+   "fieldname": "brief_decription_of_idea",
+   "fieldtype": "Text Editor",
+   "label": "Brief Decription of Idea",
+   "reqd": 1
+  },
+  {
+   "fieldname": "supporting_document",
+   "fieldtype": "Attach",
+   "label": "Supporting Document"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nSubmitted By Employee\nRatified By Core Team\nIdea Declined\nIdea Archived\nIdea Adopted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Innovation",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 14:18:52.994055",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Innovation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

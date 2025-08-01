@@ -1,0 +1,151 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-06-06 11:18:11.665033",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "incidence_report_section",
+  "reported_by",
+  "nature_of_incident",
+  "location_of_incident",
+  "time_of_incident",
+  "column_break_6",
+  "details",
+  "eye_witnesses",
+  "pictures",
+  "incident_resolution_section",
+  "status",
+  "updates",
+  "date_completed",
+  "amended_from",
+  "naming_series"
+ ],
+ "fields": [
+  {
+   "fieldname": "incidence_report_section",
+   "fieldtype": "Section Break",
+   "label": "Incident Report"
+  },
+  {
+   "fieldname": "reported_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Reported By",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "nature_of_incident",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Nature of Incident",
+   "options": "Plumbing\nElectrical\nFurniture\nElevator\nSafety\nHealth/Safety\nAccident/Injury\nSecurity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location_of_incident",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Location of Incident",
+   "reqd": 1
+  },
+  {
+   "fieldname": "time_of_incident",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Time of Incident",
+   "options": "Now",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Small Text",
+   "label": "Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "eye_witnesses",
+   "fieldtype": "Data",
+   "label": "Eye Witnesses (If any)"
+  },
+  {
+   "fieldname": "pictures",
+   "fieldtype": "Attach",
+   "label": "Pictures"
+  },
+  {
+   "fieldname": "incident_resolution_section",
+   "fieldtype": "Section Break",
+   "label": "Incident Resolution"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Not Done\nDone",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "updates",
+   "fieldtype": "Small Text",
+   "label": "Updates",
+   "permlevel": 1
+  },
+  {
+   "depends_on": "status",
+   "fieldname": "date_completed",
+   "fieldtype": "Date",
+   "label": "Date completed",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Incident Report",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "Incident:.DD.-.MM.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "Incident:.DD.-.MM.-"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 14:18:52.700775",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Incident Report",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

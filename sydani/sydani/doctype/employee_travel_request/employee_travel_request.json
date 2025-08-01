@@ -1,0 +1,695 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Travel_Req-{project_name}-{trip_start_date}",
+ "creation": "2023-02-24 09:51:12.845502",
+ "default_email_template": "Employee Travel Request",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "trip_information_section",
+  "purpose_of_the_trip",
+  "created_by",
+  "company",
+  "company_logo",
+  "creators_email",
+  "trip_start_date",
+  "trip_end_date",
+  "trip_type",
+  "column_break_4",
+  "project_name",
+  "managers_email",
+  "project_manager",
+  "responsible_person",
+  "payment_status",
+  "recording_status",
+  "record_status",
+  "project_lead",
+  "project_leads_email",
+  "police_emergency_numbers_section_section",
+  "police_emergency_numbers",
+  "vendors_section",
+  "north_central",
+  "north_central_email",
+  "north_east",
+  "north_east_email",
+  "north_west",
+  "north_west_email",
+  "flights",
+  "flight_email",
+  "column_break_28",
+  "south_south",
+  "south_south_email",
+  "south_east",
+  "south_east_email",
+  "south_west",
+  "south_west_email",
+  "travel_requirements_for_staff_section",
+  "travel_itinerary",
+  "copy_the_travel_itinerary_table_above",
+  "travel_retirement",
+  "change_requested",
+  "travel_activities_section",
+  "travel_activities",
+  "detailed_travel_itinerary_section",
+  "travel_itinerary_detailed",
+  "copy_travel_itinerary_detailed",
+  "travel_itinerary_detailed_retirement",
+  "logistics_requirements_section",
+  "logistics_requirements",
+  "copy_the_logistics_requirements_table_above",
+  "changes_to_logistics_requirements",
+  "cost_breakdown_section_section",
+  "cost_breakdown",
+  "currency",
+  "total",
+  "payment_schedule_section_section",
+  "payment_schedule",
+  "approval_section",
+  "approve_travel_request",
+  "approved_by_request",
+  "approval_date_request",
+  "column_break_27",
+  "approve_travel_retirement",
+  "approved_by_retirement",
+  "approval_date_retirement",
+  "verifications_section_section",
+  "verified_by_finance",
+  "verified_by_finance_name",
+  "verified_by_finance_date",
+  "column_break_67",
+  "verified_by_audit",
+  "verified_by_audit_name",
+  "verified_by_audit_date",
+  "attendance_section_section",
+  "approval_attendance",
+  "change_attendance",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "trip_information_section",
+   "fieldtype": "Section Break",
+   "label": "Trip Information"
+  },
+  {
+   "fieldname": "purpose_of_the_trip",
+   "fieldtype": "Data",
+   "label": "Purpose of the trip",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Submitted By Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\ndoc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Validated\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\ndoc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Created By",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project_name.company",
+   "fetch_if_empty": 1,
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "company.company_logo",
+   "fieldname": "company_logo",
+   "fieldtype": "Attach",
+   "hidden": 1,
+   "label": "Company Logo",
+   "read_only": 1
+  },
+  {
+   "fieldname": "creators_email",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Creators Email",
+   "options": "User"
+  },
+  {
+   "fetch_from": "project_logistics_forecast.week_beginning",
+   "fetch_if_empty": 1,
+   "fieldname": "trip_start_date",
+   "fieldtype": "Date",
+   "label": "Trip Start Date",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Submitted By Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\n// doc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Validated\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\n// doc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "trip_end_date",
+   "fieldtype": "Date",
+   "label": "Trip End Date",
+   "reqd": 1
+  },
+  {
+   "default": "Local",
+   "fieldname": "trip_type",
+   "fieldtype": "Select",
+   "label": "Trip Type",
+   "options": "\nLocal\nInternational",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Submitted By Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\ndoc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Validated\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\ndoc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "project_logistics_forecast.project_name",
+   "fetch_if_empty": 1,
+   "fieldname": "project_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project Name",
+   "options": "Project",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Submitted By Employee\" ||\r\ndoc.workflow_state==\"Approved By Manager\" ||\r\ndoc.workflow_state==\"Validated By Admin\" ||\r\ndoc.workflow_state==\"Change Request Mode\" ||\r\ndoc.workflow_state==\"Change Request Submitted\" ||\r\ndoc.workflow_state==\"Change Request Validated\" ||\r\ndoc.workflow_state==\"Change Request Approved\" ||\r\ndoc.workflow_state==\"Change Request Rejected\" ||\r\ndoc.workflow_state==\"Travel Request Finalized\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "managers_email",
+   "fieldtype": "Link",
+   "label": "Trip Approver's Email",
+   "options": "User",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Submitted By Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Validated\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\ndoc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\"",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "managers_email.full_name",
+   "fieldname": "project_manager",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Trip Approver",
+   "read_only": 1
+  },
+  {
+   "default": "Applicant",
+   "fieldname": "responsible_person",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Responsible Party",
+   "options": "Applicant\nAdmin\nAudit and Finance\nManager\nApproved\nFinalized\nPaid\nCancelled",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Not Paid",
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Payment Status",
+   "options": "Not Paid\nAdvance Paid\nPayment Completed",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "recording_status",
+   "fieldtype": "Select",
+   "label": "Recording Status",
+   "options": "\nPending\nPurchase Order Created\nPurchase Order Approved\nAdvance Payment Entry Created\nAdvance Payment Entry Approved\nPurchase Invoice Created\nPurchase Invoice Approved\nPayment Entry Created\nPayment Entry Approved"
+  },
+  {
+   "fieldname": "record_status",
+   "fieldtype": "Data",
+   "label": "Record Status",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project_logistics_forecast.project_lead",
+   "fetch_if_empty": 1,
+   "fieldname": "project_lead",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "Project Lead",
+   "options": "Employee",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Submitted By Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\ndoc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\ndoc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "fetch_from": "project_lead.user_id",
+   "fieldname": "project_leads_email",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Project Leads Email",
+   "options": "User"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "police_emergency_numbers_section_section",
+   "fieldtype": "Section Break",
+   "label": "Police Emergency Numbers"
+  },
+  {
+   "default": "https://sydani-my.sharepoint.com/:x:/g/personal/admin_sydani_org/ETSyWxPWHY5OpF7u-9bh3P0BxqPzX63QFerHKP4J8LNJ-Q?e=KILy15",
+   "description": "Please click on this link to view and download the police emergency numbers",
+   "fieldname": "police_emergency_numbers",
+   "fieldtype": "Data",
+   "label": "Police Emergency Numbers",
+   "options": "URL",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "vendors_section",
+   "fieldtype": "Section Break",
+   "label": "Vendors",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "north_central",
+   "fieldtype": "Link",
+   "label": "North Central",
+   "mandatory_depends_on": "// eval:doc.workflow_state==\"Submitted By Employee\"",
+   "options": "Supplier",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Draft\" ||\ndoc.workflow_state==\"Returned To Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\n// doc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\n// doc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "fetch_from": "north_central.email",
+   "fetch_if_empty": 1,
+   "fieldname": "north_central_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "North Central Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "north_east",
+   "fieldtype": "Link",
+   "label": "North East",
+   "options": "Supplier",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Draft\" ||\ndoc.workflow_state==\"Returned To Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\n// doc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\n// doc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "fetch_from": "north_east.email",
+   "fieldname": "north_east_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "North East Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "north_west",
+   "fieldtype": "Link",
+   "label": "North West",
+   "options": "Supplier",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Draft\" ||\ndoc.workflow_state==\"Returned To Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\n// doc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\n// doc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "fetch_from": "north_west.email",
+   "fieldname": "north_west_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "North West Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "flights",
+   "fieldtype": "Link",
+   "label": "Flights",
+   "options": "Supplier",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Draft\" ||\ndoc.workflow_state==\"Returned To Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\n// doc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\n// doc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "fetch_from": "flights.email",
+   "fieldname": "flight_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Flight Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "south_south",
+   "fieldtype": "Link",
+   "label": "South South",
+   "options": "Supplier",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Draft\" ||\ndoc.workflow_state==\"Returned To Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\n// doc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\n// doc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "fetch_from": "south_south.email",
+   "fieldname": "south_south_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "South South Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "south_east",
+   "fieldtype": "Link",
+   "label": "South East",
+   "options": "Supplier",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Draft\" ||\ndoc.workflow_state==\"Returned To Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\n// doc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\n// doc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "fetch_from": "south_east.email",
+   "fieldname": "south_east_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "South East Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "south_west",
+   "fieldtype": "Link",
+   "label": "South West",
+   "options": "Supplier",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Draft\" ||\ndoc.workflow_state==\"Returned To Employee\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Validated By Admin\" ||\n// doc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\n// doc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "fetch_from": "south_west.email",
+   "fieldname": "south_west_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "South West Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "travel_requirements_for_staff_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Travel Itinerary"
+  },
+  {
+   "fieldname": "travel_itinerary",
+   "fieldtype": "Table",
+   "label": "Travel Itinerary",
+   "options": "Employee Travel Itinerary",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Validated By Admin\" ||\r\ndoc.workflow_state==\"Approved By Manager\" ||\r\ndoc.workflow_state==\"Change Request Mode\" ||\r\ndoc.workflow_state==\"Change Request Submitted\" ||\r\ndoc.workflow_state==\"Change Request Validated\" ||\r\ndoc.workflow_state==\"Change Request Approved\" ||\r\ndoc.workflow_state==\"Change Request Rejected\" ||\r\ndoc.workflow_state==\"Travel Request Finalized\"",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:(doc.workflow_state==\"Change Request Mode\" && doc.travel_itinerary)",
+   "fieldname": "copy_the_travel_itinerary_table_above",
+   "fieldtype": "Button",
+   "label": "Copy"
+  },
+  {
+   "depends_on": "eval:doc.workflow_state==\"Change Request Mode\" ||\r\ndoc.workflow_state==\"Change Request Submitted\" ||\r\ndoc.workflow_state==\"Change Request Validated\" ||\r\ndoc.workflow_state==\"Change Request Approved\" ||\r\ndoc.workflow_state==\"Change Request Rejected\" ||\r\ndoc.workflow_state==\"Travel Request Finalized\"",
+   "fieldname": "travel_retirement",
+   "fieldtype": "Table",
+   "label": "Changes",
+   "options": "Employee Travel Itinerary",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Change Request Submitted\" ||\r\ndoc.workflow_state==\"Change Request Validated\" ||\r\ndoc.workflow_state==\"Change Request Approved\" ||\r\ndoc.workflow_state==\"Change Request Rejected\" ||\r\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "default": "0",
+   "fieldname": "change_requested",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Change Requested"
+  },
+  {
+   "fieldname": "travel_activities_section",
+   "fieldtype": "Section Break",
+   "label": "Travel Activities"
+  },
+  {
+   "fieldname": "travel_activities",
+   "fieldtype": "Table",
+   "label": "Travel Activities",
+   "options": "Travel Activities",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Validated By Admin\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Change Request Submitted\" || \ndoc.workflow_state==\"Change Request Approved\" || \ndoc.workflow_state==\"Change Request Rejected\" || \ndoc.workflow_state==\"Travel Request Finalized\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "detailed_travel_itinerary_section",
+   "fieldtype": "Section Break",
+   "label": "Non-Employee Travel Itinerary"
+  },
+  {
+   "fieldname": "travel_itinerary_detailed",
+   "fieldtype": "Table",
+   "label": "Partner Travel Itinerary",
+   "options": "Partner Travel Itinerary",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Validated By Admin\" ||\ndoc.workflow_state==\"Approved By Manager\" ||\ndoc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Validated\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\ndoc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "depends_on": "eval:(doc.workflow_state==\"Change Request Mode\" && doc.travel_itinerary_detailed)",
+   "fieldname": "copy_travel_itinerary_detailed",
+   "fieldtype": "Button",
+   "label": "Copy"
+  },
+  {
+   "depends_on": "eval:doc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Validated\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\ndoc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\"",
+   "fieldname": "travel_itinerary_detailed_retirement",
+   "fieldtype": "Table",
+   "label": "Changes",
+   "options": "Partner Travel Itinerary",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Validated\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\ndoc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "fieldname": "logistics_requirements_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Logistical Requirements"
+  },
+  {
+   "fieldname": "logistics_requirements",
+   "fieldtype": "Table",
+   "options": "Logistics Requirements",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Validated By Admin\" ||\r\ndoc.workflow_state==\"Approved By Manager\" ||\r\ndoc.workflow_state==\"Change Request Mode\" ||\r\ndoc.workflow_state==\"Change Request Submitted\" ||\r\ndoc.workflow_state==\"Change Request Validated\" ||\r\ndoc.workflow_state==\"Change Request Approved\" ||\r\ndoc.workflow_state==\"Change Request Rejected\" ||\r\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "depends_on": "eval:(doc.workflow_state==\"Change Request Mode\" && doc.logistics_requirements)",
+   "fieldname": "copy_the_logistics_requirements_table_above",
+   "fieldtype": "Button",
+   "label": "Copy",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\ndoc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "depends_on": "eval:doc.workflow_state==\"Change Request Mode\" ||\ndoc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Validated\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\ndoc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\"",
+   "fieldname": "changes_to_logistics_requirements",
+   "fieldtype": "Table",
+   "label": "Changes",
+   "options": "Logistics Requirements",
+   "read_only_depends_on": "eval:doc.workflow_state==\"Change Request Submitted\" ||\ndoc.workflow_state==\"Change Request Validated\" ||\ndoc.workflow_state==\"Change Request Approved\" ||\ndoc.workflow_state==\"Change Request Rejected\" ||\ndoc.workflow_state==\"Travel Request Finalized\""
+  },
+  {
+   "fieldname": "cost_breakdown_section_section",
+   "fieldtype": "Section Break",
+   "label": "Cost Breakdown",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cost_breakdown",
+   "fieldtype": "Table",
+   "label": "Cost Breakdown",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Submitted By Employee\" ||\ndoc.workflow_state === \"Change Request Submitted\"",
+   "options": "Cost Breakdown",
+   "permlevel": 1
+  },
+  {
+   "default": "NGN",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Total",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_schedule_section_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Schedule"
+  },
+  {
+   "fieldname": "payment_schedule",
+   "fieldtype": "Table",
+   "label": "Payment Schedule",
+   "mandatory_depends_on": "eval:doc.workflow_state === \"Submitted By Employee\" ||\ndoc.workflow_state === \"Change Request Submitted\"",
+   "options": "Payment Schedule",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state==\"Validated By Admin\"",
+   "fieldname": "approve_travel_request",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Approve Travel Request",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "approved_by_request",
+   "fieldtype": "Data",
+   "label": "Approved By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_date_request",
+   "fieldtype": "Date",
+   "label": "Approval Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state==\"Submitted By Employee\"",
+   "fieldname": "approve_travel_retirement",
+   "fieldtype": "Check",
+   "label": "Approve Travel Retirement",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "approved_by_retirement",
+   "fieldtype": "Data",
+   "label": "Approved By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_date_retirement",
+   "fieldtype": "Date",
+   "label": "Approval Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verifications_section_section",
+   "fieldtype": "Section Break",
+   "label": "Verifications"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state === \"Payment Processed\"",
+   "fieldname": "verified_by_finance",
+   "fieldtype": "Check",
+   "label": "Verified By Finance ",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "verified_by_finance_name",
+   "fieldtype": "Data",
+   "label": "Verified By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_by_finance_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_67",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state === \"Payment Processed\"",
+   "fieldname": "verified_by_audit",
+   "fieldtype": "Check",
+   "label": "Verified By Audit",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "verified_by_audit_name",
+   "fieldtype": "Data",
+   "label": "Verified By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_by_audit_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "attendance_section_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Attendance Section"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "approval_attendance",
+   "fieldtype": "Check",
+   "label": "Approval Attendance"
+  },
+  {
+   "default": "0",
+   "fieldname": "change_attendance",
+   "fieldtype": "Check",
+   "label": "Change Attendance"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Employee Travel Request",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Expense Claim",
+   "link_fieldname": "travel_request"
+  },
+  {
+   "link_doctype": "Trip Report",
+   "link_fieldname": "travel_request"
+  },
+  {
+   "link_doctype": "Purchase Order",
+   "link_fieldname": "employee_travel_request"
+  },
+  {
+   "link_doctype": "Purchase Invoice",
+   "link_fieldname": "employee_travel_request"
+  },
+  {
+   "link_doctype": "Payment Entry",
+   "link_fieldname": "employee_travel_request"
+  }
+ ],
+ "modified": "2025-08-01 09:00:04.113029",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Employee Travel Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

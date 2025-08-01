@@ -1,0 +1,242 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-07-12 17:45:01.033288",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "supplier_quotation",
+  "vendor",
+  "column_break_3",
+  "quotation_grand_total",
+  "total_score",
+  "section_break_6",
+  "score_guide",
+  "evaluation_criteria_section",
+  "price_competitiveness",
+  "capacity_to_deliver",
+  "delivery_time",
+  "criteria_4",
+  "criteria_5",
+  "criteria_6",
+  "criteria_7",
+  "criteria_8",
+  "criteria_9",
+  "criteria_10",
+  "column_break_7",
+  "score_1",
+  "score_2",
+  "score_3",
+  "score_4",
+  "score_5",
+  "score_6",
+  "score_7",
+  "score_8",
+  "score_9",
+  "score_10"
+ ],
+ "fields": [
+  {
+   "fieldname": "supplier_quotation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supplier Quotation",
+   "options": "Supplier Quotation",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "supplier_quotation.supplier",
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vendor",
+   "options": "Supplier",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "supplier_quotation.grand_total",
+   "fieldname": "quotation_grand_total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Quotation Grand Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Evaluation Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "The maximum rating per score is 5\n\n5 - Best Quotation\n4 - 2nd Best Quotation\n3 - 3rd Best Quotation\n2 - 4th Best Quotation\n1 - 5th Best Quotation",
+   "fieldname": "score_guide",
+   "fieldtype": "Small Text",
+   "label": "Score Guide",
+   "read_only": 1
+  },
+  {
+   "fieldname": "evaluation_criteria_section",
+   "fieldtype": "Section Break",
+   "label": "Evaluation Criteria"
+  },
+  {
+   "default": "Price Competitiveness",
+   "fieldname": "price_competitiveness",
+   "fieldtype": "Link",
+   "label": "Price Competitiveness",
+   "options": "Procurement Criteria",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Capacity to Deliver",
+   "fieldname": "capacity_to_deliver",
+   "fieldtype": "Link",
+   "label": "Capacity to Deliver",
+   "options": "Procurement Criteria",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Delivery Time",
+   "fieldname": "delivery_time",
+   "fieldtype": "Link",
+   "label": "Delivery Time",
+   "options": "Procurement Criteria",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "criteria_4",
+   "fieldtype": "Link",
+   "label": "Criteria 4",
+   "options": "Procurement Criteria"
+  },
+  {
+   "fieldname": "criteria_5",
+   "fieldtype": "Link",
+   "label": "Criteria 5",
+   "options": "Procurement Criteria"
+  },
+  {
+   "fieldname": "criteria_6",
+   "fieldtype": "Link",
+   "label": "Criteria 6",
+   "options": "Procurement Criteria"
+  },
+  {
+   "fieldname": "criteria_7",
+   "fieldtype": "Link",
+   "label": "Criteria 7",
+   "options": "Procurement Criteria"
+  },
+  {
+   "fieldname": "criteria_8",
+   "fieldtype": "Link",
+   "label": "Criteria 8",
+   "options": "Procurement Criteria"
+  },
+  {
+   "fieldname": "criteria_9",
+   "fieldtype": "Link",
+   "label": "Criteria 9",
+   "options": "Procurement Criteria"
+  },
+  {
+   "fieldname": "criteria_10",
+   "fieldtype": "Link",
+   "label": "Criteria 10",
+   "options": "Procurement Criteria"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Score from 1 to 5",
+   "fieldname": "score_1",
+   "fieldtype": "Float",
+   "label": "Score",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "score_2",
+   "fieldtype": "Float",
+   "label": "Score",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "score_3",
+   "fieldtype": "Float",
+   "label": "Score",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "score_4",
+   "fieldtype": "Float",
+   "label": "Score",
+   "mandatory_depends_on": "eval:doc.criteria_4"
+  },
+  {
+   "fieldname": "score_5",
+   "fieldtype": "Float",
+   "label": "Score",
+   "mandatory_depends_on": "eval:doc.criteria_5"
+  },
+  {
+   "fieldname": "score_6",
+   "fieldtype": "Float",
+   "label": "Score",
+   "mandatory_depends_on": "eval:doc.criteria_6"
+  },
+  {
+   "fieldname": "score_7",
+   "fieldtype": "Float",
+   "label": "Score",
+   "mandatory_depends_on": "eval:doc.criteria_7"
+  },
+  {
+   "fieldname": "score_8",
+   "fieldtype": "Float",
+   "label": "Score",
+   "mandatory_depends_on": "eval:doc.criteria_8"
+  },
+  {
+   "fieldname": "score_9",
+   "fieldtype": "Float",
+   "label": "Score",
+   "mandatory_depends_on": "eval:doc.criteria_9"
+  },
+  {
+   "fieldname": "score_10",
+   "fieldtype": "Float",
+   "label": "Score",
+   "mandatory_depends_on": "eval:doc.criteria_10"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 14:15:30.872209",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Procurement Evaluation",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

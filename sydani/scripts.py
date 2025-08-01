@@ -324,7 +324,13 @@ def get_gl_entries_balance(bank_account, from_date, to_date):
 
     # If balance_date is on or earlier than from_date, add total_deposits and total_withdrawals
     from_date_obj = datetime.strptime(from_date, "%Y-%m-%d").date()
+    # from_date_str = from_date_obj.strftime("%Y-%m-%d") 
+
+    from_date_minus_1 = from_date_obj - timedelta(days=1)
+    from_date_str = from_date_minus_1.strftime("%Y-%m-%d")
+
     to_date_obj = datetime.strptime(to_date, "%Y-%m-%d").date()
+    to_date_str = from_date_obj.strftime("%Y-%m-%d") 
 
     # if balance_date and balance_date <= from_date:
     if balance_date and balance_date <= from_date_obj:
@@ -348,7 +354,7 @@ def get_gl_entries_balance(bank_account, from_date, to_date):
         "Bank Transaction",
         filters={
             "bank_account": bank_account,
-            "date": ["<=", from_date],
+            "date": ["<=", from_date_str],
             "docstatus": 1,
         },
         fields=["deposit", "withdrawal"],
@@ -386,7 +392,7 @@ def get_gl_entries_balance(bank_account, from_date, to_date):
         "GL Entry",
         filters={
             "account": account,
-            "posting_date": ["<=", from_date],
+            "posting_date": ["<=", from_date_str],
             "is_cancelled": 0,
         },
         fields=["debit_in_account_currency", "credit_in_account_currency"],

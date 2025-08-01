@@ -1,0 +1,148 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: {title}",
+ "creation": "2024-09-11 11:18:12.313108",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "upload_details_section",
+  "employee",
+  "column_break_2",
+  "thematic_area",
+  "year_published",
+  "file_details",
+  "title",
+  "file_summary",
+  "attachments",
+  "url",
+  "column_break_12",
+  "attach_file",
+  "updates_section",
+  "updates",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "upload_details_section",
+   "fieldtype": "Section Break",
+   "label": "Upload Details"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Created By",
+   "options": "Employee",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Submitted\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "thematic_area",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Thematic Area",
+   "options": "HR Thematic Area",
+   "reqd": 1
+  },
+  {
+   "fieldname": "year_published",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Year Uploaded",
+   "options": "Fiscal Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "file_details",
+   "fieldtype": "Section Break",
+   "label": "File Details"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "file_summary",
+   "fieldtype": "Text Editor",
+   "label": "Executive Summary",
+   "reqd": 1
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "Web Link",
+   "options": "URL",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attach_file",
+   "fieldtype": "Attach",
+   "label": "Attach File"
+  },
+  {
+   "fieldname": "updates_section",
+   "fieldtype": "Section Break",
+   "label": "Updates"
+  },
+  {
+   "fieldname": "updates",
+   "fieldtype": "Table",
+   "label": "Updates",
+   "options": "HR Playbook Update"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "HR Playbook",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:22:19.589551",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "HR Playbook",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

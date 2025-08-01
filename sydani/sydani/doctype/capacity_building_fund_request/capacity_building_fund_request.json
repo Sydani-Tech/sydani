@@ -1,0 +1,662 @@
+{
+ "actions": [],
+ "autoname": "format:{employee} - {YYYY} - {#####}",
+ "creation": "2025-04-24 09:47:31.310942",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "company",
+  "department",
+  "column_break_2",
+  "approving_manager",
+  "approver_name",
+  "date",
+  "request_status",
+  "amended_from",
+  "feedback_section",
+  "how_did_you_utilize_the_last_capacity_building_fund",
+  "how_has_it_benefited_your_work",
+  "column_break_12",
+  "challenges_faced",
+  "training_details_section",
+  "learning_theme",
+  "institution",
+  "coursetraining_title",
+  "link",
+  "estimated_start_date",
+  "estimated_end_date",
+  "learning_format",
+  "column_break_8",
+  "relevance_to_current_role",
+  "financials_section",
+  "request_type",
+  "used_funds",
+  "available_funds",
+  "supporting_documents",
+  "status",
+  "column_break_17",
+  "base_currency",
+  "currency",
+  "exchange_rate",
+  "cost_of_programme",
+  "cost_of_programme_in_naira",
+  "cost",
+  "cost_in_naira",
+  "cost_of_programme2",
+  "balance",
+  "eligibility",
+  "section_break_25",
+  "do_you_want_to_create_a_loan_request",
+  "monthly_net_salary",
+  "maximum_loan_obtainable",
+  "monthly_loan_repayment",
+  "column_break_32",
+  "requesting_loan_amount",
+  "months_to_repay_loan",
+  "first_repayment_date",
+  "create_loan_request",
+  "loan_request",
+  "loan_amount",
+  "payment_details_section",
+  "payment_type",
+  "bank_name",
+  "bank_code",
+  "column_break_41",
+  "account_number",
+  "account_name",
+  "post_training_details_section",
+  "have_you_completed_this_training",
+  "completion_date",
+  "certificate_earned",
+  "data_53",
+  "training_outcomesummary",
+  "approvals_section",
+  "validate",
+  "validated_by",
+  "validated_on",
+  "column_break_62",
+  "approve",
+  "approved_by",
+  "approved_on",
+  "column_break_66",
+  "reject",
+  "reason_for_rejection",
+  "rejected_by",
+  "rejected_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approving_manager",
+   "fieldtype": "Link",
+   "label": "Approver(Your Manager)",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "approving_manager.full_name",
+   "fieldname": "approver_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Approver Name"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "request_status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Request Status",
+   "options": "Draft\nSubmitted\nApproved\nValidated\nCompleted\nCancelled\nReturned\nRejected",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Capacity Building Fund Request",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.used_funds > 0",
+   "fieldname": "feedback_section",
+   "fieldtype": "Section Break",
+   "label": "Feedback"
+  },
+  {
+   "description": "Describe how the funds were used \u2014 course attended, tools purchased, etc",
+   "fieldname": "how_did_you_utilize_the_last_capacity_building_fund",
+   "fieldtype": "Small Text",
+   "label": "How did you utilize the last capacity building fund?",
+   "mandatory_depends_on": "eval:doc.used_funds > 0"
+  },
+  {
+   "fieldname": "how_has_it_benefited_your_work",
+   "fieldtype": "Select",
+   "label": "How has it benefited your work?",
+   "mandatory_depends_on": "eval:doc.used_funds > 0",
+   "options": "\nImproved Skill\nNo noticeable change\nStill in progress\nNot applicable"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Any issues with accessing or using the funds",
+   "fieldname": "challenges_faced",
+   "fieldtype": "Small Text",
+   "label": "Challenges Faced"
+  },
+  {
+   "fieldname": "training_details_section",
+   "fieldtype": "Section Break",
+   "label": "Training Details"
+  },
+  {
+   "fieldname": "learning_theme",
+   "fieldtype": "Select",
+   "label": "Learning Type",
+   "options": "\nProfessional Certification\nFormal Learning\nProfessional Training"
+  },
+  {
+   "fieldname": "institution",
+   "fieldtype": "Data",
+   "label": "Institution"
+  },
+  {
+   "fieldname": "coursetraining_title",
+   "fieldtype": "Data",
+   "label": "Course/Training Title"
+  },
+  {
+   "fieldname": "link",
+   "fieldtype": "Data",
+   "label": "Link",
+   "options": "URL"
+  },
+  {
+   "fieldname": "estimated_start_date",
+   "fieldtype": "Date",
+   "label": "Estimated Start Date"
+  },
+  {
+   "fieldname": "estimated_end_date",
+   "fieldtype": "Date",
+   "label": "Estimated End Date"
+  },
+  {
+   "fieldname": "learning_format",
+   "fieldtype": "Select",
+   "label": "Learning Format",
+   "options": "\nIn-person\nRemote\nHybrid"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "(What's the training about? What would it do for you? What would it do for the\u00a0organization?)",
+   "fieldname": "relevance_to_current_role",
+   "fieldtype": "Text Editor",
+   "label": "Justification"
+  },
+  {
+   "fieldname": "financials_section",
+   "fieldtype": "Section Break",
+   "label": "Financials"
+  },
+  {
+   "fieldname": "request_type",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Request Type",
+   "options": "Retirement\nReimbursement"
+  },
+  {
+   "fieldname": "used_funds",
+   "fieldtype": "Currency",
+   "label": "Used Funds",
+   "options": "base_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "available_funds",
+   "fieldtype": "Currency",
+   "label": "Available Funds",
+   "options": "base_currency",
+   "read_only": 1
+  },
+  {
+   "description": "e.g., invitation, invoice, training brochure",
+   "fieldname": "supporting_documents",
+   "fieldtype": "Attach",
+   "label": "Supporting Documents"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Payment Status",
+   "options": "\nPending\nPurchase Order Created\nPurchase Order Approved\nAdvance Payment Entry Created\nAdvance Payment Entry Approved\nPurchase Invoice Created\nPurchase Invoice Approved\nPayment Entry Created\nPayment Entry Approved",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "company.default_currency",
+   "fieldname": "base_currency",
+   "fieldtype": "Link",
+   "label": "Base Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Training Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:(doc.currency !== doc.base_currency)",
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost_of_programme",
+   "fieldtype": "Currency",
+   "label": "Cost of Programme (Training Currency)",
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:(doc.currency !== doc.base_currency)",
+   "fieldname": "cost_of_programme_in_naira",
+   "fieldtype": "Currency",
+   "label": "Cost of Programme in Base Currency",
+   "options": "base_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Amount Requested to Complete the Payment for the Program (Training Currency)",
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:(doc.currency !== doc.base_currency)",
+   "fieldname": "cost_in_naira",
+   "fieldtype": "Currency",
+   "label": "Amount Requested to Complete the Payment for the Program in Base Currency",
+   "options": "base_currency",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "cost_of_programme2",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Cost of programme2",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:(doc.balance > 0)",
+   "fieldname": "balance",
+   "fieldtype": "Currency",
+   "label": "Offset",
+   "options": "base_currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "eligibility",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Eligible",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:(doc.cost_in_naira > doc.available_funds && doc.cost_in_naira <= (doc.available_funds + doc.maximum_loan_obtainable))",
+   "fieldname": "section_break_25",
+   "fieldtype": "Section Break",
+   "label": "Offset Payment Details"
+  },
+  {
+   "fieldname": "do_you_want_to_create_a_loan_request",
+   "fieldtype": "Select",
+   "label": "Do You Want to Create a Loan Request?",
+   "options": "No\nYes"
+  },
+  {
+   "depends_on": "eval:(doc.do_you_want_to_create_a_loan_request ==='Yes') ",
+   "fieldname": "monthly_net_salary",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Monthly Net Salary",
+   "mandatory_depends_on": "eval:(doc.do_you_want_to_create_a_loan_request ==='Yes') \r\n",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:(doc.do_you_want_to_create_a_loan_request ==='Yes') ",
+   "fieldname": "maximum_loan_obtainable",
+   "fieldtype": "Currency",
+   "label": "Maximum Loan Obtainable",
+   "options": "base_currency",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:(doc.do_you_want_to_create_a_loan_request ==='Yes') ",
+   "fieldname": "monthly_loan_repayment",
+   "fieldtype": "Currency",
+   "label": "Monthly Loan Repayment",
+   "options": "base_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:(doc.do_you_want_to_create_a_loan_request ==='Yes') \r\n",
+   "fieldname": "requesting_loan_amount",
+   "fieldtype": "Currency",
+   "label": "Loan Amount Requested",
+   "options": "base_currency",
+   "read_only": 1
+  },
+  {
+   "default": "6",
+   "depends_on": "eval:(doc.do_you_want_to_create_a_loan_request ==='Yes') \r\n",
+   "fieldname": "months_to_repay_loan",
+   "fieldtype": "Int",
+   "label": "Months to Repay Loan",
+   "mandatory_depends_on": "eval:(doc.do_you_want_to_create_a_loan_request ==='Yes') \r\n"
+  },
+  {
+   "depends_on": "eval:(doc.do_you_want_to_create_a_loan_request ==='Yes') \r\n",
+   "fieldname": "first_repayment_date",
+   "fieldtype": "Date",
+   "label": "First Repayment Date",
+   "mandatory_depends_on": "eval:(doc.do_you_want_to_create_a_loan_request ==='Yes') \r\n"
+  },
+  {
+   "depends_on": "eval:(doc.do_you_want_to_create_a_loan_request ==='Yes' && !doc.loan_request)",
+   "fieldname": "create_loan_request",
+   "fieldtype": "Button",
+   "label": "Create Loan Request"
+  },
+  {
+   "depends_on": "eval:(doc.do_you_want_to_create_a_loan_request ==='Yes')",
+   "fieldname": "loan_request",
+   "fieldtype": "Link",
+   "label": "Loan Request",
+   "options": "Loan Application",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "loan_request.loan_amount",
+   "fieldname": "loan_amount",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Loan Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_details_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Details"
+  },
+  {
+   "fieldname": "payment_type",
+   "fieldtype": "Select",
+   "label": "Payment Type",
+   "options": "To provider\nReimbursement"
+  },
+  {
+   "depends_on": "eval:(doc.payment_type === \"Reimbursement\")",
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "mandatory_depends_on": "eval:(doc.payment_type === \"Reimbursement\")",
+   "options": "Flutterwave Nigerian Banks"
+  },
+  {
+   "depends_on": "eval:(doc.payment_type === \"Reimbursement\")",
+   "fetch_from": "bank_name.code",
+   "fieldname": "bank_code",
+   "fieldtype": "Data",
+   "label": "Bank Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_41",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:(doc.payment_type === \"Reimbursement\")",
+   "fieldname": "account_number",
+   "fieldtype": "Data",
+   "label": "Account Number",
+   "mandatory_depends_on": "eval:(doc.payment_type === \"Reimbursement\")"
+  },
+  {
+   "depends_on": "eval:(doc.payment_type === \"Reimbursement\")",
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "label": "Account Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:(doc.workflow_state === \"Approved\")",
+   "fieldname": "post_training_details_section",
+   "fieldtype": "Section Break",
+   "label": "Post Training Details"
+  },
+  {
+   "default": "Yes",
+   "fieldname": "have_you_completed_this_training",
+   "fieldtype": "Select",
+   "label": "Have you completed this Training?",
+   "mandatory_depends_on": "eval:(doc.workflow_state === \"Approved\")",
+   "options": "No\nYes"
+  },
+  {
+   "fieldname": "completion_date",
+   "fieldtype": "Date",
+   "label": "Completion Date",
+   "mandatory_depends_on": "eval:(doc.workflow_state === \"Approved\" &&\n    doc.have_you_completed_this_training === \"Yes\")"
+  },
+  {
+   "fieldname": "certificate_earned",
+   "fieldtype": "Attach",
+   "label": "Certificate Earned",
+   "mandatory_depends_on": "eval:(doc.workflow_state === \"Approved\" &&\n    doc.have_you_completed_this_training === \"Yes\")"
+  },
+  {
+   "fieldname": "data_53",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "training_outcomesummary",
+   "fieldtype": "Small Text",
+   "label": "Training Outcome/Summary",
+   "mandatory_depends_on": "eval:(doc.workflow_state === \"Approved\" &&\n    doc.have_you_completed_this_training === \"Yes\")"
+  },
+  {
+   "depends_on": "eval:(doc.workflow_state === \"Validated\")||\n(doc.workflow_state === \"Approved\")||\n(doc.workflow_state === \"Submitted\")||\n(doc.workflow_state === \"Rejected\")",
+   "fieldname": "approvals_section",
+   "fieldtype": "Section Break",
+   "label": "Approvals"
+  },
+  {
+   "default": "0",
+   "fieldname": "validate",
+   "fieldtype": "Check",
+   "label": "Validate",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "validated_by",
+   "fieldtype": "Data",
+   "label": "Validated By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "validated_on",
+   "fieldtype": "Date",
+   "label": "Validated On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_62",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:(doc.workflow_state === \"Validated\")",
+   "fieldname": "approve",
+   "fieldtype": "Check",
+   "label": "Approve",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Date",
+   "label": "Approved On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_66",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "reject",
+   "fieldtype": "Check",
+   "label": "Reject",
+   "permlevel": 3
+  },
+  {
+   "depends_on": "eval:(doc.reject === 1)",
+   "fieldname": "reason_for_rejection",
+   "fieldtype": "Select",
+   "label": "Reason for Rejection",
+   "mandatory_depends_on": "eval:(doc.reject === 1)",
+   "options": "\nNon-Alignment with Current Work Stream\nLack of Verified Provider\nDuplicate or Redundant Training\nUnconfirmed/Probationary staff\nDisciplinary/ Performance\u00a0issues",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "rejected_by",
+   "fieldtype": "Data",
+   "label": "Rejected By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rejected_on",
+   "fieldtype": "Date",
+   "label": "Rejected On",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:43.987496",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Capacity Building Fund Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

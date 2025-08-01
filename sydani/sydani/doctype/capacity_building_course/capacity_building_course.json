@@ -1,0 +1,160 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{course_name}",
+ "creation": "2023-02-28 17:57:35.700484",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "course_details_section",
+  "course_name",
+  "course_source",
+  "course_url",
+  "course_description",
+  "recommended_course_timelines",
+  "column_break_5",
+  "employee_cadre",
+  "specific_competency",
+  "broad_competency",
+  "learning_outcomes",
+  "competency_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "course_details_section",
+   "fieldtype": "Section Break",
+   "label": "Course Details"
+  },
+  {
+   "fieldname": "course_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Course Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "course_source",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Course Source",
+   "options": "Course Source",
+   "reqd": 1
+  },
+  {
+   "fieldname": "course_url",
+   "fieldtype": "Data",
+   "label": "Course URL",
+   "options": "URL",
+   "reqd": 1
+  },
+  {
+   "fieldname": "course_description",
+   "fieldtype": "Small Text",
+   "label": "Course Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "recommended_course_timelines",
+   "fieldtype": "Duration",
+   "label": "Recommended Course Timelines",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employee_cadre",
+   "fieldtype": "Link",
+   "label": "Employee Cadre",
+   "options": "Designation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "specific_competency",
+   "fieldtype": "Link",
+   "label": "Specific Competency",
+   "options": "Specific Competency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "broad_competency",
+   "fieldtype": "Link",
+   "label": "Broad Competency",
+   "options": "Broad Competency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "learning_outcomes",
+   "fieldtype": "Small Text",
+   "label": "Learning Outcomes",
+   "reqd": 1
+  },
+  {
+   "fieldname": "competency_type",
+   "fieldtype": "Link",
+   "label": "Competency Type",
+   "options": "Competency Type",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 14:18:53.108744",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Capacity Building Course",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Capacity Building Team",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "select": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

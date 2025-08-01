@@ -1,0 +1,260 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: {vendor}-{vendor_evaluation_period}",
+ "creation": "2024-07-16 12:34:42.264201",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor_details_section",
+  "vendor_evaluation_period",
+  "column_break_22",
+  "vendor",
+  "evaluation_section",
+  "amended_from",
+  "contract_compliance_section",
+  "adherence_assurance",
+  "column_break_9",
+  "dispute_resolution",
+  "timeliness_section",
+  "deadline_adherence",
+  "request_responsiveness",
+  "column_break_14",
+  "proactive_communication",
+  "problem_resolution_section",
+  "mitigation_mastery",
+  "column_break_18",
+  "collaborative_resolution",
+  "communication_and_responsiveness_section",
+  "open_communication",
+  "responsiveness",
+  "column_break_24",
+  "clear_communication",
+  "section_break_21",
+  "comments",
+  "total_average_section",
+  "score",
+  "column_break_29",
+  "total_score_percentage"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor_details_section",
+   "fieldtype": "Section Break",
+   "label": "Vendor Details"
+  },
+  {
+   "fieldname": "vendor_evaluation_period",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Vendor Evaluation Period",
+   "options": "Vendor Evaluation Period",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Company Name",
+   "options": "Supplier",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "evaluation_section",
+   "fieldtype": "Section Break",
+   "label": "Evaluation"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sydani Vendor Evaluation",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "contract_compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Compliance"
+  },
+  {
+   "columns": 1,
+   "description": "Sydani's adherence to agreed-upon terms",
+   "fieldname": "adherence_assurance",
+   "fieldtype": "Rating",
+   "label": "Adherence Assurance",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Effectiveness in addressing disputes related to the contract",
+   "fieldname": "dispute_resolution",
+   "fieldtype": "Rating",
+   "label": "Dispute Resolution",
+   "reqd": 1
+  },
+  {
+   "fieldname": "timeliness_section",
+   "fieldtype": "Section Break",
+   "label": "Timeliness"
+  },
+  {
+   "description": "Meeting payment deadlines",
+   "fieldname": "deadline_adherence",
+   "fieldtype": "Rating",
+   "label": "Deadline Adherence",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "description": "Overall performance in making requests within the agreed timeline",
+   "fieldname": "request_responsiveness",
+   "fieldtype": "Rating",
+   "label": "Request Responsiveness",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Providing proactive information on potential changes or updates in a timely manner",
+   "fieldname": "proactive_communication",
+   "fieldtype": "Rating",
+   "label": "Proactive Communication",
+   "reqd": 1
+  },
+  {
+   "fieldname": "problem_resolution_section",
+   "fieldtype": "Section Break",
+   "label": "Problem Resolution"
+  },
+  {
+   "description": "Extent to which Sydani mitigated issues, demonstrating a proactive problem-solving approach",
+   "fieldname": "mitigation_mastery",
+   "fieldtype": "Rating",
+   "label": "Mitigation Mastery",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Effectiveness in problem resolution during collaboration",
+   "fieldname": "collaborative_resolution",
+   "fieldtype": "Rating",
+   "label": "Collaborative Resolution",
+   "reqd": 1
+  },
+  {
+   "fieldname": "communication_and_responsiveness_section",
+   "fieldtype": "Section Break",
+   "label": "Communication and Responsiveness"
+  },
+  {
+   "description": "Openness and transparency in communication",
+   "fieldname": "open_communication",
+   "fieldtype": "Rating",
+   "label": "Open Communication",
+   "reqd": 1
+  },
+  {
+   "description": "Responsiveness in addressing queries, concerns, or issues",
+   "fieldname": "responsiveness",
+   "fieldtype": "Rating",
+   "label": "Responsiveness",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Clarity of communication received from Sydani",
+   "fieldname": "clear_communication",
+   "fieldtype": "Rating",
+   "label": "Clear Communication",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Small Text",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "total_average_section",
+   "fieldtype": "Section Break",
+   "label": "Total Average"
+  },
+  {
+   "fieldname": "score",
+   "fieldtype": "Rating",
+   "label": "Total Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_score_percentage",
+   "fieldtype": "Data",
+   "label": "Total Score Percentage",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:58:06.033703",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Sydani Vendor Evaluation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

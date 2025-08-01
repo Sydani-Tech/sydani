@@ -1,0 +1,245 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-12-18 10:17:54.518928",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "requesting_company_details",
+  "employee",
+  "subsidiary_requesting_services",
+  "project",
+  "approving_manager",
+  "column_break_4",
+  "receiving_subsidiary",
+  "type_of_service_required",
+  "date_of_request",
+  "proposed_delivery_date",
+  "attach_11",
+  "amended_from",
+  "project_details",
+  "overview",
+  "objectives",
+  "present_process",
+  "column_break_16",
+  "proposed_process",
+  "in_scope_items",
+  "out_of_scope_items",
+  "deliverables_section",
+  "expected_deliverables",
+  "fetch_deliverables",
+  "agreed_deliverables",
+  "cost_implications_section",
+  "personnel_cost",
+  "fte_total_cost",
+  "are_there_other_costs_to_be_incurred",
+  "other_costs",
+  "total",
+  "total_cost_incurred"
+ ],
+ "fields": [
+  {
+   "fieldname": "requesting_company_details",
+   "fieldtype": "Section Break",
+   "label": "General Information"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "subsidiary_requesting_services",
+   "fieldtype": "Link",
+   "label": "Requesting Subsidiary",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "approving_manager",
+   "fieldtype": "Link",
+   "label": "Approving Manager",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "receiving_subsidiary",
+   "fieldtype": "Link",
+   "label": "Receiving Subsidiary",
+   "options": "Company"
+  },
+  {
+   "fieldname": "type_of_service_required",
+   "fieldtype": "Link",
+   "label": "Type of Service Required",
+   "options": "Services Requested by Subsidiaries"
+  },
+  {
+   "fieldname": "date_of_request",
+   "fieldtype": "Date",
+   "label": "Date of Request",
+   "read_only": 1
+  },
+  {
+   "fieldname": "proposed_delivery_date",
+   "fieldtype": "Date",
+   "label": "Proposed Delivery Date"
+  },
+  {
+   "fieldname": "attach_11",
+   "fieldtype": "Attach"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Project Request Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "project_details",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "fieldname": "overview",
+   "fieldtype": "Small Text",
+   "label": "Overview"
+  },
+  {
+   "fieldname": "objectives",
+   "fieldtype": "Small Text",
+   "label": "Objectives"
+  },
+  {
+   "fieldname": "present_process",
+   "fieldtype": "Small Text",
+   "label": "Present Process"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "proposed_process",
+   "fieldtype": "Small Text",
+   "label": "Proposed Process"
+  },
+  {
+   "fieldname": "in_scope_items",
+   "fieldtype": "Small Text",
+   "label": "In-Scope Items"
+  },
+  {
+   "fieldname": "out_of_scope_items",
+   "fieldtype": "Small Text",
+   "label": "Out-of-Scope Items"
+  },
+  {
+   "fieldname": "deliverables_section",
+   "fieldtype": "Section Break",
+   "label": "Deliverables"
+  },
+  {
+   "fieldname": "expected_deliverables",
+   "fieldtype": "Table",
+   "label": "Expected Deliverables",
+   "options": "Sydani Tech Project Deliverables"
+  },
+  {
+   "fieldname": "fetch_deliverables",
+   "fieldtype": "Button",
+   "label": "Fetch Deliverables"
+  },
+  {
+   "fieldname": "agreed_deliverables",
+   "fieldtype": "Table",
+   "label": "Agreed Deliverables",
+   "options": "Feasible deliverables"
+  },
+  {
+   "fieldname": "cost_implications_section",
+   "fieldtype": "Section Break",
+   "label": "Cost Implications"
+  },
+  {
+   "fieldname": "personnel_cost",
+   "fieldtype": "Table",
+   "label": "Personnel Cost",
+   "options": "Project FTE Budget"
+  },
+  {
+   "fieldname": "fte_total_cost",
+   "fieldtype": "Float",
+   "label": "Total Personnel Cost",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "are_there_other_costs_to_be_incurred",
+   "fieldtype": "Check",
+   "label": "Are there other costs to be incurred? "
+  },
+  {
+   "depends_on": "eval:doc.are_there_other_costs_to_be_incurred === 1 ",
+   "fieldname": "other_costs",
+   "fieldtype": "Table",
+   "label": "Other Costs",
+   "mandatory_depends_on": "eval:doc.are_there_other_costs_to_be_incurred === 1 ",
+   "options": "Request Budget"
+  },
+  {
+   "depends_on": "eval:doc.are_there_other_costs_to_be_incurred === 1 ",
+   "fieldname": "total",
+   "fieldtype": "Float",
+   "label": "Total ",
+   "mandatory_depends_on": "eval:doc.are_there_other_costs_to_be_incurred === 1 ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_cost_incurred",
+   "fieldtype": "Float",
+   "label": "Total Cost Incurred",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:42.358666",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Project Request Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

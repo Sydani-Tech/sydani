@@ -1,0 +1,213 @@
+{
+ "actions": [],
+ "creation": "2024-01-29 14:08:24.320167",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_details_section",
+  "employee",
+  "department",
+  "column_break_5",
+  "company",
+  "present_cadre",
+  "payment_details_section",
+  "month",
+  "year",
+  "monthly_gross_pay",
+  "pay_for_the_month",
+  "column_break_11",
+  "start_date",
+  "end_date",
+  "number_of_days_present",
+  "number_of_working_days",
+  "fte_distribution_table_section",
+  "fte_distribution",
+  "total_allocation",
+  "timesheet",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_details_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Details"
+  },
+  {
+   "default": "      ",
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "present_cadre",
+   "fieldtype": "Link",
+   "label": "Present Cadre",
+   "options": "Designation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_details_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Details"
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Month",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember",
+   "reqd": 1
+  },
+  {
+   "default": "      ",
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Year",
+   "options": "Fiscal Year",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "designation.monthly_gross_pay",
+   "fieldname": "monthly_gross_pay",
+   "fieldtype": "Currency",
+   "label": "Monthly Gross Pay",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pay_for_the_month",
+   "fieldtype": "Currency",
+   "label": "Pay for the Month",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "number_of_days_present",
+   "fieldtype": "Int",
+   "label": "Number of Days Present",
+   "reqd": 1
+  },
+  {
+   "fieldname": "number_of_working_days",
+   "fieldtype": "Int",
+   "label": "Number of Working Days",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fte_distribution_table_section",
+   "fieldtype": "Section Break",
+   "label": "FTE Distribution Table"
+  },
+  {
+   "fieldname": "fte_distribution",
+   "fieldtype": "Table",
+   "label": "FTE Distribution",
+   "options": "FTE Distribution"
+  },
+  {
+   "fieldname": "total_allocation",
+   "fieldtype": "Percent",
+   "label": "Total Allocation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "timesheet",
+   "fieldtype": "Link",
+   "label": "Timesheet",
+   "options": "Timesheet",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Employee FTE Allocation",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:40.493179",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Employee FTE Allocation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lead Finance",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

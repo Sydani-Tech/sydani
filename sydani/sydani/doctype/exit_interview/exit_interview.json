@@ -1,0 +1,341 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{employee_name}",
+ "creation": "2024-02-28 12:02:35.707992",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_details",
+  "employee_name",
+  "current_position",
+  "supervisor_name",
+  "column_break_4",
+  "employment_date",
+  "employment_end_date",
+  "section_break_7",
+  "influencing_factor",
+  "resignation_decision_date",
+  "met_supervisor",
+  "column_break_12",
+  "recommendation",
+  "contributing_reason",
+  "section_break_32",
+  "sydani_experience",
+  "suggestions",
+  "sydani_recommendation",
+  "not_recommend",
+  "reapply",
+  "not_reapply",
+  "ratings",
+  "training_received",
+  "relationship_with_manager",
+  "relationship_with_colleagues",
+  "salary_expectation",
+  "section_break_22",
+  "benefits_package",
+  "workload_fairness",
+  "job_satisfaction",
+  "tools_and_equipment",
+  "data_24",
+  "role_clarity",
+  "input_level",
+  "please_add_any_additional_comments_section",
+  "additional_comments",
+  "employees_signature_section",
+  "signature",
+  "signature_employee_name",
+  "date_signed",
+  "workflow_state",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_details",
+   "fieldtype": "Section Break",
+   "label": "Employee's Details"
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee_name.designation",
+   "fieldname": "current_position",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Current Position",
+   "options": "Designation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supervisor_name",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Supervisor Name",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee_name.date_of_joining",
+   "fieldname": "employment_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Employment Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employment_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Employment End Date"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Employee's Reason(s) for Departure"
+  },
+  {
+   "fieldname": "influencing_factor",
+   "fieldtype": "Text Editor",
+   "label": "Please briefly explain the factor(s) that had the most influence on your decision:",
+   "reqd": 1
+  },
+  {
+   "fieldname": "resignation_decision_date",
+   "fieldtype": "Select",
+   "label": " How long ago did you make your decision to resign?",
+   "options": "\n1-2 months ago\n3-5 months ago\n6-9 months ago\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "met_supervisor",
+   "fieldtype": "Select",
+   "label": "Did you discuss this matter with your supervisor/manager before deciding to resign?",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recommendation",
+   "fieldtype": "Text Editor",
+   "label": "What could have been done to prevent you from leaving?",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contributing_reason",
+   "fieldtype": "Table MultiSelect",
+   "label": "Please indicate which of the reason(s) below contributed to your decision to resign",
+   "options": "Reasons for leaving",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_32",
+   "fieldtype": "Section Break",
+   "label": "Employee's Sydani Experience"
+  },
+  {
+   "fieldname": "sydani_experience",
+   "fieldtype": "Text Editor",
+   "label": "What did you enjoy most about your employment with Sydani?",
+   "reqd": 1
+  },
+  {
+   "fieldname": "suggestions",
+   "fieldtype": "Text Editor",
+   "label": "In what specific areas do you think that Sydani needs significant improvement?",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sydani_recommendation",
+   "fieldtype": "Select",
+   "label": "Based on your experiences here, would you recommend Sydani as a potential employer to your friends, relatives, etc.?",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.sydani_recommendation==\"No\"",
+   "fieldname": "not_recommend",
+   "fieldtype": "Text Editor",
+   "label": "If no, please briefly explain"
+  },
+  {
+   "fieldname": "reapply",
+   "fieldtype": "Select",
+   "label": "Would you reapply to Sydani if an opportunity arises in the future?",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.reapply==\"No\"",
+   "fieldname": "not_reapply",
+   "fieldtype": "Text Editor",
+   "label": "If no, please briefly explain"
+  },
+  {
+   "fieldname": "ratings",
+   "fieldtype": "Section Break",
+   "label": "Rate your Sydani experience on a scale of 1 to 5 (with 1 being the lowest and 5 being the highest)"
+  },
+  {
+   "fieldname": "training_received",
+   "fieldtype": "Rating",
+   "label": "Training received for your position(s) ",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "relationship_with_manager",
+   "fieldtype": "Rating",
+   "label": "Work relationship with your current Manager",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "relationship_with_colleagues",
+   "fieldtype": "Rating",
+   "label": "Work relationship with colleagues",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "salary_expectation",
+   "fieldtype": "Rating",
+   "label": "Salary for your position",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "benefits_package",
+   "fieldtype": "Rating",
+   "label": "Benefits package",
+   "reqd": 1
+  },
+  {
+   "fieldname": "workload_fairness",
+   "fieldtype": "Rating",
+   "label": "Fairness of workload for your position",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "job_satisfaction",
+   "fieldtype": "Rating",
+   "label": "Overall job satisfaction",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tools_and_equipment",
+   "fieldtype": "Rating",
+   "label": "Tools and equipment provided",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "data_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "role_clarity",
+   "fieldtype": "Rating",
+   "label": "Clarity on role/career path in the organization",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "input_level",
+   "fieldtype": "Rating",
+   "label": "Level of input in decisions that affected you",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "please_add_any_additional_comments_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Comments (Optional)"
+  },
+  {
+   "fieldname": "additional_comments",
+   "fieldtype": "Text Editor"
+  },
+  {
+   "fieldname": "employees_signature_section",
+   "fieldtype": "Section Break",
+   "label": "Employee's Signature"
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Signature",
+   "label": "Employee Signature",
+   "reqd": 1
+  },
+  {
+   "fieldname": "signature_employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_signed",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "workflow_state",
+   "fieldtype": "Link",
+   "label": "Workflow State",
+   "options": "Workflow State"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Exit Interview",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:23:59.348991",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Exit Interview",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

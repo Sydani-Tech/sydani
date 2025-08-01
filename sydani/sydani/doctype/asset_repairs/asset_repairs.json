@@ -1,0 +1,64 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-10-31 10:53:55.182765",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "breakdown_date",
+  "repair_date",
+  "faults",
+  "repair_status",
+  "payment_request"
+ ],
+ "fields": [
+  {
+   "fieldname": "breakdown_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Breakdown Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "repair_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Repair Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "faults",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Faults",
+   "reqd": 1
+  },
+  {
+   "default": "Not Repaired",
+   "fieldname": "repair_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Repair Status",
+   "options": "Not Repaired\nPartially Repaired\nFully Repaired\nCannot be Repaired",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_request",
+   "fieldtype": "Link",
+   "label": "Payment Request",
+   "options": "Expense Claim"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 14:15:30.269825",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Asset Repairs",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

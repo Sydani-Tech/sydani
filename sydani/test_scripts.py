@@ -532,8 +532,8 @@ def get_active_employees_without_allocation(month, year, company):
 
 
 def process_attendance_records():
-    start_date = "2024-11-07"
-    end_date = "2024-12-31"
+    start_date = "2025-06-20"
+    end_date = "2025-07-17"
     # Fetch records from Attendance doctype between the given dates where status is Absent
     attendance_records = frappe.get_all(
         "Attendance",
@@ -3394,3 +3394,54 @@ def send_rfq_emails(docname):
 
     return "Emails sent successfully"
 
+def find_inappropriate_field_values():
+    # doctype_name = "Sydani Vendor Evaluation"
+    table_name = "tabSydani Vendor Evaluation"
+    # table_name = "`tab{doctype_name}`".format(doctype_name=doctype_name)
+
+    try:
+        # Use raw SQL to get column names
+        columns = [row[0] for row in frappe.db.sql(
+            f"SHOW COLUMNS FROM `{table_name}`"
+        )]
+    except Exception as e:
+        print(f"❌ Error getting columns: {e}")
+        return
+
+    ignore_fields = {"name", "owner", "creation", "modified", "modified_by", "idx"}
+    target_columns = [col for col in columns if col not in ignore_fields]
+
+    inappropriate_value = "4.00"  # The value to search for
+
+    matches = []
+    for column in target_columns:
+        try:
+            rows = frappe.db.sql(
+                f"""SELECT name, `{column}` FROM `{table_name}` WHERE `{column}` = {inappropriate_value}""",
+                as_dict=True
+            )
+            if rows:
+                matches.append((column, rows))
+        except Exception as e:
+            print(f"⚠️ Error checking column '{column}': {e}")
+
+    for column, rows in matches:
+        print(f"\n🟡 Field: {column}")
+        for row in rows:
+            print(f" - Record: {row['name']} has {inappropriate_value} in {column}")
+
+    if not matches:
+        print("✅ No fields in 'Project Completion' have the value '4.5'.")
+
+# Run this in bench console or wrap in a utils script
+# find_value_1_in_project_completion()
+
+import frappe
+
+def execute():
+    frappe.db.sql("""
+        UPDATE `tabSydani Vendor Evaluation`
+        SET `score` = 4
+        WHERE `score` = '4.40'
+    """)
+    frappe.db.commit()

@@ -1,0 +1,298 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series",
+ "creation": "2024-09-26 09:24:59.433770",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "request_information",
+  "requested_by",
+  "request_date",
+  "due_date",
+  "purpose",
+  "status",
+  "responsible_party",
+  "data_5",
+  "project",
+  "company",
+  "approving_manager",
+  "approving_managers_email",
+  "naming_series",
+  "items_requested",
+  "items",
+  "cost_breakdown_section_section",
+  "cost_breakdown",
+  "currency",
+  "total",
+  "payment_schedule_section_section",
+  "payment_schedule",
+  "vendor_details",
+  "vendors_being_considered",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "request_information",
+   "fieldtype": "Section Break",
+   "label": "Request Information"
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Requested By",
+   "options": "Employee",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Submitted\" ||\ndoc.workflow_state == \"Approved\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Request Date",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Submitted\" ||\ndoc.workflow_state == \"Approved\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Request Delivery Date",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Submitted\"||\ndoc.workflow_state == \"Approved\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Purpose",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Submitted\" ||\ndoc.workflow_state == \"Approved\"",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nDraft\nReturned To Employee\nRejected\nValidated\nSubmitted\nApproved",
+   "read_only": 1
+  },
+  {
+   "fieldname": "responsible_party",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Responsible Party"
+  },
+  {
+   "fieldname": "data_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Submitted\" ||\ndoc.workflow_state == \"Approved\"",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approving_manager",
+   "fieldtype": "Link",
+   "label": "Approver",
+   "options": "User",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Submitted\" ||\ndoc.workflow_state == \"Approved\"",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "approving_manager.full_name",
+   "fieldname": "approving_managers_email",
+   "fieldtype": "Data",
+   "label": "Approving Manager's Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "SG/PR/.YYYY./.MM./",
+   "read_only": 1
+  },
+  {
+   "fieldname": "items_requested",
+   "fieldtype": "Section Break",
+   "label": "Procurement Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Procurement Request Items",
+   "options": "Procurement Request Items",
+   "read_only_depends_on": "eval:doc.workflow_state == \"Submitted\" ||\ndoc.workflow_state == \"Approved By Manager\"||\ndoc.workflow_state == \"Accepted By Procurement\"||\ndoc.workflow_state == \"RFQ Sent\"||\ndoc.workflow_state == \"Purchase Completed\"||\ndoc.workflow_state == \"Goods Received\"||\ndoc.workflow_state == \"Delivery Confirmed\"||\ndoc.workflow_state == \"Validated\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cost_breakdown_section_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Cost Breakdown"
+  },
+  {
+   "fieldname": "cost_breakdown",
+   "fieldtype": "Table",
+   "label": "Cost Breakdown",
+   "options": "Cost Breakdown"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Total",
+   "options": "currency"
+  },
+  {
+   "fieldname": "payment_schedule_section_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Payment Schedule"
+  },
+  {
+   "fieldname": "payment_schedule",
+   "fieldtype": "Table",
+   "label": "Payment Schedule",
+   "options": "Payment Schedule"
+  },
+  {
+   "fieldname": "vendor_details",
+   "fieldtype": "Section Break",
+   "label": "Vendor Details",
+   "permlevel": 2
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "vendors_being_considered",
+   "fieldtype": "Table",
+   "label": "Vendors being considered",
+   "mandatory_depends_on": "eval:doc.workflow_state == \"Approved\"",
+   "options": "Request for Quotation Vendors"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Procurement Request",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "RFQ Response",
+   "link_fieldname": "procurement_request"
+  }
+ ],
+ "modified": "2025-08-01 11:00:41.335287",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Procurement Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 2,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 2,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "purpose",
+ "track_changes": 1
+}

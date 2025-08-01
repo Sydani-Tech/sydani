@@ -1,0 +1,210 @@
+{
+ "actions": [],
+ "autoname": "format:HPV-Vaccine-{full_name}-{#####}",
+ "creation": "2023-06-30 12:30:45.808024",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "application_information_section",
+  "full_name",
+  "state_of_residence",
+  "email_address",
+  "phone_number",
+  "years_of_experience_in_primary_health_care",
+  "curriculum_vitae",
+  "column_break_6",
+  "stakeholders_worked_with",
+  "projects_conducted",
+  "do_you_any_experience_in_new_vaccine_introduction",
+  "how_did_you_hear_about_this",
+  "application_process_section",
+  "application_steps",
+  "interview_date",
+  "interview_time",
+  "interviewer",
+  "interviewer_email",
+  "column_break_16",
+  "assessment_score",
+  "interview_comment",
+  "send_sms",
+  "send_email"
+ ],
+ "fields": [
+  {
+   "fieldname": "application_information_section",
+   "fieldtype": "Section Break",
+   "label": "Application Information"
+  },
+  {
+   "description": "FirstName MiddleName Surname",
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_of_residence",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "State of Residence",
+   "options": "\nAbia\nAdamawa\nBayelsa\nBenue\nEnugu\nJigawa\nTaraba",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email Address",
+   "options": "Email",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "years_of_experience_in_primary_health_care",
+   "fieldtype": "Int",
+   "label": "Years of Experience",
+   "reqd": 1
+  },
+  {
+   "fieldname": "curriculum_vitae",
+   "fieldtype": "Attach",
+   "label": "Curriculum Vitae",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stakeholders_worked_with",
+   "fieldtype": "Small Text",
+   "label": "Mention 5 State Officials at the State PHCB You Have Worked With and the Projects",
+   "reqd": 1
+  },
+  {
+   "fieldname": "projects_conducted",
+   "fieldtype": "Small Text",
+   "label": "Mention Projects Conducted with the State PHCB",
+   "reqd": 1
+  },
+  {
+   "fieldname": "do_you_any_experience_in_new_vaccine_introduction",
+   "fieldtype": "Select",
+   "label": "Do You Any Experience in New Vaccine Introduction",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "how_did_you_hear_about_this",
+   "fieldtype": "Select",
+   "label": "How Did You Hear About This",
+   "options": "\nI Saw An Advert\nI Was Recommended By the State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "application_process_section",
+   "fieldtype": "Section Break",
+   "label": "Application Process"
+  },
+  {
+   "default": "Application Submitted",
+   "fieldname": "application_steps",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Application Steps",
+   "options": "Application Submitted\nCV Screened\nAwaiting Assessment\nAssessment Scheduled\nAssessment Imported\nAssessment Completed\nInterview Scheduled\nInterview Completed\nQualified for Consideration\nContract Accepted\nFailed CV Screening\nFailed Assessment\nFailed Interview\nContract Rejected"
+  },
+  {
+   "fieldname": "interview_date",
+   "fieldtype": "Date",
+   "label": "Interview Date"
+  },
+  {
+   "fieldname": "interview_time",
+   "fieldtype": "Time",
+   "label": "Interview Time"
+  },
+  {
+   "fieldname": "interviewer",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Interviewer",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "interviewer.user_id",
+   "fieldname": "interviewer_email",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Interviewer Email",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assessment_score",
+   "fieldtype": "Percent",
+   "label": "Assessment Score",
+   "precision": "0"
+  },
+  {
+   "fieldname": "interview_comment",
+   "fieldtype": "Small Text",
+   "label": "Interview Comment"
+  },
+  {
+   "default": "Not Sent",
+   "fieldname": "send_sms",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Send SMS",
+   "options": "\nNot Sent\nScheduled\nSent"
+  },
+  {
+   "default": "Not Sent",
+   "fieldname": "send_email",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Send Email",
+   "options": "\nNot Sent\nScheduled\nSent"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 10:28:44.916113",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Recruitment for Statelevel HPV Vaccine Introduction",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "full_name",
+ "track_changes": 1
+}

@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-05-19 00:59:18.334007",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project",
+  "theme",
+  "activity",
+  "deliverable",
+  "due_date",
+  "column_break_5",
+  "hours",
+  "fte",
+  "status",
+  "comment",
+  "done",
+  "not_deprioritized"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "theme",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Theme",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "activity",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Activity",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "deliverable",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Deliverable",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hours",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Time (in hours)",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "fte",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Daily FTE",
+   "precision": "0",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "default": "Not Due",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Not Due\nNot Done\nDone\nDeprioritized",
+   "reqd": 1
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "mandatory_depends_on": "eval:doc.status == 'Deprioritized'"
+  },
+  {
+   "default": "0",
+   "fieldname": "done",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Done"
+  },
+  {
+   "default": "1",
+   "fieldname": "not_deprioritized",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Not Deprioritized"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:28:44.077946",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Work Plan Details End of Week",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-05 16:35:18.798980",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "ordered_quantity",
+  "received_quantity",
+  "shortage",
+  "rejected_quantity",
+  "accepted_quantity",
+  "comments"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "ordered_quantity",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Ordered Quantity",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "received_quantity",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Received Quantity",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "shortage",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Shortage",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "rejected_quantity",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Rejected Quantity",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "accepted_quantity",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Accepted Quantity",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "comments",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Comments",
+   "options": "\nVery Poor\nPoor\nSatisfactory\nGood\nVery God",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 12:06:45.386342",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Good Received Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

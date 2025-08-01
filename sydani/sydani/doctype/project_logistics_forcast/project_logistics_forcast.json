@@ -1,0 +1,103 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-02-20 12:08:56.357710",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "trip_information_section",
+  "project_name",
+  "project_lead",
+  "week_beginning",
+  "amended_from",
+  "financial_requirements_section",
+  "travel_requirements_for_staff_section",
+  "travel_requirements_for_partners_section",
+  "logistics_requirements_section"
+ ],
+ "fields": [
+  {
+   "fieldname": "trip_information_section",
+   "fieldtype": "Section Break",
+   "label": "Trip Information"
+  },
+  {
+   "fieldname": "project_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project Name",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project_lead",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Project Lead",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "week_beginning",
+   "fieldtype": "Date",
+   "label": "Week Beginning",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Project Logistics Forcast",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "financial_requirements_section",
+   "fieldtype": "Section Break",
+   "label": "Financial Requirements"
+  },
+  {
+   "fieldname": "travel_requirements_for_staff_section",
+   "fieldtype": "Section Break",
+   "label": "Travel Requirements for Staff"
+  },
+  {
+   "fieldname": "travel_requirements_for_partners_section",
+   "fieldtype": "Section Break",
+   "label": "Travel Requirements for Partners"
+  },
+  {
+   "fieldname": "logistics_requirements_section",
+   "fieldtype": "Section Break",
+   "label": "Logistics Requirements"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 14:18:53.739251",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Project Logistics Forcast",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

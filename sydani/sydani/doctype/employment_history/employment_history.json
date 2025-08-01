@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-03-25 05:03:23.702228",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employer_name",
+  "position_held",
+  "responsibilities",
+  "industry",
+  "from",
+  "to"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "employer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employer Name",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "position_held",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Position Held",
+   "reqd": 1
+  },
+  {
+   "columns": 3,
+   "fieldname": "responsibilities",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Responsibilities/Achievements",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "industry",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Industry",
+   "options": "Agriculture\nAviation\nBroadcasting\nCivil service\nCommerce\nConstructing\nConsulting\nEducation\nEmbassy\nEngineering\nEstate management\nFinance\nFMCG\nHealth\nHospitality\nIT\nMilitary\nNGO\nOil and Gas\nSport\nTelecommunications\nTransport\nTourism\nOthers",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "from",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "to",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 14:15:31.126581",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Employment History",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

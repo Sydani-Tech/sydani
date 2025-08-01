@@ -1,0 +1,193 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{employee} - {ps_session}",
+ "creation": "2023-03-30 06:38:23.261096",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_details_section",
+  "employee",
+  "ps_group",
+  "column_break_4",
+  "present_cadre",
+  "department",
+  "company",
+  "ps_details_section",
+  "ps_session",
+  "ps_date",
+  "column_break_8",
+  "start_time",
+  "entry_time",
+  "column_break_10",
+  "end_time",
+  "exit_time",
+  "attendance_section",
+  "status",
+  "punctuality",
+  "column_break_17",
+  "early_exit"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_details_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Details"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.ps_group",
+   "fetch_if_empty": 1,
+   "fieldname": "ps_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "PS Group",
+   "options": "PS Group"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "present_cadre",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Present Cadre",
+   "options": "Designation"
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "ps_details_section",
+   "fieldtype": "Section Break",
+   "label": "PS Details"
+  },
+  {
+   "fieldname": "ps_session",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "PS Session",
+   "options": "PS Report",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "ps_session.ps_date",
+   "fieldname": "ps_date",
+   "fieldtype": "Date",
+   "in_standard_filter": 1,
+   "label": "PS Date"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "label": "Start Time"
+  },
+  {
+   "fieldname": "entry_time",
+   "fieldtype": "Time",
+   "label": "Entry Time"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Time",
+   "label": "End Time"
+  },
+  {
+   "fieldname": "exit_time",
+   "fieldtype": "Time",
+   "label": "Exit Time"
+  },
+  {
+   "fieldname": "attendance_section",
+   "fieldtype": "Section Break",
+   "label": "Attendance"
+  },
+  {
+   "default": "Absent",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Present\nAbsent\nOn Leave\nOut On Permission"
+  },
+  {
+   "fieldname": "punctuality",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Punctuality",
+   "options": "\nEarly\nLate"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "early_exit",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Early Exit",
+   "options": "\nYes\nNo"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 10:22:20.344749",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "PS Attendance",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "employee"
+}

@@ -1,0 +1,392 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-11-04 16:41:43.370332",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor_details",
+  "procurement_request",
+  "employee",
+  "rfq_quote",
+  "vendor",
+  "vendors_email",
+  "responsible_party",
+  "record_status",
+  "data_4",
+  "purchase_approver",
+  "approvers_name",
+  "purpose",
+  "project",
+  "company",
+  "date",
+  "valid_till",
+  "naming_series",
+  "submmited_rfqs_section",
+  "rfqs",
+  "order_details",
+  "items",
+  "currency_and_pricing_section",
+  "total",
+  "discount",
+  "tax",
+  "column_break_20",
+  "currency",
+  "grand_total",
+  "approval",
+  "approved",
+  "approved_by",
+  "approval_date",
+  "section_break_32",
+  "approved_by_finance",
+  "approved_by_f",
+  "approval_date_finance",
+  "column_break_33",
+  "approved_by_ia",
+  "approved_by_a",
+  "approval_date_ia",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor_details",
+   "fieldtype": "Section Break",
+   "label": "RFQ Details"
+  },
+  {
+   "fieldname": "procurement_request",
+   "fieldtype": "Link",
+   "label": "Procurement Request",
+   "options": "Procurement Request",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "procurement_request.requested_by",
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "rfq_quote",
+   "fieldtype": "Link",
+   "label": "RFQ",
+   "options": "RFQ Response"
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vendor",
+   "options": "Supplier",
+   "read_only_depends_on": "rfq_quote",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "vendor.email",
+   "fieldname": "vendors_email",
+   "fieldtype": "Data",
+   "label": "Vendor's Email",
+   "options": "Email"
+  },
+  {
+   "default": "Procurement",
+   "fieldname": "responsible_party",
+   "fieldtype": "Select",
+   "label": "Responsible Party",
+   "options": "\nProcurement\nManager\nAudit\nAudit and Finance\nApproved\nRejected",
+   "read_only": 1
+  },
+  {
+   "fieldname": "record_status",
+   "fieldtype": "Data",
+   "label": "Record Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "data_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "purchase_approver",
+   "fieldtype": "Link",
+   "label": "Purchase Approver",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "purchase_approver.full_name",
+   "fieldname": "approvers_name",
+   "fieldtype": "Data",
+   "label": "Approver's Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "procurement_request.purpose",
+   "fieldname": "purpose",
+   "fieldtype": "Data",
+   "label": "Purpose",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "procurement_request.project",
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "procurement_request.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Possible Delivery Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "valid_till",
+   "fieldtype": "Date",
+   "label": "Valid Till"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "SG/PO/.YYYY./.MM./",
+   "read_only": 1
+  },
+  {
+   "fieldname": "submmited_rfqs_section",
+   "fieldtype": "Section Break",
+   "label": "Submmited RFQs"
+  },
+  {
+   "fieldname": "rfqs",
+   "fieldtype": "Table",
+   "label": "RFQs",
+   "options": "RFQs Submitted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "order_details",
+   "fieldtype": "Section Break",
+   "label": "Order Details"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Cost Breakdown"
+  },
+  {
+   "fieldname": "currency_and_pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Currency and Pricing"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Total",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "discount",
+   "fieldtype": "Currency",
+   "label": "Discount",
+   "options": "currency",
+   "read_only_depends_on": "rfq_quote"
+  },
+  {
+   "default": "0",
+   "fieldname": "tax",
+   "fieldtype": "Currency",
+   "label": "Tax",
+   "options": "currency",
+   "read_only_depends_on": "rfq_quote"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "read_only_depends_on": "rfq_quote",
+   "reqd": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval",
+   "fieldtype": "Section Break",
+   "label": "Approvals"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state === \"Validated\"",
+   "fieldname": "approved",
+   "fieldtype": "Check",
+   "label": "Approved By Manager",
+   "mandatory_depends_on": "// eval:doc.workflow_state=== 'Submitted'"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_32",
+   "fieldtype": "Section Break",
+   "label": "Validations"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state === \"Approved By Manager\"",
+   "fieldname": "approved_by_finance",
+   "fieldtype": "Check",
+   "label": "Approved By Finance"
+  },
+  {
+   "fieldname": "approved_by_f",
+   "fieldtype": "Data",
+   "label": "Approved By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_date_finance",
+   "fieldtype": "Data",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_33",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state === \"Approved By Manager\"",
+   "fieldname": "approved_by_ia",
+   "fieldtype": "Check",
+   "label": "Approved By Internal Audit"
+  },
+  {
+   "fieldname": "approved_by_a",
+   "fieldtype": "Data",
+   "label": "Approved By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_date_ia",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Procurement Evaluation Sheet",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:41.519314",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Procurement Evaluation Sheet",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Procurement Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Journal and Payment Entry",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lead Finance",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "purpose",
+ "track_changes": 1
+}

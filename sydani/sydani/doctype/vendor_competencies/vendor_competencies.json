@@ -1,0 +1,110 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{specific_competency} - {evaluator}",
+ "creation": "2024-05-15 08:21:19.737685",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "broad_competency",
+  "specific_competency",
+  "evaluator",
+  "column_break_4",
+  "description",
+  "weight_factor",
+  "max_weighted_score"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "broad_competency",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Broad Competency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "specific_competency",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Specific Competency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "evaluator",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Evaluator",
+   "options": "\nAdmin\nHR\nOperations\nPrograms\nVendor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "weight_factor",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Weight Factor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_weighted_score",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Max Weighted Score"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 10:22:20.056635",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Vendor Competencies",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

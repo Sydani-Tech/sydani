@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-10 09:37:05.444074",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "checkin_type",
+  "full_name",
+  "phone_number",
+  "address",
+  "purpose_of_visit",
+  "state_purpose_of_visit",
+  "who_are_you_meeting",
+  "employee_email",
+  "picture",
+  "checkin_time",
+  "organization_name",
+  "organization_address",
+  "number_of_visitors",
+  "checkout_time",
+  "visitors_tag"
+ ],
+ "fields": [
+  {
+   "fieldname": "checkin_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Checkin Type",
+   "options": "\nIndividual\nGroup",
+   "reqd": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Phone Number",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purpose_of_visit",
+   "fieldtype": "Select",
+   "label": "Purpose of Visit",
+   "options": "\nOfficial\nUnofficial",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_purpose_of_visit",
+   "fieldtype": "Small Text",
+   "label": "Please state the purpose of your visit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "who_are_you_meeting",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Who are you meeting",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "who_are_you_meeting.user_id",
+   "fieldname": "employee_email",
+   "fieldtype": "Link",
+   "label": "Employee email",
+   "options": "User"
+  },
+  {
+   "fieldname": "picture",
+   "fieldtype": "Attach Image",
+   "label": "Picture"
+  },
+  {
+   "fieldname": "checkin_time",
+   "fieldtype": "Datetime",
+   "label": "Checkin Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "organization_name",
+   "fieldtype": "Data",
+   "label": "Organization Name"
+  },
+  {
+   "fieldname": "organization_address",
+   "fieldtype": "Small Text",
+   "label": "Organization Address"
+  },
+  {
+   "fieldname": "number_of_visitors",
+   "fieldtype": "Int",
+   "label": "Number of Visitors"
+  },
+  {
+   "fieldname": "checkout_time",
+   "fieldtype": "Datetime",
+   "label": "Checkout Time"
+  },
+  {
+   "fieldname": "visitors_tag",
+   "fieldtype": "Data",
+   "label": "Visitors Tag"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 08:31:52.754084",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Visitors Management System",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

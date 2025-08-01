@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-06 17:56:17.246815",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "category",
+  "challenge",
+  "mitigant",
+  "column_break_4",
+  "recommendation"
+ ],
+ "fields": [
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Accommodation\nCar Hire\nFlight\nPersonal Protective Equipment (e.g. Face mask)\nRefreshments (e.g. tea break, lunch)\nSecurity Personnel\nTraining Halls\nWorkshop Materials\nOthers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "challenge",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Challenge",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mitigant",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Mitigant"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recommendation",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Recommendation",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:13:28.259795",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Trip Feedback",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

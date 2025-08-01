@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-05 12:02:50.419776",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "bank_transaction",
+  "deposit",
+  "withdrawal",
+  "column_break_4",
+  "status",
+  "currency"
+ ],
+ "fields": [
+  {
+   "fieldname": "bank_transaction",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Bank Transaction",
+   "options": "Bank Transaction",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "bank_transaction.deposit",
+   "fieldname": "deposit",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Deposit",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "bank_transaction.withdrawal",
+   "fieldname": "withdrawal",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Withdrawal",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "bank_transaction.status",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nPending\nSettled\nUnreconciled\nReconciled",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "bank_transaction.currency",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 12:09:27.748419",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Bank Transaction Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

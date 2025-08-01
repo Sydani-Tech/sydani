@@ -1,0 +1,635 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Asset Collection/Retrieval - {requested_by} - {DD}/{MM}/{YY} - {##}",
+ "creation": "2023-01-12 02:49:56.791607",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "request_details_section",
+  "purpose",
+  "return_date_passed",
+  "requested_by",
+  "employee_name",
+  "approving_supervisor",
+  "employees_location",
+  "status",
+  "asset_group",
+  "asset_group_2",
+  "asset_group_3",
+  "column_break_1_column",
+  "asset_group_4",
+  "request_date",
+  "proposed_return_date",
+  "form_purpose",
+  "assets_requested",
+  "assets_returned",
+  "amended_from",
+  "asset_1_section",
+  "asset_code_1",
+  "dispensed_by_1",
+  "date_dispensed_1",
+  "comments_1_d",
+  "column_break_11",
+  "asset_name_1",
+  "unique_identifier_1",
+  "date_retrieved_1",
+  "retrieved_by_1",
+  "comments_1_r",
+  "retrieve_asset_1",
+  "declare_asset_loss_1",
+  "asset_2_section",
+  "asset_code_2",
+  "dispensed_by_2",
+  "date_dispensed_2",
+  "comments_2_d",
+  "column_break_5",
+  "asset_name_2",
+  "unique_identifier_2",
+  "date_retrieved_2",
+  "retrieved_by_2",
+  "comments_2_r",
+  "retrieve_asset_2",
+  "declare_asset_loss_2",
+  "section_break_27",
+  "declaration",
+  "sign",
+  "signed_by",
+  "date",
+  "column_break_29",
+  "asset_3_section",
+  "asset_code_3",
+  "dispensed_by_3",
+  "date_dispensed_3",
+  "comments_3_d",
+  "column_break_45",
+  "asset_name_3",
+  "unique_identifier_3",
+  "date_retrieved_3",
+  "retrieved_by_3",
+  "comments_3_r",
+  "retrieve_asset_3",
+  "declare_asset_loss_3",
+  "asset_4_section",
+  "asset_code_4",
+  "dispensed_by_4",
+  "date_dispensed_4",
+  "comments_4_d",
+  "column_break_56",
+  "asset_name_4",
+  "unique_identifier_4",
+  "date_retrieved_4",
+  "retrieved_by_4",
+  "comments_4_r",
+  "retrieve_asset_4",
+  "declare_asset_loss_4",
+  "workflow"
+ ],
+ "fields": [
+  {
+   "fieldname": "request_details_section",
+   "fieldtype": "Section Break",
+   "label": "Request Details",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Data",
+   "label": "Purpose",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")",
+   "reqd": 1
+  },
+  {
+   "fieldname": "return_date_passed",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Return date passed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Requested By",
+   "options": "Employee",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\"\n||doc.workflow_state === \"Approved By Supervisor\")",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "requested_by.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "approving_supervisor",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Approving Supervisor",
+   "options": "Employee",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "default": "Sydani Towers",
+   "fieldname": "employees_location",
+   "fieldtype": "Link",
+   "label": "Employee's Location",
+   "options": "Location",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nReturned To Employee\nSubmitted By Employee\nApproved By Supervisor\nAssets Logged for Return\nAssets Dispensed\nAssets Retrieved",
+   "read_only": 1
+  },
+  {
+   "fieldname": "asset_group",
+   "fieldtype": "Link",
+   "label": "Asset Group 1",
+   "options": "Asset Groups",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "depends_on": "eval:doc.asset_group == \"Laptop\"\n||doc.asset_group==\"Jabra Speaker\"\n||doc.asset_group== \"Phone\"\n||doc.asset_group==\"MTN Router\"\n||doc.asset_group==\"Projector\"\n||doc.asset_group==\"Others\"\n||doc.asset_group==\"Access Card\"",
+   "fieldname": "asset_group_2",
+   "fieldtype": "Link",
+   "label": "Asset Group 2",
+   "options": "Asset Groups",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "depends_on": "eval:doc.asset_group_2 == \"Laptop\"\n||doc.asset_group_2==\"Jabra Speaker\"\n||doc.asset_group_2== \"Phone\"\n||doc.asset_group_2==\"MTN Router\"\n||doc.asset_group_2==\"Projector\"\n||doc.asset_group_2==\"Others\"\n||doc.asset_group_2==\"Access Card\"",
+   "fieldname": "asset_group_3",
+   "fieldtype": "Link",
+   "label": "Asset Group 3",
+   "options": "Asset Groups",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "column_break_1_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.asset_group_3 == \"Laptop\"\n||doc.asset_group_3==\"Jabra Speaker\"\n||doc.asset_group_3== \"Phone\"\n||doc.asset_group_3==\"MTN Router\"\n||doc.asset_group_3==\"Projector\"\n||doc.asset_group_3==\"Others\"\n||doc.asset_group_3==\"Access Card\"",
+   "fieldname": "asset_group_4",
+   "fieldtype": "Link",
+   "label": "Asset Group 4",
+   "options": "Asset Groups",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "default": "Today",
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Request Date",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:(doc.asset_group==\"Jabra Speaker\"\n||doc.asset_group== \"Phone\"\n||doc.asset_group==\"MTN Router\"\n||doc.asset_group==\"Projector\"\n||doc.asset_group==\"Others\"\n||doc.asset_group_2==\"Jabra Speaker\"\n||doc.asset_group_2== \"Phone\"\n||doc.asset_group_2==\"MTN Router\"\n||doc.asset_group_2==\"Projector\"\n||doc.asset_group_2==\"Others\"\n||doc.asset_group_3==\"Jabra Speaker\"\n||doc.asset_group_3== \"Phone\"\n||doc.asset_group_3==\"MTN Router\"\n||doc.asset_group_3==\"Projector\"\n||doc.asset_group_3==\"Others\"\n||doc.asset_group_4==\"Jabra Speaker\"\n||doc.asset_group_4== \"Phone\"\n||doc.asset_group_4==\"MTN Router\"\n||doc.asset_group_4==\"Projector\"\n||doc.asset_group_4==\"Others\")",
+   "fieldname": "proposed_return_date",
+   "fieldtype": "Date",
+   "label": "Proposed Return Date",
+   "mandatory_depends_on": "eval:(doc.asset_group==\"Jabra Speaker\"\n||doc.asset_group== \"Phone\"\n||doc.asset_group==\"MTN Router\"\n||doc.asset_group==\"Projector\"\n||doc.asset_group==\"Others\"\n||doc.asset_group_2==\"Jabra Speaker\"\n||doc.asset_group_2== \"Phone\"\n||doc.asset_group_2==\"MTN Router\"\n||doc.asset_group_2==\"Projector\"\n||doc.asset_group_2==\"Others\"\n||doc.asset_group_3==\"Jabra Speaker\"\n||doc.asset_group_3== \"Phone\"\n||doc.asset_group_3==\"MTN Router\"\n||doc.asset_group_3==\"Projector\"\n||doc.asset_group_3==\"Others\"\n||doc.asset_group_4==\"Jabra Speaker\"\n||doc.asset_group_4== \"Phone\"\n||doc.asset_group_4==\"MTN Router\"\n||doc.asset_group_4==\"Projector\"\n||doc.asset_group_4==\"Others\")",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "form_purpose",
+   "fieldtype": "Select",
+   "label": "Form Purpose",
+   "options": "\nAsset Collection\nAsset Return",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.form_purpose===\"Asset Collection\"",
+   "description": "Enumerate number of assets needed e.g.  2 Mobile phones, \n1 Computer, Laptop bag, ID card, etc.",
+   "fieldname": "assets_requested",
+   "fieldtype": "Small Text",
+   "label": "Number of assets",
+   "mandatory_depends_on": "eval:doc.form_purpose===\"Asset Collection\"",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "depends_on": "eval:doc.form_purpose===\"Asset Return\"",
+   "description": "Enumerate the assets and numbers you're returning e.g.  2 Mobile phones, 1 Computer, Laptop bag, ID card, etc.",
+   "fieldname": "assets_returned",
+   "fieldtype": "Small Text",
+   "label": "Assets Returned",
+   "mandatory_depends_on": "eval:doc.form_purpose===\"Asset Return\"",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Asset Collection Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:(doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Submitted By Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\"\n||doc.workflow_state === \"Approved By Supervisor\")",
+   "fieldname": "asset_1_section",
+   "fieldtype": "Section Break",
+   "label": "Asset 1"
+  },
+  {
+   "fieldname": "asset_code_1",
+   "fieldtype": "Link",
+   "label": "Asset Code",
+   "options": "Asset",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "dispensed_by_1",
+   "fieldtype": "Data",
+   "label": "Dispensed By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_dispensed_1",
+   "fieldtype": "Date",
+   "label": "Date dispensed",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "comments_1_d",
+   "fieldtype": "Small Text",
+   "label": "Comments when dispensing",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "asset_code_1.asset_name",
+   "fieldname": "asset_name_1",
+   "fieldtype": "Data",
+   "label": "Asset Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset_code_1.unique_identifier",
+   "fieldname": "unique_identifier_1",
+   "fieldtype": "Data",
+   "label": "Unique Identifier",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.retrieve_asset_1==1",
+   "fieldname": "date_retrieved_1",
+   "fieldtype": "Date",
+   "label": "Date Retrieved"
+  },
+  {
+   "fieldname": "retrieved_by_1",
+   "fieldtype": "Data",
+   "label": "Retrieved By",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.retrieve_asset_1==1",
+   "fieldname": "comments_1_r",
+   "fieldtype": "Small Text",
+   "label": "Comments when retrieving"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:((doc.workflow_state === \"Assets Logged for Return\"\n|| doc.workflow_state === \"Assets Dispensed\")\n&& doc.declare_asset_loss_1 === 0)",
+   "fieldname": "retrieve_asset_1",
+   "fieldtype": "Check",
+   "label": "Retrieve Asset"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:((doc.workflow_state === \"Assets Logged for Return\"\n|| doc.workflow_state === \"Assets Dispensed\")\n&& doc.retrieve_asset_1 === 0)",
+   "fieldname": "declare_asset_loss_1",
+   "fieldtype": "Check",
+   "label": "Declare Asset Loss"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "asset_code_2",
+   "depends_on": "eval:((doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\"\n||doc.workflow_state === \"Approved By Supervisor\")\n&&doc.asset_code_1)",
+   "fieldname": "asset_2_section",
+   "fieldtype": "Section Break",
+   "label": "Asset 2"
+  },
+  {
+   "fieldname": "asset_code_2",
+   "fieldtype": "Link",
+   "label": "Asset Code",
+   "options": "Asset",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "dispensed_by_2",
+   "fieldtype": "Data",
+   "label": "Dispensed By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_dispensed_2",
+   "fieldtype": "Date",
+   "label": "Date Dispensed",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "comments_2_d",
+   "fieldtype": "Small Text",
+   "label": "Comments when dispensing",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "asset_code_2.asset_name",
+   "fieldname": "asset_name_2",
+   "fieldtype": "Data",
+   "label": "Asset Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset_code_2.unique_identifier",
+   "fieldname": "unique_identifier_2",
+   "fieldtype": "Data",
+   "label": "Unique Identifier",
+   "read_only": 1
+  },
+  {
+   "depends_on": "retrieve_asset_2",
+   "fieldname": "date_retrieved_2",
+   "fieldtype": "Date",
+   "label": "Date Retrieved"
+  },
+  {
+   "fieldname": "retrieved_by_2",
+   "fieldtype": "Data",
+   "label": "Retrieved By",
+   "read_only": 1
+  },
+  {
+   "depends_on": "retrieve_asset_2",
+   "fieldname": "comments_2_r",
+   "fieldtype": "Small Text",
+   "label": "Comments when retrieving"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:((doc.workflow_state === \"Assets Logged for Return\"\n|| doc.workflow_state === \"Assets Dispensed\")\n&& doc.declare_asset_loss_2 === 0)",
+   "fieldname": "retrieve_asset_2",
+   "fieldtype": "Check",
+   "label": "Retrieve Asset"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:((doc.workflow_state === \"Assets Logged for Return\"\n|| doc.workflow_state === \"Assets Dispensed\")\n&& doc.retrieve_asset_2 === 0)",
+   "fieldname": "declare_asset_loss_2",
+   "fieldtype": "Check",
+   "label": "Declare Asset Loss"
+  },
+  {
+   "fieldname": "section_break_27",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Declaration"
+  },
+  {
+   "default": "I agree that I have received the items listed above in good condition",
+   "fieldname": "declaration",
+   "fieldtype": "Small Text",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "sign",
+   "fieldtype": "Check",
+   "label": "Sign"
+  },
+  {
+   "fieldname": "signed_by",
+   "fieldtype": "Data",
+   "label": "Signed By"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "asset_code_3",
+   "depends_on": "eval:((doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\"\n||doc.workflow_state === \"Approved By Supervisor\")\n&&doc.asset_code_2)",
+   "fieldname": "asset_3_section",
+   "fieldtype": "Section Break",
+   "label": "Asset 3"
+  },
+  {
+   "fieldname": "asset_code_3",
+   "fieldtype": "Link",
+   "label": "Asset Code",
+   "options": "Asset",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "dispensed_by_3",
+   "fieldtype": "Data",
+   "label": "Dispensed By"
+  },
+  {
+   "fieldname": "date_dispensed_3",
+   "fieldtype": "Date",
+   "label": "Date Dispensed",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "comments_3_d",
+   "fieldtype": "Small Text",
+   "label": "Comments when dispensing",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "column_break_45",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "asset_code_3.asset_name",
+   "fieldname": "asset_name_3",
+   "fieldtype": "Data",
+   "label": "Asset Name"
+  },
+  {
+   "fetch_from": "asset_code_3.unique_identifier",
+   "fieldname": "unique_identifier_3",
+   "fieldtype": "Data",
+   "label": "Unique Identifier",
+   "read_only": 1
+  },
+  {
+   "depends_on": "retrieve_asset_3",
+   "fieldname": "date_retrieved_3",
+   "fieldtype": "Date",
+   "label": "Date Retrieved"
+  },
+  {
+   "depends_on": "retrieve_asset_3",
+   "fieldname": "retrieved_by_3",
+   "fieldtype": "Data",
+   "label": "Retrieved By",
+   "read_only": 1
+  },
+  {
+   "depends_on": "retrieve_asset_3",
+   "fieldname": "comments_3_r",
+   "fieldtype": "Small Text",
+   "label": "Comments when retrieving"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:((doc.workflow_state === \"Assets Logged for Return\"\n|| doc.workflow_state === \"Assets Dispensed\")\n&& doc.declare_asset_loss_3 === 0)",
+   "fieldname": "retrieve_asset_3",
+   "fieldtype": "Check",
+   "label": "Retrieve Asset"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:((doc.workflow_state === \"Assets Logged for Return\"\n|| doc.workflow_state === \"Assets Dispensed\")\n&& doc.retrieve_asset_3 === 0)",
+   "fieldname": "declare_asset_loss_3",
+   "fieldtype": "Check",
+   "label": "Declare Asset Loss"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "asset_code_4",
+   "depends_on": "eval:((doc.workflow_state === \"Assets Logged for Return\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\"\n||doc.workflow_state === \"Approved By Supervisor\")\n&&doc.asset_code_3)",
+   "fieldname": "asset_4_section",
+   "fieldtype": "Section Break",
+   "label": "Asset 4"
+  },
+  {
+   "fieldname": "asset_code_4",
+   "fieldtype": "Link",
+   "label": "Asset Code ",
+   "options": "Asset",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "dispensed_by_4",
+   "fieldtype": "Data",
+   "label": "Dispensed By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_dispensed_4",
+   "fieldtype": "Date",
+   "label": "Date Dispensed",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "comments_4_d",
+   "fieldtype": "Small Text",
+   "label": "Comments when dispensing",
+   "read_only_depends_on": "eval:(doc.workflow_state === \"Draft\"\n||doc.workflow_state === \"Returned To Employee\"\n||doc.workflow_state === \"Assets Dispensed\"\n||doc.workflow_state === \"Assets Retrieved\")"
+  },
+  {
+   "fieldname": "column_break_56",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "asset_code_4.asset_name",
+   "fieldname": "asset_name_4",
+   "fieldtype": "Data",
+   "label": "Asset Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset_code_4.unique_identifier",
+   "fieldname": "unique_identifier_4",
+   "fieldtype": "Data",
+   "label": "Unique Identifier",
+   "read_only": 1
+  },
+  {
+   "depends_on": "retrieve_asset_4",
+   "fieldname": "date_retrieved_4",
+   "fieldtype": "Date",
+   "label": "Date Retrieved"
+  },
+  {
+   "depends_on": "retrieve_asset_4",
+   "fieldname": "retrieved_by_4",
+   "fieldtype": "Data",
+   "label": "Retrieved By",
+   "read_only": 1
+  },
+  {
+   "depends_on": "retrieve_asset_4",
+   "fieldname": "comments_4_r",
+   "fieldtype": "Small Text",
+   "label": "Comments when retrieving"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:((doc.workflow_state === \"Assets Logged for Return\"\n|| doc.workflow_state === \"Assets Dispensed\")\n&& doc.declare_asset_loss_4 === 0)",
+   "fieldname": "retrieve_asset_4",
+   "fieldtype": "Check",
+   "label": "Retrieve Asset"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:((doc.workflow_state === \"Assets Logged for Return\"\n|| doc.workflow_state === \"Assets Dispensed\")\n&& doc.retrieve_asset_4 === 0)",
+   "fieldname": "declare_asset_loss_4",
+   "fieldtype": "Check",
+   "label": "Declare Asset Loss"
+  },
+  {
+   "fieldname": "workflow",
+   "fieldtype": "Link",
+   "label": "workflow",
+   "options": "Workflow State"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 14:05:12.772676",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Asset Collection Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

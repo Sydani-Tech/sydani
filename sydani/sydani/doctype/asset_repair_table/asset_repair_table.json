@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-02-21 11:14:21.335415",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "asset",
+  "asset_name",
+  "unique_identifier",
+  "fault",
+  "failure_date",
+  "last_used_by",
+  "column_break_4",
+  "company",
+  "repair_status",
+  "payment_status",
+  "payment_request",
+  "returned",
+  "retrieved_by",
+  "retrieval_date",
+  "comments"
+ ],
+ "fields": [
+  {
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Asset ",
+   "options": "Asset",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "asset.asset_name",
+   "fieldname": "asset_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Asset Name",
+   "read_only": 1,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fetch_from": "asset.unique_identifier",
+   "fieldname": "unique_identifier",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Unique Identifier",
+   "read_only": 1,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "fault",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fault",
+   "reqd": 1
+  },
+  {
+   "fieldname": "failure_date",
+   "fieldtype": "Date",
+   "label": "Failure date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_used_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Last Used By",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "last_used_by.company",
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "ignore_user_permissions": 1,
+   "label": "Company"
+  },
+  {
+   "fieldname": "repair_status",
+   "fieldtype": "Select",
+   "label": "Repair Status",
+   "options": "\nSent to Vendor\nRetrieved from Vendor\nRepair Completed\nReturned to Admin"
+  },
+  {
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status",
+   "options": "\nRequest Raised\nRequest Pending Approval\nRequest Approved\nPayment Completed"
+  },
+  {
+   "fieldname": "payment_request",
+   "fieldtype": "Link",
+   "label": "Payment Request ",
+   "mandatory_depends_on": "payment_status",
+   "options": "Expense Claim"
+  },
+  {
+   "default": "0",
+   "fieldname": "returned",
+   "fieldtype": "Check",
+   "label": "Retrieved",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "retrieved_by",
+   "fieldtype": "Data",
+   "label": "Retrieved By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "retrieval_date",
+   "fieldtype": "Date",
+   "label": "Retrieval Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Data",
+   "label": "Comments",
+   "mandatory_depends_on": "returned"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 13:24:15.640644",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Asset repair table",
+ "nsm_parent_field": "parent_asset_repair_table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

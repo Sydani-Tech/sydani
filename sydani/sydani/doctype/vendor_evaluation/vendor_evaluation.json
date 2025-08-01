@@ -1,0 +1,321 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{vendor} - {vendor_evaluation_period}",
+ "creation": "2024-05-16 09:21:48.100894",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor_evaluation_section",
+  "vendor_evaluation_period",
+  "vendor",
+  "vendor_type",
+  "vendors_email",
+  "admin_evaluation",
+  "hr_evaluation",
+  "programs_evaluation",
+  "operations_evaluation",
+  "column_break_5",
+  "hr_evaluator",
+  "admin_evaluator",
+  "programs_evaluator",
+  "operations_evaluator",
+  "programs_evaluation_section",
+  "programs",
+  "average_programs_score",
+  "programs_comment",
+  "operations_evaluation_section",
+  "operations",
+  "average_operations_score",
+  "operations_comment",
+  "hr_evaluation_section",
+  "hr",
+  "average_hr_score",
+  "hr_comment",
+  "admin_evaluation_section",
+  "admin",
+  "average_admin_score",
+  "admin_comment",
+  "amended_from",
+  "final_results_section",
+  "total_average_score",
+  "comments"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor_evaluation_section",
+   "fieldtype": "Section Break",
+   "label": "Vendor Evaluation"
+  },
+  {
+   "fieldname": "vendor_evaluation_period",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vendor Evaluation Period",
+   "options": "Vendor Evaluation Period",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vendor",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "vendor.supplier_group",
+   "fieldname": "vendor_type",
+   "fieldtype": "Data",
+   "label": "Vendor Type",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vendor.email",
+   "fieldname": "vendors_email",
+   "fieldtype": "Data",
+   "label": "Vendor's Email",
+   "options": "Email",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "admin_evaluation",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "Admin Evaluation"
+  },
+  {
+   "default": "0",
+   "fieldname": "hr_evaluation",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "HR Evaluation"
+  },
+  {
+   "default": "0",
+   "fieldname": "programs_evaluation",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "Programs Evaluation"
+  },
+  {
+   "default": "0",
+   "fieldname": "operations_evaluation",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "Operations Evaluation"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hr_evaluator",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "HR Evaluator",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "admin_evaluator",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Admin Evaluator",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "programs_evaluator",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Programs Evaluator",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "operations_evaluator",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Operations Evaluator",
+   "options": "Employee"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "programs_evaluation_section",
+   "fieldtype": "Section Break",
+   "label": "Programs Evaluation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "programs",
+   "fieldtype": "Table",
+   "label": "Competencies",
+   "options": "Vendor Competency Table",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.average_programs_score>0",
+   "fieldname": "average_programs_score",
+   "fieldtype": "Percent",
+   "label": "Average Programs Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "programs_comment",
+   "fieldtype": "Small Text",
+   "label": "Programs Comment",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "operations_evaluation_section",
+   "fieldtype": "Section Break",
+   "label": "Operations Evaluation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operations",
+   "fieldtype": "Table",
+   "label": "Competencies",
+   "options": "Vendor Competency Table",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.average_operations_score>0",
+   "fieldname": "average_operations_score",
+   "fieldtype": "Percent",
+   "label": "Average Operations Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operations_comment",
+   "fieldtype": "Small Text",
+   "label": "Operations Comment",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "hr_evaluation_section",
+   "fieldtype": "Section Break",
+   "label": "HR Evaluation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hr",
+   "fieldtype": "Table",
+   "label": "Competencies",
+   "options": "Vendor Competency Table",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.average_hr_score>0",
+   "fieldname": "average_hr_score",
+   "fieldtype": "Percent",
+   "label": "Average HR Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hr_comment",
+   "fieldtype": "Small Text",
+   "label": "HR Comment",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "admin_evaluation_section",
+   "fieldtype": "Section Break",
+   "label": "Admin Evaluation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "admin",
+   "fieldtype": "Table",
+   "label": "Competencies",
+   "options": "Vendor Competency Table",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.average_admin_score>0",
+   "fieldname": "average_admin_score",
+   "fieldtype": "Percent",
+   "label": "Average Admin Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "admin_comment",
+   "fieldtype": "Small Text",
+   "label": "Admin Comment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vendor Evaluation",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_results_section",
+   "fieldtype": "Section Break",
+   "label": "Final Results",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_average_score",
+   "fieldtype": "Percent",
+   "label": "Total Average Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Small Text",
+   "label": "Comments"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:22:19.813591",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Vendor Evaluation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

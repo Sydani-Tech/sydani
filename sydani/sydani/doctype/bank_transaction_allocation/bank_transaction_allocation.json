@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-13 12:39:05.930640",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "bank_transaction",
+  "deposit",
+  "withdrawal",
+  "currency",
+  "payment_narration"
+ ],
+ "fields": [
+  {
+   "fieldname": "bank_transaction",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Bank Transaction",
+   "options": "Bank Transaction"
+  },
+  {
+   "default": "0",
+   "fetch_from": "bank_transaction.deposit",
+   "fieldname": "deposit",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Deposit",
+   "options": "currency"
+  },
+  {
+   "default": "0",
+   "fetch_from": "bank_transaction.withdrawal",
+   "fieldname": "withdrawal",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Withdrawal",
+   "options": "currency"
+  },
+  {
+   "fetch_from": "bank_transaction.currency",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fetch_from": "bank_transaction.reference_number",
+   "fieldname": "payment_narration",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Payment Narration"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 12:14:05.985933",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Bank Transaction Allocation",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

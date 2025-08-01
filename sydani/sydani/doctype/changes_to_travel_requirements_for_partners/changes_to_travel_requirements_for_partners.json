@@ -1,0 +1,89 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-03-09 19:37:35.412891",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "partner",
+  "purpose",
+  "column_break_4",
+  "travel_date",
+  "return_date",
+  "column_break_6",
+  "traveling_from",
+  "traveling_to"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "partner",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Partner",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "purpose",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Purpose",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fieldname": "travel_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Travel Date",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "return_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Return Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "description": "Please indicate the location you are traveling from",
+   "fieldname": "traveling_from",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Traveling From",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "description": "Please indicate the location you are traveling from",
+   "fieldname": "traveling_to",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Traveling To",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 14:15:29.964647",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Changes To Travel Requirements for Partners",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

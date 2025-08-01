@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-02-13 03:47:33.476529",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project",
+  "fte",
+  "total_hours",
+  "billing_rate",
+  "daily_billing_rate",
+  "billing_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "fte",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "FTE",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "total_hours",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Total Hours",
+   "permlevel": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "billing_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Billing Rate"
+  },
+  {
+   "fieldname": "daily_billing_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Daily Billing Rate"
+  },
+  {
+   "fieldname": "billing_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Billing Amount"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:40.739576",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Project FTE Distribution",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,296 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{end_user_department} - {project_name}",
+ "creation": "2023-11-01 08:49:44.694164",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "column_break_2",
+  "date",
+  "section_break_8",
+  "project_name",
+  "project_owner",
+  "managers_email",
+  "managers_name",
+  "column_break_9",
+  "end_user_department",
+  "proposed_delivery_date",
+  "please_attach_all_necessary_documents",
+  "overview_section",
+  "current_process",
+  "proposed_process",
+  "expected_deliverables_section",
+  "expected_deliverables",
+  "project_management_team_section",
+  "project_management_team",
+  "project_delivery_team_section",
+  "project_delivery_team",
+  "additional_details_section",
+  "additional_comment",
+  "responsible_person",
+  "amended_from",
+  "workflow_state",
+  "employee_user",
+  "project_owners_email",
+  "change_requests_section",
+  "project_changes"
+ ],
+ "fields": [
+  {
+   "fetch_from": "employee_name",
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Created By",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Project Name",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee_name",
+   "fieldname": "project_owner",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Project Owner",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fieldname": "managers_email",
+   "fieldtype": "Link",
+   "label": "Approving Manager",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "managers_email.full_name",
+   "fieldname": "managers_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "managers name"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "end_user_department",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "proposed_delivery_date",
+   "fieldtype": "Date",
+   "label": "Proposed Project Delivery Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "please_attach_all_necessary_documents",
+   "fieldtype": "Attach",
+   "label": "Please attach all necessary documents"
+  },
+  {
+   "fieldname": "overview_section",
+   "fieldtype": "Section Break",
+   "label": "Overview"
+  },
+  {
+   "description": "Give a general description of the project, why it is needed and the current process, if any",
+   "fieldname": "current_process",
+   "fieldtype": "Text Editor",
+   "label": "Problem Statement",
+   "reqd": 1
+  },
+  {
+   "description": "Describe the proposed process",
+   "fieldname": "proposed_process",
+   "fieldtype": "Text Editor",
+   "label": "Proposed Process",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expected_deliverables_section",
+   "fieldtype": "Section Break",
+   "label": "Deliverables"
+  },
+  {
+   "fieldname": "expected_deliverables",
+   "fieldtype": "Table",
+   "label": "Expected Deliverables/Features",
+   "options": "Sydani Tech Project Deliverables",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project_management_team_section",
+   "fieldtype": "Section Break",
+   "label": "Project Management Team"
+  },
+  {
+   "description": "A list of the team members the development team can reach out to for clarification on this project",
+   "fieldname": "project_management_team",
+   "fieldtype": "Table",
+   "label": "Project Management Team",
+   "options": "Project Management Team",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.reponsible_person === 'Sydani Technologies'||\ndoc.reponsible_person === 'Approved'||\ndoc.workflow_state== 'Reviewed By Manager'||\ndoc.workflow_state== 'Approved By Sydani Technologies'||\ndoc.workflow_state== 'Project Commenced'||\ndoc.workflow_state== 'Declined by Manager'||\ndoc.workflow_state== 'Project Completed'",
+   "fieldname": "project_delivery_team_section",
+   "fieldtype": "Section Break",
+   "label": "Project Delivery Details",
+   "read_only_depends_on": "eval:doc.workflow_state== 'Approved By Sydani Technologies'||\ndoc.workflow_state== 'Project Commenced'||\ndoc.workflow_state== 'Declined by Manager'||\ndoc.workflow_state== 'Project Completed'"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "project_delivery_team",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "Project Delivery Team",
+   "mandatory_depends_on": "// eval;doc.workflow_state== 'Reviewed By Manager'||\n// doc.reponsible_person === 'Sydani Technologies'",
+   "options": "Project Delivery Team",
+   "read_only_depends_on": "eval:doc.workflow_state== 'Approved By Sydani Technologies'||\ndoc.workflow_state== 'Project Commenced'||\ndoc.workflow_state== 'Declined by Manager'||\ndoc.workflow_state== 'Project Completed'"
+  },
+  {
+   "fieldname": "additional_details_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Details"
+  },
+  {
+   "fieldname": "additional_comment",
+   "fieldtype": "Text",
+   "label": "Additional Comment"
+  },
+  {
+   "fieldname": "responsible_person",
+   "fieldtype": "Data",
+   "label": "Responsible person",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Project Requirement Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "workflow_state",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Workflow State",
+   "options": "Workflow State"
+  },
+  {
+   "fetch_from": "employee.user_id",
+   "fieldname": "employee_user",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "employee user",
+   "options": "User"
+  },
+  {
+   "fetch_from": "project_owner.user_id",
+   "fieldname": "project_owners_email",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Project owners email",
+   "options": "User"
+  },
+  {
+   "fieldname": "change_requests_section",
+   "fieldtype": "Section Break",
+   "label": "Change Requests"
+  },
+  {
+   "fieldname": "project_changes",
+   "fieldtype": "Table",
+   "label": "Change Requests",
+   "options": "Project Change"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 09:01:11.783827",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Project Requirement Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "IT team",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

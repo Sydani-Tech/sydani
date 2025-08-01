@@ -1,0 +1,48 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-24 12:35:43.717798",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project_deliverables",
+  "successfully_met",
+  "accepted_by"
+ ],
+ "fields": [
+  {
+   "columns": 5,
+   "fieldname": "project_deliverables",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Project Deliverables"
+  },
+  {
+   "columns": 2,
+   "fieldname": "successfully_met",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Successfully Met?",
+   "options": "\nNo\nYes"
+  },
+  {
+   "fieldname": "accepted_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Accepted By"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:43.381418",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Clients Acceptance",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

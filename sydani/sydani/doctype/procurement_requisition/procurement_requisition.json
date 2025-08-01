@@ -1,0 +1,363 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{procurement_purpose}",
+ "creation": "2022-06-30 21:45:59.940554",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "procurement_purpose",
+  "used_by",
+  "status",
+  "column_break_5",
+  "approving_manager",
+  "manager",
+  "project",
+  "procurement_details_section",
+  "procurement_breakdown",
+  "total",
+  "procurement_evaluation_sb_section",
+  "procurement_evaluation",
+  "selected_quotation",
+  "selected_vendor",
+  "evaluation_report",
+  "procurement_request_approval_section",
+  "requested_by",
+  "request_date",
+  "column_break_15",
+  "approve_request",
+  "approved_by",
+  "date",
+  "procurement_evaluation_approval_sb_section",
+  "check_evaluated_by_1",
+  "evaluated_by_1",
+  "date_evaluated_by_1",
+  "check_evaluated_by_2",
+  "evaluated_by_2",
+  "date_evaluated_by_2",
+  "column_break_29",
+  "check_manager",
+  "manager_name",
+  "manager_date",
+  "check_managing_partner",
+  "managing_partner",
+  "managing_partner_date",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "procurement_purpose",
+   "fieldtype": "Data",
+   "label": "Procurement Purpose",
+   "read_only_depends_on": "eval:doc.workflow_state===\"Submitted By Employee\" ||\ndoc.workflow_state===\"Procurement Request Approved\" ||\ndoc.workflow_state===\"Procurement Evaluation Returned\" ||\ndoc.workflow_state===\"Procurement Evaluation Submitted\" ||\ndoc.workflow_state===\"Evaluation Approved By Manager\" ||\ndoc.workflow_state===\"Approved\" ||\ndoc.workflow_state===\"Rejected\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "used_by",
+   "fieldtype": "Data",
+   "label": "Used By",
+   "read_only_depends_on": "eval:doc.workflow_state===\"Submitted By Employee\" ||\ndoc.workflow_state===\"Procurement Request Approved\" ||\ndoc.workflow_state===\"Procurement Evaluation Returned\" ||\ndoc.workflow_state===\"Procurement Evaluation Submitted\" ||\ndoc.workflow_state===\"Evaluation Approved By Manager\" ||\ndoc.workflow_state===\"Approved\" ||\ndoc.workflow_state===\"Rejected\"",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nReturned To Employee\nSubmitted By Employee\nProcurement Request Approved\nProcurement Evaluation Submitted\nApproved\nRejected",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approving_manager",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Approving Manager",
+   "options": "\nAdebisi Adenipekun\nFolake Oni\nSunday Atobatele",
+   "read_only_depends_on": "eval:doc.workflow_state===\"Submitted By Employee\" ||\ndoc.workflow_state===\"Procurement Request Approved\" ||\ndoc.workflow_state===\"Procurement Evaluation Returned\" ||\ndoc.workflow_state===\"Procurement Evaluation Submitted\" ||\ndoc.workflow_state===\"Evaluation Approved By Manager\" ||\ndoc.workflow_state===\"Approved\" ||\ndoc.workflow_state===\"Rejected\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "manager",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Manager",
+   "options": "User"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "read_only_depends_on": "eval:doc.workflow_state===\"Submitted By Employee\" ||\ndoc.workflow_state===\"Procurement Request Approved\" ||\ndoc.workflow_state===\"Procurement Evaluation Returned\" ||\ndoc.workflow_state===\"Procurement Evaluation Submitted\" ||\ndoc.workflow_state===\"Evaluation Approved By Manager\" ||\ndoc.workflow_state===\"Approved\" ||\ndoc.workflow_state===\"Rejected\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "procurement_details_section",
+   "fieldtype": "Section Break",
+   "label": "Procurement Details"
+  },
+  {
+   "fieldname": "procurement_breakdown",
+   "fieldtype": "Table",
+   "label": "Estimated Procurement Breakdown",
+   "options": "Advance Request",
+   "read_only_depends_on": "eval:doc.workflow_state===\"Submitted By Employee\" ||\ndoc.workflow_state===\"Procurement Request Approved\" ||\ndoc.workflow_state===\"Procurement Evaluation Returned\" ||\ndoc.workflow_state===\"Procurement Evaluation Submitted\" ||\ndoc.workflow_state===\"Evaluation Approved By Manager\" ||\ndoc.workflow_state===\"Approved\" ||\ndoc.workflow_state===\"Rejected\"",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Estimated Total",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.workflow_state===\"Procurement Request Approved\" ||\ndoc.workflow_state===\"Procurement Evaluation Returned\" ||\ndoc.workflow_state===\"Procurement Evaluation Submitted\" ||\ndoc.workflow_state===\"Evaluation Approved By Manager\" ||\ndoc.workflow_state===\"Approved\" ||\ndoc.workflow_state===\"Rejected\"",
+   "fieldname": "procurement_evaluation_sb_section",
+   "fieldtype": "Section Break",
+   "label": "Procurement Evaluation"
+  },
+  {
+   "fieldname": "procurement_evaluation",
+   "fieldtype": "Table",
+   "label": "Procurement Evaluation",
+   "mandatory_depends_on": "eval:doc.workflow_state===\"Procurement Request Approved\"",
+   "options": "Procurement Evaluation",
+   "read_only_depends_on": "eval:doc.workflow_state===\"Submitted By Employee\" ||\ndoc.workflow_state===\"Procurement Evaluation Submitted\" ||\ndoc.workflow_state===\"Evaluation Approved By Manager\" ||\ndoc.workflow_state===\"Approved\" ||\ndoc.workflow_state===\"Rejected\""
+  },
+  {
+   "fieldname": "selected_quotation",
+   "fieldtype": "Link",
+   "label": "Selected Quotation",
+   "mandatory_depends_on": "eval:doc.workflow_state===\"Procurement Request Approved\"",
+   "options": "Supplier Quotation",
+   "read_only_depends_on": "eval:doc.workflow_state===\"Submitted By Employee\" ||\ndoc.workflow_state===\"Procurement Evaluation Submitted\" ||\ndoc.workflow_state===\"Evaluation Approved By Manager\" ||\ndoc.workflow_state===\"Approved\" ||\ndoc.workflow_state===\"Rejected\""
+  },
+  {
+   "fetch_from": "selected_quotation.supplier",
+   "fieldname": "selected_vendor",
+   "fieldtype": "Data",
+   "label": "Selected Vendor",
+   "read_only": 1
+  },
+  {
+   "description": "Why did you select the quotation? What distinguishes it from others?",
+   "fieldname": "evaluation_report",
+   "fieldtype": "Small Text",
+   "label": "Evaluation Report",
+   "mandatory_depends_on": "eval:doc.workflow_state===\"Procurement Request Approved\"",
+   "read_only_depends_on": "eval:doc.workflow_state===\"Submitted By Employee\" ||\ndoc.workflow_state===\"Procurement Evaluation Submitted\" ||\ndoc.workflow_state===\"Evaluation Approved By Manager\" ||\ndoc.workflow_state===\"Approved\" ||\ndoc.workflow_state===\"Rejected\""
+  },
+  {
+   "fieldname": "procurement_request_approval_section",
+   "fieldtype": "Section Break",
+   "label": "Procurement Request Approval"
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Requested By",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "label": "Request Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state===\"Submitted By Employee\"",
+   "fieldname": "approve_request",
+   "fieldtype": "Check",
+   "label": "Approve Request"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "procurement_evaluation_approval_sb_section",
+   "fieldtype": "Section Break",
+   "label": "Procurement Evaluation Approval"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state===\"Procurement Request Approved\" ||\ndoc.workflow_state===\"Procurement Evaluation Returned\"",
+   "fieldname": "check_evaluated_by_1",
+   "fieldtype": "Check",
+   "label": "Check",
+   "mandatory_depends_on": "eval:doc.workflow_state===\"Procurement Request Approved\" ||\ndoc.workflow_state===\"Procurement Evaluation Returned\""
+  },
+  {
+   "fieldname": "evaluated_by_1",
+   "fieldtype": "Data",
+   "label": "Evaluated By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_evaluated_by_1",
+   "fieldtype": "Date",
+   "label": "Date Evaluated",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state===\"Procurement Request Approved\" ||\ndoc.workflow_state===\"Procurement Evaluation Returned\"",
+   "fieldname": "check_evaluated_by_2",
+   "fieldtype": "Check",
+   "label": "Check"
+  },
+  {
+   "fieldname": "evaluated_by_2",
+   "fieldtype": "Data",
+   "label": "Evaluated By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_evaluated_by_2",
+   "fieldtype": "Date",
+   "label": "Date Evaluated",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state===\"Procurement Evaluation Submitted\"",
+   "fieldname": "check_manager",
+   "fieldtype": "Check",
+   "label": "Approve Request"
+  },
+  {
+   "fieldname": "manager_name",
+   "fieldtype": "Data",
+   "label": "Manager/Principal",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manager_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.workflow_state===\"Evaluation Approved By Manager\"",
+   "fieldname": "check_managing_partner",
+   "fieldtype": "Check",
+   "label": "Approve Request"
+  },
+  {
+   "fieldname": "managing_partner",
+   "fieldtype": "Data",
+   "label": "Managing Partner",
+   "read_only": 1
+  },
+  {
+   "fieldname": "managing_partner_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Procurement Requisition",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 13:18:38.044900",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Procurement Requisition",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Managing Partner",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

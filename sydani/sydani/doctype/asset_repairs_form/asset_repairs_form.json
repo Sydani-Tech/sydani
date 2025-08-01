@@ -1,0 +1,148 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Repair #.######",
+ "creation": "2024-02-21 14:39:28.134020",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "dispensed_by",
+  "dispenser",
+  "responsible",
+  "dispensee",
+  "data_5",
+  "date",
+  "repair_status",
+  "request_details_section",
+  "repair_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "dispensed_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Dispensed By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "dispensed_by.full_name",
+   "fieldname": "dispenser",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Dispenser",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "User",
+   "fieldname": "responsible",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Dispensed To",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "responsible.full_name",
+   "fieldname": "dispensee",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Dispensee",
+   "read_only": 1
+  },
+  {
+   "fieldname": "data_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "repair_status",
+   "fieldtype": "Select",
+   "label": "Repair Status",
+   "options": "Issued by admin\nIssued to repair vendor\nRepair completed\nReturned to admin"
+  },
+  {
+   "fieldname": "request_details_section",
+   "fieldtype": "Section Break",
+   "label": "Repair Details"
+  },
+  {
+   "fieldname": "repair_details",
+   "fieldtype": "Table",
+   "label": "Repair Details",
+   "options": "Asset repair table"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Asset Repairs Form",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 08:47:41.194318",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Asset Repairs Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "IT team",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

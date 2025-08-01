@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{subscription} - {service_provider}",
+ "creation": "2024-07-03 20:59:49.864023",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "subscription",
+  "description",
+  "service_provider",
+  "column_break_4",
+  "enable",
+  "last_subscription_date",
+  "next_subscription_date",
+  "auto_renewal",
+  "currency",
+  "price",
+  "payment_link"
+ ],
+ "fields": [
+  {
+   "fieldname": "subscription",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subscription",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "service_provider",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Service Provider",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable",
+   "fieldtype": "Check",
+   "label": "Enable"
+  },
+  {
+   "fieldname": "last_subscription_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Last Subscription Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "next_subscription_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Next Subscription Date",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_renewal",
+   "fieldtype": "Check",
+   "label": "Auto renewal"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Float",
+   "label": "Price",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_link",
+   "fieldtype": "Data",
+   "label": "Payment Link",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 13:16:58.290520",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Subscription Management",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

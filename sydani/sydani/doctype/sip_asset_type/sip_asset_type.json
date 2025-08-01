@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{asset_name}",
+ "creation": "2023-04-04 06:19:40.619874",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "asset_name",
+  "maximum_loan_duration",
+  "minimum_asset_value"
+ ],
+ "fields": [
+  {
+   "fieldname": "asset_name",
+   "fieldtype": "Data",
+   "label": "Asset Name"
+  },
+  {
+   "fieldname": "maximum_loan_duration",
+   "fieldtype": "Int",
+   "label": "Maximum Loan Duration (in months)"
+  },
+  {
+   "fieldname": "minimum_asset_value",
+   "fieldtype": "Currency",
+   "label": "Minimum Asset Value"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 14:18:52.881492",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "SIP Asset Type",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

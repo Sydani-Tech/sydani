@@ -1342,7 +1342,7 @@ def mark_priority_employees_present():
     Marks employees with priority status as present.
     """
     today = now_datetime().date()
-    start_date = datetime.now() - timedelta(days=40)
+    start_date = datetime.now() - timedelta(days=7)
 
     try:
         # Fetch all employees with priority status

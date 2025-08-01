@@ -1,0 +1,110 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-15 13:10:54.642097",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "competency",
+  "broad_competency",
+  "specific_competency",
+  "numeric_rating",
+  "rating",
+  "weight_factor",
+  "weighted_score",
+  "max_score",
+  "max_weighted_score",
+  "column_break_8",
+  "description",
+  "comments"
+ ],
+ "fields": [
+  {
+   "fieldname": "competency",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Competency",
+   "options": "Vendor Competencies"
+  },
+  {
+   "columns": 2,
+   "fieldname": "broad_competency",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Broad Competency",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "specific_competency",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Specific Competency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "numeric_rating",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Numeric Rating",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Data",
+   "label": "Rating"
+  },
+  {
+   "fieldname": "weight_factor",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Weight Factor",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "weighted_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weighted Score",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "max_score",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Max Score"
+  },
+  {
+   "fieldname": "max_weighted_score",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Max Weighted Score"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Small Text",
+   "label": "Comments"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:28:44.414422",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Vendor Competency Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-05 12:13:04.615176",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "gl_entry",
+  "debit",
+  "credit",
+  "column_break_4",
+  "voucher_type",
+  "voucher_no",
+  "currency"
+ ],
+ "fields": [
+  {
+   "fieldname": "gl_entry",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "GL Entry",
+   "options": "GL Entry",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gl_entry.debit_in_account_currency",
+   "fieldname": "debit",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Debit",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gl_entry.credit_in_account_currency",
+   "fieldname": "credit",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Credit",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "gl_entry.voucher_type",
+   "fieldname": "voucher_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Voucher Type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gl_entry.voucher_no",
+   "fieldname": "voucher_no",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Voucher No",
+   "options": "voucher_type",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gl_entry.account_currency",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 12:10:15.845889",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Ledger Entries",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

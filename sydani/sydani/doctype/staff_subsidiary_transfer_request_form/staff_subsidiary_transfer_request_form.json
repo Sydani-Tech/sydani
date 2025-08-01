@@ -1,0 +1,206 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: {name2} - {proposed_subsidiary}",
+ "creation": "2024-02-13 17:10:14.932615",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "requester_information_section",
+  "employee",
+  "approving_manager",
+  "request_details_section",
+  "name2",
+  "current_subsidiary",
+  "proposed_subsidiary",
+  "staff_cadre",
+  "proposed_start_date",
+  "proposed_end_date",
+  "column_break_12",
+  "date_of_request",
+  "proposed_project",
+  "reason_for_request",
+  "request_status",
+  "manager2",
+  "comments_section",
+  "comments",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "requester_information_section",
+   "fieldtype": "Section Break",
+   "label": "Requester Information"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "approving_manager",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Approving Manager",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "request_details_section",
+   "fieldtype": "Section Break",
+   "label": "Request Details"
+  },
+  {
+   "fieldname": "name2",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Name of Staff Requested",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "name2.company",
+   "fieldname": "current_subsidiary",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Subsidiary Requesting Staff From",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "proposed_subsidiary",
+   "fieldtype": "Link",
+   "label": "Subsidiary Where Staff is to Work",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "name2.designation",
+   "fieldname": "staff_cadre",
+   "fieldtype": "Link",
+   "label": "Staff Cadre",
+   "options": "Designation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "proposed_start_date",
+   "fieldtype": "Date",
+   "label": "Proposed start date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "proposed_end_date",
+   "fieldtype": "Date",
+   "label": "Proposed end date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_request",
+   "fieldtype": "Date",
+   "label": "Date of request",
+   "reqd": 1
+  },
+  {
+   "fieldname": "proposed_project",
+   "fieldtype": "Link",
+   "label": "Project staff will be assigned to",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reason_for_request",
+   "fieldtype": "Small Text",
+   "label": "Reason for transfer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "request_status",
+   "fieldtype": "Read Only",
+   "label": "Request Status"
+  },
+  {
+   "fieldname": "manager2",
+   "fieldtype": "Link",
+   "label": "Approving Manager",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "comments_section",
+   "fieldtype": "Section Break",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Small Text",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Staff Subsidiary Transfer Request Form",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 10:22:21.485633",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Staff Subsidiary Transfer Request Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

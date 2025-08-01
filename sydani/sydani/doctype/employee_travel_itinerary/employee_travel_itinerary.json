@@ -1,0 +1,433 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-02-20 14:51:16.178636",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employees_email",
+  "column_break_3",
+  "activity",
+  "travel_information_section",
+  "departure_date1",
+  "return_date1",
+  "hotel1",
+  "flight1",
+  "car_hire1",
+  "vendor_1",
+  "column_break_17",
+  "travelling_from1",
+  "travelling_to1",
+  "deliverable",
+  "comment1",
+  "second_trip_section",
+  "departure_date2",
+  "return_date2",
+  "hotel2",
+  "flight2",
+  "car_hire2",
+  "vendor_2",
+  "column_break_20",
+  "travelling_from2",
+  "travelling_to2",
+  "comment2",
+  "third_trip_section",
+  "departure_date3",
+  "return_date3",
+  "hotel3",
+  "flight3",
+  "car_hire3",
+  "vendor_3",
+  "column_break_30",
+  "travelling_from3",
+  "travelling_to3",
+  "comment3",
+  "fourth_trip_section",
+  "departure_date4",
+  "return_date4",
+  "hotel4",
+  "flight4",
+  "car_hire4",
+  "vendor_4",
+  "column_break_40",
+  "travelling_from4",
+  "travelling_to4",
+  "comment4",
+  "fifth_trip_section",
+  "departure_date5",
+  "return_date5",
+  "hotel5",
+  "flight5",
+  "car_hire5",
+  "vendor_5",
+  "column_break_50",
+  "travelling_from5",
+  "travelling_to5",
+  "comment5"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.user_id",
+   "fieldname": "employees_email",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Employee's Email",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "activity",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Activity"
+  },
+  {
+   "fieldname": "travel_information_section",
+   "fieldtype": "Section Break",
+   "label": "First Trip"
+  },
+  {
+   "columns": 2,
+   "fieldname": "departure_date1",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Departure Date",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "return_date1",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Return Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "hotel1",
+   "fieldtype": "Check",
+   "label": "Hotel"
+  },
+  {
+   "default": "0",
+   "fieldname": "flight1",
+   "fieldtype": "Check",
+   "label": "Flight"
+  },
+  {
+   "default": "0",
+   "fieldname": "car_hire1",
+   "fieldtype": "Check",
+   "label": "Car Hire"
+  },
+  {
+   "fieldname": "vendor_1",
+   "fieldtype": "Select",
+   "label": "Vendor 1",
+   "options": "\nFlight\nNorth Central\nNorth East\nNorth West\nSouth South\nSouth East\nSouth West",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "travelling_from1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "From",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "travelling_to1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "To",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "deliverable",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Deliverable",
+   "options": "Deliverable"
+  },
+  {
+   "description": "Include any special requests/requirements here",
+   "fieldname": "comment1",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  },
+  {
+   "fieldname": "second_trip_section",
+   "fieldtype": "Section Break",
+   "label": "Second Trip"
+  },
+  {
+   "fieldname": "departure_date2",
+   "fieldtype": "Date",
+   "label": "Departure Date"
+  },
+  {
+   "fieldname": "return_date2",
+   "fieldtype": "Date",
+   "label": "Return Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "hotel2",
+   "fieldtype": "Check",
+   "label": "Hotel"
+  },
+  {
+   "default": "0",
+   "fieldname": "flight2",
+   "fieldtype": "Check",
+   "label": "Flight"
+  },
+  {
+   "default": "0",
+   "fieldname": "car_hire2",
+   "fieldtype": "Check",
+   "label": "Car Hire"
+  },
+  {
+   "fieldname": "vendor_2",
+   "fieldtype": "Select",
+   "label": "Vendor 2",
+   "options": "\nFlight\nNorth Central\nNorth East\nNorth West\nSouth South\nSouth East\nSouth West",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "travelling_from2",
+   "fieldtype": "Data",
+   "label": "Travelling From"
+  },
+  {
+   "fieldname": "travelling_to2",
+   "fieldtype": "Data",
+   "label": "Travelling To"
+  },
+  {
+   "description": "Include any special requests/requirements here",
+   "fieldname": "comment2",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "third_trip_section",
+   "fieldtype": "Section Break",
+   "label": "Third Trip"
+  },
+  {
+   "fieldname": "departure_date3",
+   "fieldtype": "Date",
+   "label": "Departure Date"
+  },
+  {
+   "fieldname": "return_date3",
+   "fieldtype": "Date",
+   "label": "Return Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "hotel3",
+   "fieldtype": "Check",
+   "label": "Hotel"
+  },
+  {
+   "default": "0",
+   "fieldname": "flight3",
+   "fieldtype": "Check",
+   "label": "Flight"
+  },
+  {
+   "default": "0",
+   "fieldname": "car_hire3",
+   "fieldtype": "Check",
+   "label": "Car Hire"
+  },
+  {
+   "fieldname": "vendor_3",
+   "fieldtype": "Select",
+   "label": "Vendor 3",
+   "options": "\nFlight\nNorth Central\nNorth East\nNorth West\nSouth South\nSouth East\nSouth West",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "column_break_30",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "travelling_from3",
+   "fieldtype": "Data",
+   "label": "Travelling From"
+  },
+  {
+   "fieldname": "travelling_to3",
+   "fieldtype": "Data",
+   "label": "Travelling To"
+  },
+  {
+   "description": "Include any special requests/requirements here",
+   "fieldname": "comment3",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "fourth_trip_section",
+   "fieldtype": "Section Break",
+   "label": "Fourth Trip"
+  },
+  {
+   "fieldname": "departure_date4",
+   "fieldtype": "Date",
+   "label": "Departure Date"
+  },
+  {
+   "fieldname": "return_date4",
+   "fieldtype": "Date",
+   "label": "Return Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "hotel4",
+   "fieldtype": "Check",
+   "label": "Hotel"
+  },
+  {
+   "default": "0",
+   "fieldname": "flight4",
+   "fieldtype": "Check",
+   "label": "Flight"
+  },
+  {
+   "default": "0",
+   "fieldname": "car_hire4",
+   "fieldtype": "Check",
+   "label": "Car Hire"
+  },
+  {
+   "fieldname": "vendor_4",
+   "fieldtype": "Select",
+   "label": "Vendor 4",
+   "options": "\nFlight\nNorth Central\nNorth East\nNorth West\nSouth South\nSouth East\nSouth West",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "column_break_40",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "travelling_from4",
+   "fieldtype": "Data",
+   "label": "Travelling From"
+  },
+  {
+   "fieldname": "travelling_to4",
+   "fieldtype": "Data",
+   "label": "Travelling To"
+  },
+  {
+   "description": "Include any special requests/requirements here",
+   "fieldname": "comment4",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "fifth_trip_section",
+   "fieldtype": "Section Break",
+   "label": "Fifth Trip"
+  },
+  {
+   "fieldname": "departure_date5",
+   "fieldtype": "Date",
+   "label": "Departure Date"
+  },
+  {
+   "fieldname": "return_date5",
+   "fieldtype": "Date",
+   "label": "Return Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "hotel5",
+   "fieldtype": "Check",
+   "label": "Hotel"
+  },
+  {
+   "default": "0",
+   "fieldname": "flight5",
+   "fieldtype": "Check",
+   "label": "Flight"
+  },
+  {
+   "default": "0",
+   "fieldname": "car_hire5",
+   "fieldtype": "Check",
+   "label": "Car Hire"
+  },
+  {
+   "fieldname": "vendor_5",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Vendor 5",
+   "options": "\nFlight\nNorth Central\nNorth East\nNorth West\nSouth South\nSouth East\nSouth West"
+  },
+  {
+   "fieldname": "column_break_50",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "travelling_from5",
+   "fieldtype": "Data",
+   "label": "Travelling From"
+  },
+  {
+   "fieldname": "travelling_to5",
+   "fieldtype": "Data",
+   "label": "Travelling To"
+  },
+  {
+   "description": "Include any special requests/requirements here",
+   "fieldname": "comment5",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-01 09:00:03.699773",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Employee Travel Itinerary",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

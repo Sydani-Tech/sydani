@@ -1,0 +1,217 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: {date} by {employee}",
+ "creation": "2024-07-19 12:35:57.210062",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "column_break_2",
+  "date",
+  "checklist",
+  "ups",
+  "ups_details",
+  "cameras",
+  "cameras_details",
+  "ip_phones",
+  "ip_phones_details",
+  "sip_server",
+  "sip_server_details",
+  "column_break_9",
+  "isp_availability",
+  "isp_details",
+  "run_a_speedtest",
+  "access_point",
+  "access_point_details",
+  "access_control",
+  "access_control_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_standard_filter": 1,
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "checklist",
+   "fieldtype": "Section Break",
+   "label": "CHECKLIST"
+  },
+  {
+   "fieldname": "ups",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Turn on UPS",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.ups == 'No'",
+   "fieldname": "ups_details",
+   "fieldtype": "Data",
+   "label": "Details of Failure",
+   "mandatory_depends_on": "eval: doc.ups == 'No'"
+  },
+  {
+   "fieldname": "cameras",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Confirm all that cameras are up and recording",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.cameras == 'No'",
+   "fieldname": "cameras_details",
+   "fieldtype": "Data",
+   "label": "Details of Failure",
+   "mandatory_depends_on": "eval: doc.cameras == 'No'"
+  },
+  {
+   "fieldname": "ip_phones",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Confirm that all IP phones are up",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.ip_phones == 'No'",
+   "fieldname": "ip_phones_details",
+   "fieldtype": "Data",
+   "label": "Details of Failure",
+   "mandatory_depends_on": "eval: doc.ip_phones == 'No'"
+  },
+  {
+   "fieldname": "sip_server",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Verify the SIP server is running without issues",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.sip_server == 'No'",
+   "fieldname": "sip_server_details",
+   "fieldtype": "Data",
+   "label": "Details of Failure",
+   "mandatory_depends_on": "eval: doc.sip_server == 'No'"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "isp_availability",
+   "fieldtype": "Select",
+   "label": "Confirm ISP availability",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.isp_availability == 'No'",
+   "fieldname": "isp_details",
+   "fieldtype": "Data",
+   "label": "Details of Failure",
+   "mandatory_depends_on": "eval: doc.isp_availability == 'No'"
+  },
+  {
+   "fieldname": "run_a_speedtest",
+   "fieldtype": "Data",
+   "label": "Run a speedtest",
+   "reqd": 1
+  },
+  {
+   "fieldname": "access_point",
+   "fieldtype": "Select",
+   "label": "Confirm all access points are functional",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.access_point == 'No'",
+   "fieldname": "access_point_details",
+   "fieldtype": "Data",
+   "label": "Details of Failure",
+   "mandatory_depends_on": "eval: doc.access_point == 'No'"
+  },
+  {
+   "fieldname": "access_control",
+   "fieldtype": "Select",
+   "label": "Ensure that access control devices at the entrance have an active connection to the server",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.access_control == 'No'",
+   "fieldname": "access_control_details",
+   "fieldtype": "Data",
+   "label": "Details of Failure",
+   "mandatory_depends_on": "eval: doc.access_control == 'No'"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Daily Control Room Checklist",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 11:00:43.458531",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Daily Control Room Checklist",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "IT team",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

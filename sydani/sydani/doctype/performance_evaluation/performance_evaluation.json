@@ -1,0 +1,680 @@
+{
+ "actions": [],
+ "autoname": "format:{employee}-{performance_evaluation_period}",
+ "creation": "2022-09-07 02:03:12.910323",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "evaluation_details_section",
+  "performance_evaluation_period",
+  "employee",
+  "employee_email",
+  "present_cadre",
+  "employees_level",
+  "employees_role",
+  "column_break_5",
+  "managing_partner",
+  "principal",
+  "supervisor",
+  "supervisor2",
+  "team_member",
+  "subordinate",
+  "self_evaluation",
+  "self_evaluation_section_section",
+  "competency_based_objectives_self",
+  "average_competency_based_score_self",
+  "behaviour_based_objectives_self",
+  "average_behaviour_based_score_self",
+  "final_evaluation_score_self",
+  "career_acheivements_since_last_review",
+  "subordinate_section",
+  "competency_based_objectives_subordinate",
+  "average_competency_based_score_subordinate",
+  "behaviour_based_objectives_subordinate",
+  "average_behaviour_based_score_subordinate",
+  "final_evaluation_score_subordinate",
+  "subordinates_comment",
+  "team_members_section_section",
+  "competency_based_objectives_team",
+  "average_competency_based_score_team",
+  "behaviour_based_objectives_team",
+  "average_behaviour_based_score_team",
+  "final_evaluation_score_team",
+  "team_members_comment",
+  "supervisors_section_section",
+  "competency_based_objectives_supervisor",
+  "average_competency_based_score_supervisor",
+  "behaviour_based_objectives_supervisor",
+  "average_behaviour_based_score_supervisor",
+  "final_evaluation_score_supervisor",
+  "supervisors_comment",
+  "supervisors_verdict",
+  "2nd_supervisors_section_section",
+  "competency_based_objectives_supervisor2",
+  "average_competency_based_score_supervisor2",
+  "behaviour_based_objectives_supervisor2",
+  "average_behaviour_based_score_supervisor2",
+  "final_evaluation_score_supervisor2",
+  "supervisors2_comment",
+  "supervisors2_verdict",
+  "principals_section_section",
+  "competency_based_objectives_principal",
+  "average_competency_based_score_principal",
+  "behaviour_based_objectives_principal",
+  "average_behaviour_based_score_principal",
+  "final_evaluation_score_principal",
+  "aggregated_evaluation_score",
+  "principals_comment",
+  "principals_recommendation",
+  "promote_to",
+  "managing_partners_section_section",
+  "competency_based_objectives_mp",
+  "average_competency_based_score_mp",
+  "behaviour_based_objectives_mp",
+  "average_behaviour_based_score_mp",
+  "final_evaluation_score_mp",
+  "managing_partners_comment",
+  "managing_partners_recommendation",
+  "promote_to_mp",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "evaluation_details_section",
+   "fieldtype": "Section Break",
+   "label": "Evaluation Details"
+  },
+  {
+   "fieldname": "performance_evaluation_period",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Performance Evaluation Period",
+   "options": "Performance Evaluation Period",
+   "permlevel": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "permlevel": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.user_id",
+   "fieldname": "employee_email",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Employee Email",
+   "options": "User"
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "present_cadre",
+   "fieldtype": "Link",
+   "label": "Present Cadre",
+   "options": "Designation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employees_level",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_standard_filter": 1,
+   "label": "Employee's Level",
+   "options": "\nFellow\nAnalyst\nAssociate\nManager\nPrincipal\nManaging Partner",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "employees_role",
+   "fieldtype": "Link",
+   "label": "Employee's Role",
+   "options": "Employee Role",
+   "permlevel": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "managing_partner",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Managing Partner",
+   "options": "Employee",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "principal",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Principal",
+   "options": "Employee",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "supervisor",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Supervisor",
+   "options": "Employee",
+   "permlevel": 1
+  },
+  {
+   "depends_on": "supervisor",
+   "fieldname": "supervisor2",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Supervisor 2",
+   "options": "Employee",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "team_member",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Team Member",
+   "options": "Employee",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "subordinate",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Subordinate",
+   "options": "Employee",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "self_evaluation",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Self Evaluation",
+   "options": "Employee"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.final_evaluation_score_self>0",
+   "fieldname": "self_evaluation_section_section",
+   "fieldtype": "Section Break",
+   "label": "Self Evaluation"
+  },
+  {
+   "fieldname": "competency_based_objectives_self",
+   "fieldtype": "Table",
+   "label": "Competency Based Objectives",
+   "options": "Competency Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_competency_based_score_self",
+   "fieldtype": "Percent",
+   "label": "Average Competency Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "behaviour_based_objectives_self",
+   "fieldtype": "Table",
+   "label": "Behaviour Based Objectives",
+   "options": "Behaviour Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_behaviour_based_score_self",
+   "fieldtype": "Percent",
+   "label": "Average Behaviour Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_evaluation_score_self",
+   "fieldtype": "Percent",
+   "label": "Final Evaluation Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "career_acheivements_since_last_review",
+   "fieldtype": "Small Text",
+   "label": "Career achievements since last review",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.final_evaluation_score_subordinate>0",
+   "fieldname": "subordinate_section",
+   "fieldtype": "Section Break",
+   "label": "Subordinate's Section"
+  },
+  {
+   "fieldname": "competency_based_objectives_subordinate",
+   "fieldtype": "Table",
+   "label": "Competency Based Objectives",
+   "options": "Competency Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_competency_based_score_subordinate",
+   "fieldtype": "Percent",
+   "label": "Average Competency Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "behaviour_based_objectives_subordinate",
+   "fieldtype": "Table",
+   "label": "Behaviour Based Objectives",
+   "options": "Behaviour Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_behaviour_based_score_subordinate",
+   "fieldtype": "Percent",
+   "label": "Average Behaviour Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_evaluation_score_subordinate",
+   "fieldtype": "Percent",
+   "label": "Final Evaluation ScoreSubordinate",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "subordinates_comment",
+   "fieldtype": "Small Text",
+   "label": "Subordinate's Comment",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.final_evaluation_score_team>0",
+   "fieldname": "team_members_section_section",
+   "fieldtype": "Section Break",
+   "label": "Team Member's Section"
+  },
+  {
+   "fieldname": "competency_based_objectives_team",
+   "fieldtype": "Table",
+   "label": "Competency Based Objective",
+   "options": "Competency Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_competency_based_score_team",
+   "fieldtype": "Percent",
+   "label": "Average Competency Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "behaviour_based_objectives_team",
+   "fieldtype": "Table",
+   "label": "Behaviour Based Objectives",
+   "options": "Behaviour Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_behaviour_based_score_team",
+   "fieldtype": "Percent",
+   "label": "Average Behaviour Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_evaluation_score_team",
+   "fieldtype": "Percent",
+   "label": "Final Evaluation Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "team_members_comment",
+   "fieldtype": "Small Text",
+   "label": "Team Member's Comment",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.final_evaluation_score_supervisor>0",
+   "fieldname": "supervisors_section_section",
+   "fieldtype": "Section Break",
+   "label": "Supervisor's Section"
+  },
+  {
+   "fieldname": "competency_based_objectives_supervisor",
+   "fieldtype": "Table",
+   "label": "Competency Based Objectives",
+   "options": "Competency Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_competency_based_score_supervisor",
+   "fieldtype": "Percent",
+   "label": "Average Competency Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "behaviour_based_objectives_supervisor",
+   "fieldtype": "Table",
+   "label": "Behaviour Based Objectives",
+   "options": "Behaviour Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_behaviour_based_score_supervisor",
+   "fieldtype": "Percent",
+   "label": "Average Behaviour Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_evaluation_score_supervisor",
+   "fieldtype": "Percent",
+   "label": "Final Evaluation Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supervisors_comment",
+   "fieldtype": "Small Text",
+   "label": "Supervisor's Comment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supervisors_verdict",
+   "fieldtype": "Data",
+   "label": "Supervisor's Verdict",
+   "permlevel": 4,
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.final_evaluation_score_supervisor2>0",
+   "fieldname": "2nd_supervisors_section_section",
+   "fieldtype": "Section Break",
+   "label": "2nd Supervisor's Section"
+  },
+  {
+   "fieldname": "competency_based_objectives_supervisor2",
+   "fieldtype": "Table",
+   "label": "Competency Based Objectives",
+   "options": "Competency Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_competency_based_score_supervisor2",
+   "fieldtype": "Percent",
+   "label": "Average Competency Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "behaviour_based_objectives_supervisor2",
+   "fieldtype": "Table",
+   "label": "Behaviour Based Objectives",
+   "options": "Behaviour Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_behaviour_based_score_supervisor2",
+   "fieldtype": "Percent",
+   "label": "Average Behaviour Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_evaluation_score_supervisor2",
+   "fieldtype": "Percent",
+   "label": "Final Evaluation Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supervisors2_comment",
+   "fieldtype": "Small Text",
+   "label": "Supervisor's Comment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supervisors2_verdict",
+   "fieldtype": "Data",
+   "label": "Supervisor's Verdict",
+   "permlevel": 4,
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.final_evaluation_score_principal>0",
+   "fieldname": "principals_section_section",
+   "fieldtype": "Section Break",
+   "label": "Principal's Section"
+  },
+  {
+   "fieldname": "competency_based_objectives_principal",
+   "fieldtype": "Table",
+   "label": "Competency Based Objectives",
+   "options": "Competency Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_competency_based_score_principal",
+   "fieldtype": "Percent",
+   "label": "Average Competency Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "behaviour_based_objectives_principal",
+   "fieldtype": "Table",
+   "label": "Behaviour Based Objectives",
+   "options": "Behaviour Based Objectives",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_behaviour_based_score_principal",
+   "fieldtype": "Percent",
+   "label": "Average Behaviour Based Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_evaluation_score_principal",
+   "fieldtype": "Percent",
+   "label": "Final Evaluation Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "description": "This score is a 65:35 aggregate of the Principal's and Supervisor's final evaluation scores",
+   "fieldname": "aggregated_evaluation_score",
+   "fieldtype": "Percent",
+   "label": "Aggregated Evaluation Score",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "principals_comment",
+   "fieldtype": "Small Text",
+   "label": "Principal's Comment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "principals_recommendation",
+   "fieldtype": "Data",
+   "label": "Principal's Recommendation",
+   "permlevel": 4,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.principals_recommendation===\"Promote\"",
+   "fieldname": "promote_to",
+   "fieldtype": "Data",
+   "label": "Promote To",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.managing_partners_comment!=null",
+   "fieldname": "managing_partners_section_section",
+   "fieldtype": "Section Break",
+   "label": "Managing Partner's Section"
+  },
+  {
+   "depends_on": "eval:doc.final_evaluation_score_mp>0",
+   "fieldname": "competency_based_objectives_mp",
+   "fieldtype": "Table",
+   "label": "Competency Based Objectives",
+   "options": "Competency Based Objectives",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.final_evaluation_score_mp>0",
+   "fieldname": "average_competency_based_score_mp",
+   "fieldtype": "Percent",
+   "label": "Average Competency Based Score",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.final_evaluation_score_mp>0",
+   "fieldname": "behaviour_based_objectives_mp",
+   "fieldtype": "Table",
+   "label": "Behaviour Based Objectives",
+   "options": "Behaviour Based Objectives",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.final_evaluation_score_mp>0",
+   "fieldname": "average_behaviour_based_score_mp",
+   "fieldtype": "Percent",
+   "label": "Average Behaviour Based Score",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.final_evaluation_score_mp>0",
+   "fieldname": "final_evaluation_score_mp",
+   "fieldtype": "Percent",
+   "label": "Final Evaluation Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "managing_partners_comment",
+   "fieldtype": "Small Text",
+   "label": "Managing Partner's Comment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "managing_partners_recommendation",
+   "fieldtype": "Data",
+   "label": "Managing Partner's Recommendation",
+   "permlevel": 4,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.managing_partners_recommendation===\"Promote\"",
+   "fieldname": "promote_to_mp",
+   "fieldtype": "Data",
+   "label": "Promote To",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Performance Evaluation",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-01 12:08:25.309297",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Performance Evaluation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 3,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

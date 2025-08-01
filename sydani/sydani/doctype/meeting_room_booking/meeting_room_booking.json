@@ -1,0 +1,140 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Meeting:{meeting_purpose} - Starttime:{start_time}",
+ "creation": "2023-04-12 13:13:14.902562",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "meeting_information_section",
+  "meeting_type",
+  "meeting_room",
+  "start_time",
+  "scheduled_by",
+  "column_break_4",
+  "meeting_purpose",
+  "number_of_participants",
+  "end_time",
+  "color",
+  "meeting_participants_section_section",
+  "meeting_participants"
+ ],
+ "fields": [
+  {
+   "fieldname": "meeting_information_section",
+   "fieldtype": "Section Break",
+   "label": "Meeting Information"
+  },
+  {
+   "fieldname": "meeting_type",
+   "fieldtype": "Select",
+   "label": "Meeting Type",
+   "options": "\nInternal\nExternal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "meeting_room",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Meeting Room",
+   "options": "Meeting Room",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Start Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "scheduled_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": " Scheduled By",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "meeting_purpose",
+   "fieldtype": "Data",
+   "label": "Meeting Purpose",
+   "reqd": 1
+  },
+  {
+   "fieldname": "number_of_participants",
+   "fieldtype": "Int",
+   "label": "Number of Participants",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Datetime",
+   "label": "End Time",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "meeting_room.color_2",
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "hidden": 1,
+   "label": "Color"
+  },
+  {
+   "fieldname": "meeting_participants_section_section",
+   "fieldtype": "Section Break",
+   "label": "Meeting Participants"
+  },
+  {
+   "fieldname": "meeting_participants",
+   "fieldtype": "Table",
+   "ignore_user_permissions": 1,
+   "label": "Meeting Participants",
+   "options": "Meeting Participants",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 13:14:52.715541",
+ "modified_by": "Administrator",
+ "module": "Sydani",
+ "name": "Meeting Room Booking",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "meeting_purpose"
+}
