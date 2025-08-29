@@ -60,6 +60,7 @@
   {
    "fieldname": "type_of_competency",
    "fieldtype": "Select",
+   "in_standard_filter": 1,
    "label": "Type of Competency",
    "options": "Technical Competency\nBehavioural Competency",
    "reqd": 1
@@ -76,7 +77,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-01 14:18:53.649350",
+ "modified": "2025-08-12 09:54:38.640179",
  "modified_by": "Administrator",
  "module": "Sydani",
  "name": "Employee Competency",

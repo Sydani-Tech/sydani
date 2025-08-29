@@ -1342,7 +1342,7 @@ def mark_priority_employees_present():
     Marks employees with priority status as present.
     """
     today = now_datetime().date()
-    start_date = datetime.now() - timedelta(days=7)
+    start_date = datetime.now() - timedelta(days=35)
 
     try:
         # Fetch all employees with priority status
@@ -1393,3 +1393,187 @@ def mark_priority_employees_present():
 
     except Exception as e:
         print(f"Error: {str(e)}")
+
+
+import frappe
+from frappe.utils import add_days
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+def create_additional_salary_from_capacity_fund_request():
+    # Get Capacity Building Fund Request records needing additional salary
+    records = frappe.get_all(
+        "Capacity Building Fund Request",
+        filters={
+            "do_you_want_to_create_a_loan_request": "Yes",
+            "workflow_state": "Approved",
+            "additional_salary": ["is", "not set"]
+        },
+        fields=["name", "employee", "company", "months_to_repay_loan","monthly_loan_repayment"]
+    )
+
+    if not records:
+        frappe.logger().info("No matching records found.")
+        return
+
+    today = date.today()
+
+    for record in records:
+        # Get currency from the latest Salary Structure Assignment
+        currency = frappe.db.get_value(
+            "Salary Structure Assignment",
+            {"employee": record.employee},
+            "currency",
+            order_by="from_date desc"
+        )
+
+        # Calculate date references cleanly
+        if today.day < 19:
+            base_date = date(today.year, today.month, 19)
+        else:
+            base_date = (date(today.year, today.month, 19) + relativedelta(months=1))
+
+        if record.months_to_repay_loan > 1:
+            from_date = base_date
+            to_date = add_days(from_date, (record.months_to_repay_loan - 1) * 30)
+            payroll_date = None
+        else:
+            payroll_date = base_date
+            from_date = None
+            to_date = None
+
+        # Create Additional Salary
+        additional_salary_doc = frappe.get_doc({
+            "doctype": "Additional Salary",
+            "employee": record.employee,
+            "company": record.company,
+            "salary_component": "Capacity Building Deduction",
+            "currency": currency,
+            "overwrite_salary_structure_amount": 1,
+            "is_recurring": 1 if record.months_to_repay_loan > 1 else 0,
+            "from_date": from_date,
+            "to_date": to_date,
+            "payroll_date": payroll_date,
+            "amount": record.monthly_loan_repayment,
+        })
+        additional_salary_doc.insert(ignore_permissions=True)
+        additional_salary_doc.submit()
+
+        # Store created Additional Salary name in the Capacity Building Request Fund record
+        frappe.db.set_value(
+            "Capacity Building Fund Request",
+            record.name,
+            "additional_salary",
+            additional_salary_doc.name
+        )
+
+        # frappe.logger().info(
+        #     f"Created Additional Salary {additional_salary_doc.name} for Capacity Building Request Fund {record.name}"
+        # )
+        
+from frappe.utils import add_days, nowdate, getdate
+
+@frappe.whitelist()
+def convert_absent_fridays_to_wfh(past_days: int = 31, submit_new: int = 1):
+    """
+    Find Attendance on Fridays marked Absent over the past `past_days` (default 31),
+    cancel & delete them, then recreate as 'Work From Home' keeping all other fields.
+    
+    Args:
+        past_days (int): Lookback window in days (default 31).
+        submit_new (int): If 1, submit the recreated Attendance; if 0, just save as Draft.
+
+    Returns:
+        dict summary with counts and details of processed records.
+    """
+    start_date = add_days(nowdate(), -int(past_days))
+    end_date = nowdate()
+
+    # In MySQL/MariaDB, DAYOFWEEK(): Sunday=1 ... Friday=6
+    rows = frappe.db.sql(
+        """
+        SELECT name
+        FROM `tabAttendance`
+        WHERE status = 'Absent'
+          AND attendance_date BETWEEN %s AND %s
+          AND DAYOFWEEK(attendance_date) = 6
+        """,
+        (start_date, end_date),
+        as_dict=True,
+    )
+
+    processed = 0
+    recreated = 0
+    canceled = 0
+    skipped_existing = 0
+    errors = []
+
+    for r in rows:
+        try:
+            att = frappe.get_doc("Attendance", r["name"])
+
+            # Keep a copy of fields before we cancel/delete
+            old = att.as_dict().copy()
+
+            # Cancel if submitted
+            if att.docstatus == 1:
+                att.cancel()
+                canceled += 1
+
+            # Delete the old record
+            frappe.delete_doc("Attendance", att.name, force=1, delete_permanently=True)
+
+            # If another Attendance already exists for this employee/date, skip recreation
+            if frappe.db.exists(
+                "Attendance", 
+                {"employee": old.get("employee"), "attendance_date": old.get("attendance_date")}
+            ):
+                skipped_existing += 1
+                processed += 1
+                continue
+
+            # Prepare new Attendance with same fields, except metadata/status
+            # Remove system/metadata fields that must not be copied
+            for k in [
+                "name", "owner", "creation", "modified", "modified_by", "docstatus",
+                "idx", "amended_from", "parent", "parenttype", "parentfield",
+                "doctype", "naming_series"
+            ]:
+                old.pop(k, None)
+
+            # Set new status
+            old["status"] = "Work From Home"
+            old["employee"] = old.get("employee") or att.employee
+            old["company"] = old.get("company") or att.company
+            old["attendance_date"] = old.get("attendance_date") or att.attendance_date
+
+            # old["attendance_date"] = getdate(old["attendance_date"])  # Ensure date is in correct format
+
+            new_att = frappe.new_doc("Attendance")
+            new_att.update(old)
+            # new_att.flags.ignore_mandatory = True  # keep it robust if some fields are optional in your setup
+            new_att.insert(ignore_permissions=True)
+
+            if int(submit_new):
+                new_att.submit()
+
+            recreated += 1
+            processed += 1
+
+        except Exception as e:
+            # If anything fails for this record, log and continue
+            errors.append({"name": r["name"], "error": frappe.get_traceback()})
+
+    frappe.db.commit()
+
+    return {
+        "status": 200,
+        "message": "Completed",
+        "window": {"from": str(getdate(start_date)), "to": str(getdate(end_date))},
+        "found": len(rows),
+        "processed": processed,
+        "canceled": canceled,
+        "recreated_as_wfh": recreated,
+        "skipped_due_to_existing_attendance": skipped_existing,
+        "errors": errors,
+    }

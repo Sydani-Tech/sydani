@@ -70,14 +70,15 @@
   },
   {
    "fieldname": "booking_approver",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Booking Approver",
-   "options": "\nAndikan Ime Ibanga\nZachariah Okpanachi Itodo",
+   "options": "User",
    "reqd": 1
   },
   {
    "fieldname": "approvers_email",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Approver's Email",
    "options": "Email",
    "read_only": 1
@@ -174,7 +175,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-01 10:22:20.236317",
+ "modified": "2025-08-26 13:38:52.155233",
  "modified_by": "Administrator",
  "module": "Sydani",
  "name": "Vehicle Booking System",

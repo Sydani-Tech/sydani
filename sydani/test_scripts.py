@@ -532,8 +532,8 @@ def get_active_employees_without_allocation(month, year, company):
 
 
 def process_attendance_records():
-    start_date = "2025-06-20"
-    end_date = "2025-07-17"
+    start_date = "2025-07-20"
+    end_date = "2025-08-17"
     # Fetch records from Attendance doctype between the given dates where status is Absent
     attendance_records = frappe.get_all(
         "Attendance",
@@ -1535,55 +1535,6 @@ def find_employees_without_salary_structure():
     else:
         print("All active employees have a salary structure assignment.")
 
-
-import frappe
-from frappe.utils import today, getdate
-
-
-def fetch_and_save_sydani_group_attendance_records():
-    # Set the date range
-    start_date = "2024-10-24"
-    # end_date = today()
-    end_date = "2024-12-12"
-
-    # Step 1: Fetch all active employees from Sydani Group
-    active_employees = frappe.get_all(
-        "Employee",
-        filters={"status": "Active", "company": "Sydani Group"},
-        fields=["name", "employee_name"],
-    )
-
-    # Step 2: For each employee, fetch their Attendance records between start and end date
-    for employee in active_employees:
-        attendance_records = frappe.get_all(
-            "Attendance",
-            filters={
-                "employee": employee["name"],
-                "attendance_date": ["between", [start_date, end_date]],
-                "docstatus": 1,
-            },
-            fields=["name", "attendance_date", "status"],
-        )
-
-        # # Step 3: Save the fetched attendance records (custom logic or further processing)
-
-        for record in attendance_records:
-            # Fetch the attendance document
-            attendance_doc = frappe.get_doc("Attendance", record["name"])
-
-            # Update the company to "Sydani Group" if not already set
-            # if attendance_doc.company != "Sydani Group":
-            attendance_doc.company = "Sydani Group"
-            attendance_doc.random_check = 1
-
-            # Save the updated document
-            attendance_doc.save()
-            frappe.db.commit()  # Commit the changes to the database
-
-            # You can add further custom logic or logging here if needed
-            print(
-                f"Updated attendance for {employee['employee_name']} on {record['attendance_date']}"
-            )
 
 
 import frappe
@@ -3445,3 +3396,82 @@ def execute():
         WHERE `score` = '4.40'
     """)
     frappe.db.commit()
+
+import frappe
+from frappe.utils import add_days
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+def execute():
+    # Get Capacity Building Fund Request records needing additional salary
+    records = frappe.get_all(
+        "Capacity Building Fund Request",
+        filters={
+            "do_you_want_to_create_a_loan_request": "Yes",
+            "workflow_state": "Approved",
+            "additional_salary": ["is", "not set"]
+        },
+        fields=["name", "employee", "company", "months_to_repay_loan","monthly_loan_repayment"]
+    )
+
+    if not records:
+        frappe.logger().info("No matching records found.")
+        return
+
+    today = date.today()
+
+    for record in records:
+        # Get currency from the latest Salary Structure Assignment
+        currency = frappe.db.get_value(
+            "Salary Structure Assignment",
+            {"employee": record.employee},
+            "currency",
+            order_by="from_date desc"
+        )
+
+        # Calculate date references cleanly
+        if today.day < 19:
+            base_date = date(today.year, today.month, 19)
+        else:
+            base_date = (date(today.year, today.month, 19) + relativedelta(months=1))
+
+        if record.months_to_repay_loan > 1:
+            from_date = base_date
+            to_date = add_days(from_date, (record.months_to_repay_loan - 1) * 30)
+            payroll_date = None
+        else:
+            payroll_date = base_date
+            from_date = None
+            to_date = None
+
+        # Create Additional Salary
+        additional_salary_doc = frappe.get_doc({
+            "doctype": "Additional Salary",
+            "employee": record.employee,
+            "company": record.company,
+            "salary_component": "Capacity Building Deduction",
+            "currency": currency,
+            "overwrite_salary_structure_amount": 1,
+            "is_recurring": 1 if record.months_to_repay_loan > 1 else 0,
+            "from_date": from_date,
+            "to_date": to_date,
+            "payroll_date": payroll_date,
+            "amount": record.monthly_loan_repayment,
+        })
+        additional_salary_doc.insert(ignore_permissions=True)
+        additional_salary_doc.submit()
+
+        # Store created Additional Salary name in the Capacity Building Request Fund record
+        frappe.db.set_value(
+            "Capacity Building Fund Request",
+            record.name,
+            "additional_salary",
+            additional_salary_doc.name
+        )
+
+        # frappe.logger().info(
+        #     f"Created Additional Salary {additional_salary_doc.name} for Capacity Building Request Fund {record.name}"
+        # )
+        
+
+

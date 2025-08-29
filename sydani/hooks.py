@@ -111,7 +111,10 @@ doc_events = {
     "Trip Report": {"on_update": "sydani.scripts.share_trip_report"},
     "Attendance Request": {"on_update": "sydani.scripts.share_attendance_request"},
     "Work Plan": {
-        "on_update": "sydani.custom_scripts.check_due_dates_against_holidays"
+        "on_update": [
+            "sydani.custom_scripts.check_due_dates_against_holidays",
+            "sydani.scripts.share_work_plan"
+        ]
     },
     "Email Group Member": {"on_update": "sydani.mailchimp.add_subscriber"},
     "Sales Invoice": {
@@ -147,8 +150,9 @@ scheduler_events = {
     # ]
     # },
     "all": ["sydani.tasks.all"],
+
     "cron": {
-        "30 11 * * *": ["sydani.tasks.mark_priority_employees_present"], 
+        # "30 11 * * *": ["sydani.tasks.mark_priority_employees_present"], 
         "30 11 * * *": ["sydani.tasks.add_speedexam_candidate"],
         "0 16 * * *": ["sydani.tasks.add_speedexam_candidate"],
         "30 22 * * *": ["sydani.tasks.add_speedexam_candidate"],
@@ -174,6 +178,7 @@ scheduler_events = {
         "30 8 * * *": ["sydani.custom_scripts.update_deliverable_expended_amounts"],
         "30 13 * * *": ["sydani.custom_scripts.update_deliverable_expended_amounts"],
         "30 20 * * *": ["sydani.custom_scripts.update_deliverable_expended_amounts"],
+        "30 11 * * 1": ["sydani.tasks.convert_absent_fridays_to_wfh"],
         # "0 22 * * *": [
         # 	"sydani.tasks.confirm_payment_transactions"
         # ]
@@ -182,7 +187,13 @@ scheduler_events = {
     # 	"daily": [
     # 		"sydani.tasks.daily"
     # 	],
-    "hourly": ["sydani.tasks.cams_update_users"],
+    "hourly_long": [
+        "sydani.tasks.create_additional_salary_from_capacity_fund_request",
+        "sydani.tasks.cams_update_users",
+        "sydani.tasks.mark_priority_employees_present"
+	],
+    # "hourly": ["sydani.tasks.cams_update_users"],
+    
     # "hourly": [
     # 	"sydani.tasks.get_speedexam_result"
     # ],

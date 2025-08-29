@@ -139,6 +139,22 @@ def share_trip_report(doc, method=None):
     except:
         pass
 
+def share_work_plan(doc, method=None):
+    try:
+        share_doc(doc=doc, user_email=doc.principal_user, write=1, share=1, submit=1)
+        if doc.supervisor_2_user:
+            share_doc(doc=doc, user_email=doc.supervisor_2_user, write=1, share=1)
+        share_doc(doc=doc, user_email=doc.supervisor_user, write=1, share=1)
+
+        # if shared:
+        #     frappe.msgprint(
+        #         _("Shared with the manager {0}").format(
+        #             frappe.bold(doc.manager), alert=True
+        #         )
+        #     )
+    except:
+        pass
+
 
 @frappe.whitelist()
 def get_user_roles(user):
