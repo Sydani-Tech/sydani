@@ -199,7 +199,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Responsible Party",
-   "options": "Applicant\nAdmin\nAudit and Finance\nManager\nApproved\nFinalized\nPaid\nCancelled",
+   "options": "Applicant\nAdmin\nAudit and Finance\nManager\nPartner\nApproved\nFinalized\nPaid\nCancelled",
    "read_only": 1
   },
   {
@@ -670,7 +670,7 @@
    "link_fieldname": "employee_travel_request"
   }
  ],
- "modified": "2025-08-01 09:00:04.113029",
+ "modified": "2025-09-04 13:36:31.230288",
  "modified_by": "Administrator",
  "module": "Sydani",
  "name": "Employee Travel Request",
